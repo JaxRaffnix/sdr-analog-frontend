@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "My Symbols") (type "KiCad") (uri "${MY_DEVICES}/SamacSys_Parts.kicad_sym") (options "") (descr ""))
+)

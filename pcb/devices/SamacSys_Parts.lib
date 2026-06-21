@@ -1,0 +1,342 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model NE555DR
+#/6648/2/2.37/8/4/Integrated Circuit
+DEF NE555DR IC 0 30 Y Y 1 F N
+F0 "IC" 1050 600 50 H V L CNN
+F1 "NE555DR" 1050 500 50 H V L CNN
+F2 "SOIC127P600X175-8N" 1050 400 50 H I L CNN
+F3 "http://www.ti.com/lit/ds/symlink/ne555.pdf" 1050 300 50 H I L CNN
+F4 "Single Precision Timer" 1050 200 50 H I L CNN "Description"
+F5 "1.75" 1050 100 50 H I L CNN "Height"
+F6 "Texas Instruments" 1050 0 50 H I L CNN "Manufacturer_Name"
+F7 "NE555DR" 1050 -100 50 H I L CNN "Manufacturer_Part_Number"
+F8 "595-NE555DR" 1050 -200 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.com/Search/Refine.aspx?Keyword=595-NE555DR" 1050 -300 50 H I L CNN "Mouser Price/Stock"
+F10 "1218414" 1050 -400 50 H I L CNN "RS Part Number"
+F11 "http//uk.rs-online.com/web/p/products/1218414" 1050 -500 50 H I L CNN "RS Price/Stock"
+DRAW
+X GND 1 600 -1000 200 U 50 50 0 0 B
+X TRIG 2 0 -400 200 R 50 50 0 0 B
+X OUT 3 1200 -200 200 L 50 50 0 0 B
+X ~RESET 4 0 0 200 R 50 50 0 0 B
+X CONT 5 500 600 200 D 50 50 0 0 B
+X THRES 6 0 -300 200 R 50 50 0 0 B
+X DISCH 7 0 -100 200 R 50 50 0 0 B
+X VCC 8 700 600 200 D 50 50 0 0 B
+P 5 0 1 6 200 400 1000 400 1000 -800 200 -800 200 400 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model PHA-1+
+#/11412713/2053251/2.50/4/4/Integrated Circuit
+DEF PHA-1+ IC 0 30 Y Y 1 F N
+F0 "IC" 1650 300 50 H V L CNN
+F1 "PHA-1+" 1650 200 50 H V L CNN
+F2 "PHA1" 1650 100 50 H I L CNN
+F3 "https://www.mouser.in/ProductDetail/Mini-Circuits/PHA-1%2B?qs=xZ%2FP%252Ba9zWqYz5cEhj1ZlVg%3D%3D" 1650 0 50 H I L CNN
+F4 "RF Amplifier SMT Linear Amplifier, 50 - 6000 MHz, 50" 1650 -100 50 H I L CNN "Description"
+F5 "" 1650 -200 50 H I L CNN "Height"
+F6 "139-PHA-1" 1650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/Mini-Circuits/PHA-1%2b?qs=xZ%2FP%252Ba9zWqYz5cEhj1ZlVg%3D%3D" 1650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Mini-Circuits" 1650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "PHA-1+" 1650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X RF-IN 1 0 0 200 R 50 50 0 0 P
+X GROUND_1 2 0 -100 200 R 50 50 0 0 P
+X RF-OUT_&_DC-IN 3 1800 0 200 L 50 50 0 0 P
+X GROUND_2 4 1800 -100 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 1600 100 1600 -200 200 -200 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model AP22811AW5-7
+#/819819/2053251/2.50/5/0/Integrated Circuit
+DEF AP22811AW5-7 IC 0 30 Y Y 1 F N
+F0 "IC" 1050 300 50 H V L CNN
+F1 "AP22811AW5-7" 1050 200 50 H V L CNN
+F2 "SOT95P285X140-5N" 1050 100 50 H I L CNN
+F3 "" 1050 0 50 H I L CNN
+F4 "Power Switch ICs - Power Distribution Load Switch" 1050 -100 50 H I L CNN "Description"
+F5 "1.4" 1050 -200 50 H I L CNN "Height"
+F6 "621-AP22811AW5-7" 1050 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/AP22811AW5-7?qs=lqAf%2FiVYw9gUYgIV6BQI1w%3D%3D" 1050 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Diodes Incorporated" 1050 -500 50 H I L CNN "Manufacturer_Name"
+F9 "AP22811AW5-7" 1050 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X OUT 1 0 0 200 R 50 50 0 0 P
+X GND 2 0 -100 200 R 50 50 0 0 P
+X FLG 3 0 -200 200 R 50 50 0 0 P
+X EN/~EN 4 1200 0 200 L 50 50 0 0 P
+X IN 5 1200 -100 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 1000 100 1000 -300 200 -300 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model RMS-30+
+#/17437345/2053251/2.50/6/3/Integrated Circuit
+DEF RMS-30+ IC 0 30 Y Y 1 F N
+F0 "IC" 1350 300 50 H V L CNN
+F1 "RMS-30+" 1350 200 50 H V L CNN
+F2 "RMS30" 1350 100 50 H I L CNN
+F3 "https://www.minicircuits.com/pdfs/RMS-30+.pdf" 1350 0 50 H I L CNN
+F4 "Frequency Mixer Level 7 (LO Power +7 dBm) 200 to 3000 MHz, CASE STYLE: TT240" 1350 -100 50 H I L CNN "Description"
+F5 "5.08" 1350 -200 50 H I L CNN "Height"
+F6 "" 1350 -300 50 H I L CNN "Mouser Part Number"
+F7 "" 1350 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Mini-Circuits" 1350 -500 50 H I L CNN "Manufacturer_Name"
+F9 "RMS-30+" 1350 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X LO 1 1500 0 200 L 50 50 0 0 P
+X GROUND_1 2 1500 -100 200 L 50 50 0 0 P
+X GROUND_2 3 1500 -200 200 L 50 50 0 0 P
+X RF 4 0 -200 200 R 50 50 0 0 P
+X IF 5 0 -100 200 R 50 50 0 0 P
+X GROUND_3 6 0 0 200 R 50 50 0 0 P
+P 5 0 1 6 200 100 1300 100 1300 -300 200 -300 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model 2450BP08A0100001T
+#/20610282/2053251/2.50/5/3/Filter
+DEF 2450BP08A0100001T FL 0 30 Y Y 1 F N
+F0 "FL" 1250 300 50 H V L CNN
+F1 "2450BP08A0100001T" 1250 200 50 H V L CNN
+F2 "2450BP08A0100001T" 1250 100 50 H I L CNN
+F3 "https://www.johansontechnology.com/docs/1076/2450BP08A0100_K476PPg.pdf" 1250 0 50 H I L CNN
+F4 "2.45GHz Frequency Band Pass RF Filter (Radio Frequency) 100MHz Bandwidth 1dB 5-SMD, No Lead" 1250 -100 50 H I L CNN "Description"
+F5 "0.6" 1250 -200 50 H I L CNN "Height"
+F6 "" 1250 -300 50 H I L CNN "Mouser Part Number"
+F7 "" 1250 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "JOHANSON TECHNOLOGY" 1250 -500 50 H I L CNN "Manufacturer_Name"
+F9 "2450BP08A0100001T" 1250 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X IN/OUT 1 0 0 200 R 50 50 0 0 P
+X GND_1 2 0 -100 200 R 50 50 0 0 P
+X GND_2 3 0 -200 200 R 50 50 0 0 P
+X _IN/OUT 4 1400 0 200 L 50 50 0 0 P
+X GND_3 5 1400 -100 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 1200 100 1200 -300 200 -300 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model SE2576L-R
+#/1168171/2053251/2.50/17/4/Integrated Circuit
+DEF SE2576L-R IC 0 30 Y Y 1 F N
+F0 "IC" 1250 800 50 H V L CNN
+F1 "SE2576L-R" 1250 700 50 H V L CNN
+F2 "QFN50P300X300X90-17N-D" 1250 600 50 H I L CNN
+F3 "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets-DGA18/394196.pdf" 1250 500 50 H I L CNN
+F4 "RF Amplifier 2.4GHz P1dB 32dBm 5.0Volt 802.11bgn" 1250 400 50 H I L CNN "Description"
+F5 "0.9" 1250 300 50 H I L CNN "Height"
+F6 "873-SE2576L-R" 1250 200 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/Skyworks-Solutions-Inc/SE2576L-R?qs=WMHGlxXAKT%252BgTam3WBvNxQ%3D%3D" 1250 100 50 H I L CNN "Mouser Price/Stock"
+F8 "Skyworks" 1250 0 50 H I L CNN "Manufacturer_Name"
+F9 "SE2576L-R" 1250 -100 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X RF_IN 1 0 0 200 R 50 50 0 0 P
+X EN 2 0 -100 200 R 50 50 0 0 P
+X GND_1 3 0 -200 200 R 50 50 0 0 P
+X VCCO 4 0 -300 200 R 50 50 0 0 P
+X GND_2 5 500 -1000 200 U 50 50 0 0 P
+X GND_3 6 600 -1000 200 U 50 50 0 0 P
+X DET 7 700 -1000 200 U 50 50 0 0 P
+X NC_1 8 800 -1000 200 U 50 50 0 0 P
+X GND_5 12 1400 0 200 L 50 50 0 0 P
+X RF_OUT 11 1400 -100 200 L 50 50 0 0 P
+X RFOUT 10 1400 -200 200 L 50 50 0 0 P
+X GND_4 9 1400 -300 200 L 50 50 0 0 P
+X EP_(GND) 17 500 800 200 D 50 50 0 0 P
+X GND_6 16 600 800 200 D 50 50 0 0 P
+X VCC1 15 700 800 200 D 50 50 0 0 P
+X NC_2 14 800 800 200 D 50 50 0 0 P
+X VCC2 13 900 800 200 D 50 50 0 0 P
+P 5 0 1 6 200 600 1200 600 1200 -800 200 -800 200 600 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model HMC374
+#/2276030/2053251/2.50/6/3/Integrated Circuit
+DEF HMC374 IC 0 30 Y Y 1 F N
+F0 "IC" 1050 300 50 H V L CNN
+F1 "HMC374" 1050 200 50 H V L CNN
+F2 "SOT95P280X145-6N" 1050 100 50 H I L CNN
+F3 "https://www.mouser.tw/datasheet/2/609/hmc374-467871.pdf" 1050 0 50 H I L CNN
+F4 "RF Amplifier GaAs pHEMT MMIC lo Noise amp, 0.3-3GHz" 1050 -100 50 H I L CNN "Description"
+F5 "1.45" 1050 -200 50 H I L CNN "Height"
+F6 "584-HMC374" 1050 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/Analog-Devices/HMC374?qs=pceeu5JH%2FH94yf0HyrOF2A%3D%3D" 1050 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Analog Devices" 1050 -500 50 H I L CNN "Manufacturer_Name"
+F9 "HMC374" 1050 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X N/C_1 1 0 0 200 R 50 50 0 0 P
+X GND_1 2 0 -100 200 R 50 50 0 0 P
+X IN 3 0 -200 200 R 50 50 0 0 P
+X OUT 6 1200 0 200 L 50 50 0 0 P
+X GND_2 5 1200 -100 200 L 50 50 0 0 P
+X N/C_2 4 1200 -200 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 1000 100 1000 -300 200 -300 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model LFCN-1700D+
+#/11315392/2053251/2.50/4/4/Filter
+DEF LFCN-1700D+ FL 0 30 Y Y 1 F N
+F0 "FL" 1250 800 50 H V L CNN
+F1 "LFCN-1700D+" 1250 700 50 H V L CNN
+F2 "LFCN1700D" 1250 600 50 H I L CNN
+F3 "https://www.minicircuits.com/pdfs/LFCN-1700D+.pdf" 1250 500 50 H I L CNN
+F4 "Low Pass Filter" 1250 400 50 H I L CNN "Description"
+F5 "0.94" 1250 300 50 H I L CNN "Height"
+F6 "139-LFCN-1700D" 1250 200 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/Mini-Circuits/LFCN-1700D%2b?qs=xZ%2FP%252Ba9zWqZu7I6a3Z3VTA%3D%3D" 1250 100 50 H I L CNN "Mouser Price/Stock"
+F8 "Mini-Circuits" 1250 0 50 H I L CNN "Manufacturer_Name"
+F9 "LFCN-1700D+" 1250 -100 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X RF_IN 1 0 0 200 R 50 50 0 0 P
+X GROUND_1 2 700 -800 200 U 50 50 0 0 P
+X RF_OUT 3 1400 0 200 L 50 50 0 0 P
+X GROUND_2 4 700 800 200 D 50 50 0 0 P
+P 5 0 1 6 200 600 1200 600 1200 -600 200 -600 200 600 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model SPF5043Z
+#/872058/2053251/2.50/4/2/Integrated Circuit
+DEF SPF5043Z IC 0 30 Y Y 1 F N
+F0 "IC" 1150 300 50 H V L CNN
+F1 "SPF5043Z" 1150 200 50 H V L CNN
+F2 "SPF5043Z" 1150 100 50 H I L CNN
+F3 "https://www.qorvo.com/products/d/da001897" 1150 0 50 H I L CNN
+F4 "RF Amplifier IC Cellular, ISM, PCS 50MHz ~ 4GHz SOT-343 ,3V ~ 5V,46mA" 1150 -100 50 H I L CNN "Description"
+F5 "0.99" 1150 -200 50 H I L CNN "Height"
+F6 "772-SPF5043Z" 1150 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/Qorvo/SPF5043Z?qs=p6lVfQR1GSoUob90DTnCEA%3D%3D" 1150 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Qorvo" 1150 -500 50 H I L CNN "Manufacturer_Name"
+F9 "SPF5043Z" 1150 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X RF_OUT 1 0 0 200 R 50 50 0 0 P
+X GND_1 2 0 -100 200 R 50 50 0 0 P
+X RF_IN 3 1300 -100 200 L 50 50 0 0 P
+X GND_2 4 1300 0 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 1100 100 1100 -200 200 -200 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model SYBP-92+
+#/15103126/2053251/2.50/6/3/Filter
+DEF SYBP-92+ FL 0 30 Y Y 1 F N
+F0 "FL" 1350 300 50 H V L CNN
+F1 "SYBP-92+" 1350 200 50 H V L CNN
+F2 "SYBP92" 1350 100 50 H I L CNN
+F3 "https://www.minicircuits.com/WebStore/dashboardPdf?model=SYBP-92%2B" 1350 0 50 H I L CNN
+F4 "Lumped LC Band Pass Filter, 800 - 1000 MHz, 50" 1350 -100 50 H I L CNN "Description"
+F5 "3.81" 1350 -200 50 H I L CNN "Height"
+F6 "139-SYBP-92+" 1350 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/Mini-Circuits/SYBP-92%2b?qs=Znm5pLBrcAKU8e7zMrX60g%3D%3D" 1350 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Mini-Circuits" 1350 -500 50 H I L CNN "Manufacturer_Name"
+F9 "SYBP-92+" 1350 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X GROUND_1 1 0 0 200 R 50 50 0 0 P
+X GROUND_2 2 0 -100 200 R 50 50 0 0 P
+X GROUND_3 3 0 -200 200 R 50 50 0 0 P
+X RF_IN 4 1500 -200 200 L 50 50 0 0 P
+X GROUND_4 5 1500 -100 200 L 50 50 0 0 P
+X RF_OUT 6 1500 0 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 1300 100 1300 -300 200 -300 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model ASGTX-P-1.500GHZ-1
+#/1460408/2053251/2.50/7/2/Crystal or Oscillator
+DEF ASGTX-P-1.500GHZ-1 Y 0 30 Y Y 1 F N
+F0 "Y" 2250 300 50 H V L CNN
+F1 "ASGTX-P-1.500GHZ-1" 2250 200 50 H V L CNN
+F2 "ASGTX" 2250 100 50 H I L CNN
+F3 "https://abracon.com/Oscillators/ASGTX.pdf" 2250 0 50 H I L CNN
+F4 "" 2250 -100 50 H I L CNN "Description"
+F5 "2.24" 2250 -200 50 H I L CNN "Height"
+F6 "815-ASGTX-P-1.5GHZ-1" 2250 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/ABRACON/ASGTX-P-1.500GHz-1?qs=6DDkx98%252BHnBmxjjunHEfJg%3D%3D" 2250 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "ABRACON" 2250 -500 50 H I L CNN "Manufacturer_Name"
+F9 "ASGTX-P-1.500GHZ-1" 2250 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X NC_1 1 0 0 200 R 50 50 0 0 P
+X BY-PASS/VC 2 0 -100 200 R 50 50 0 0 P
+X GND 3 0 -200 200 R 50 50 0 0 P
+X RF_OUTPUT 4 0 -300 200 R 50 50 0 0 P
+X COMPLIMENTARY_RF_OUTPUT 5 2400 0 200 L 50 50 0 0 P
+X VDD 6 2400 -100 200 L 50 50 0 0 P
+X NC_2 7 2400 -200 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 2200 100 2200 -400 200 -400 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model PD0922J5050S2HF
+#/562267/2053251/2.50/6/3/Integrated Circuit
+DEF PD0922J5050S2HF IC 0 30 Y Y 1 F N
+F0 "IC" 1250 300 50 H V L CNN
+F1 "PD0922J5050S2HF" 1250 200 50 H V L CNN
+F2 "PD0922J5050S2HF" 1250 100 50 H I L CNN
+F3 "https://cdn.ttm.com/repository/products/wireless-xinger/power-dividers/PD0922J5050S2HF/PD0922J5050S2HF.pdf" 1250 0 50 H I L CNN
+F4 "RF Power Divider 950 MHz ~ 2.15 GHz Isolation (Min) 9dB, 12dB Return Loss 0805 (2012 Metric)" 1250 -100 50 H I L CNN "Description"
+F5 "0.59" 1250 -200 50 H I L CNN "Height"
+F6 "620-PD0922J5050S2HF" 1250 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/Anaren/PD0922J5050S2HF?qs=61pwXRo0i5gy90xR1sGBbQ%3D%3D" 1250 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "ANAREN" 1250 -500 50 H I L CNN "Manufacturer_Name"
+F9 "PD0922J5050S2HF" 1250 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X GND_1 1 0 0 200 R 50 50 0 0 P
+X INPUT 2 0 -100 200 R 50 50 0 0 P
+X GND_2 3 0 -200 200 R 50 50 0 0 P
+X OUTPUT_1 4 1400 -200 200 L 50 50 0 0 P
+X GND_3 5 1400 -100 200 L 50 50 0 0 P
+X OUTPUT_2 6 1400 0 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 1200 100 1200 -300 200 -300 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model LQG15HN1N5S02D
+#/525627/2053251/2.50/2/2/Inductor
+DEF LQG15HN1N5S02D L 0 30 Y Y 1 F N
+F0 "L" 650 250 50 H V L CNN
+F1 "LQG15HN1N5S02D" 650 150 50 H V L CNN
+F2 "LQG15WH0N7B02D" 650 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/LQG15HN1N5S02D.pdf" 650 -50 50 H I L CNN
+F4 "Murata Power Solutions LQG15HN Series 1.5 nH Multilayer SMD Inductor, 402 Case, Q: 8 300mA dc 100m Rdc" 650 -150 50 H I L CNN "Description"
+F5 "0.6" 650 -250 50 H I L CNN "Height"
+F6 "81-LQG15HN1N5S02D" 650 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=81-LQG15HN1N5S02D" 650 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Murata Electronics" 650 -550 50 H I L CNN "Manufacturer_Name"
+F9 "LQG15HN1N5S02D" 650 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 800 0 200 L 50 50 0 0 P
+A 250 -2 50 1777 -23 0 1 6 N 300 0 200 0
+A 350 -2 50 1777 -23 0 1 6 N 400 0 300 0
+A 450 -2 50 1777 -23 0 1 6 N 500 0 400 0
+A 550 -2 50 1777 -23 0 1 6 N 600 0 500 0
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model ERJ-2GE0R00X
+#/12870996/2053251/2.50/2/4/Resistor
+DEF ERJ-2GE0R00X R 0 30 Y Y 1 F N
+F0 "R" 550 250 50 H V L CNN
+F1 "ERJ-2GE0R00X" 550 150 50 H V L CNN
+F2 "RESC1005X40N" 550 50 50 H I L CNN
+F3 "http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0001+ERJ2GE0R00X+7+WW" 550 -50 50 H I L CNN
+F4 "General Purpose Chip Resistor" 550 -150 50 H I L CNN "Description"
+F5 "0.4" 550 -250 50 H I L CNN "Height"
+F6 "667-ERJ-2GE0R00X" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/Panasonic/ERJ-2GE0R00X?qs=Cz%252B5TvT4yly5%252BP7oLZcLxw%3D%3D" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Panasonic" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "ERJ-2GE0R00X" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+ENDDRAW
+ENDDEF
+#
+#End Library

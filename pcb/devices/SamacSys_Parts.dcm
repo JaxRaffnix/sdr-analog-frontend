@@ -1,0 +1,87 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP NE555DR
+D Single Precision Timer
+K
+F http://www.ti.com/lit/ds/symlink/ne555.pdf
+$ENDCMP
+#
+$CMP PHA-1+
+D RF Amplifier SMT Linear Amplifier, 50 - 6000 MHz, 50
+K
+F https://www.mouser.in/ProductDetail/Mini-Circuits/PHA-1%2B?qs=xZ%2FP%252Ba9zWqYz5cEhj1ZlVg%3D%3D
+$ENDCMP
+#
+$CMP AP22811AW5-7
+D Power Switch ICs - Power Distribution Load Switch
+K
+F 
+$ENDCMP
+#
+$CMP RMS-30+
+D Frequency Mixer Level 7 (LO Power +7 dBm) 200 to 3000 MHz, CASE STYLE: TT240
+K
+F https://www.minicircuits.com/pdfs/RMS-30+.pdf
+$ENDCMP
+#
+$CMP 2450BP08A0100001T
+D 2.45GHz Frequency Band Pass RF Filter (Radio Frequency) 100MHz Bandwidth 1dB 5-SMD, No Lead
+K
+F https://www.johansontechnology.com/docs/1076/2450BP08A0100_K476PPg.pdf
+$ENDCMP
+#
+$CMP SE2576L-R
+D RF Amplifier 2.4GHz P1dB 32dBm 5.0Volt 802.11bgn
+K
+F https://datasheet.datasheetarchive.com/originals/distributors/Datasheets-DGA18/394196.pdf
+$ENDCMP
+#
+$CMP HMC374
+D RF Amplifier GaAs pHEMT MMIC lo Noise amp, 0.3-3GHz
+K
+F https://www.mouser.tw/datasheet/2/609/hmc374-467871.pdf
+$ENDCMP
+#
+$CMP LFCN-1700D+
+D Low Pass Filter
+K
+F https://www.minicircuits.com/pdfs/LFCN-1700D+.pdf
+$ENDCMP
+#
+$CMP SPF5043Z
+D RF Amplifier IC Cellular, ISM, PCS 50MHz ~ 4GHz SOT-343 ,3V ~ 5V,46mA
+K
+F https://www.qorvo.com/products/d/da001897
+$ENDCMP
+#
+$CMP SYBP-92+
+D Lumped LC Band Pass Filter, 800 - 1000 MHz, 50
+K
+F https://www.minicircuits.com/WebStore/dashboardPdf?model=SYBP-92%2B
+$ENDCMP
+#
+$CMP ASGTX-P-1.500GHZ-1
+D 
+K
+F https://abracon.com/Oscillators/ASGTX.pdf
+$ENDCMP
+#
+$CMP PD0922J5050S2HF
+D RF Power Divider 950 MHz ~ 2.15 GHz Isolation (Min) 9dB, 12dB Return Loss 0805 (2012 Metric)
+K
+F https://cdn.ttm.com/repository/products/wireless-xinger/power-dividers/PD0922J5050S2HF/PD0922J5050S2HF.pdf
+$ENDCMP
+#
+$CMP LQG15HN1N5S02D
+D Murata Power Solutions LQG15HN Series 1.5 nH Multilayer SMD Inductor, 402 Case, Q: 8 300mA dc 100m Rdc
+K
+F https://componentsearchengine.com/Datasheets/1/LQG15HN1N5S02D.pdf
+$ENDCMP
+#
+$CMP ERJ-2GE0R00X
+D General Purpose Chip Resistor
+K
+F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0001+ERJ2GE0R00X+7+WW
+$ENDCMP
+#
+#End Doc Library
