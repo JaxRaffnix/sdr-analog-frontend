@@ -1,5 +1,8 @@
 # Dokumentation Schematic
 
+
+[Aisler PCB](https://aisler.net/p/YPFMCLNO)
+
 ## Power
 Power good LEDs für 5V und 3,3 V Rails.
 
@@ -23,13 +26,33 @@ FLG LED zeigt Fehlerstatus: overcurrent, overtemperature an. Kann mit falling Ed
 
 I out max 200 mA
 
+## Power Budget
+Ozillator: 0 dBm +. 5 dBm peak
+Balun: -3 dB
+Filter: -1 dB
+Splitter: -0.5 dB
+
+**Summe: -4.5 dB**
+
+Amplifier: 13 dB
+
+**Gesamt: 8.5 dB**
+
+
+
 ## GPIO
 
 Pins mit 2,54 mm Pitch. Assignment ist dem Schematic zu entnehnen.
 
 ## Transmitter
 
+
 ### SE2576L-R
 
 Enable Pin max. 3,6 V
+
+### RMS-30+
+
+max RF Power 200mW
+max IF Current 40mA
 

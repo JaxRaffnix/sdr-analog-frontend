@@ -556,7 +556,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.15,
+        "clearance": 0.1524,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -567,18 +567,22 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.25,
+        "track_width": 0.2032,
         "tuning_profile": "",
-        "via_diameter": 0.6,
-        "via_drill": 0.3,
+        "via_diameter": 0.6096,
+        "via_drill": 0.3048,
         "wire_width": 6
       },
       {
+        "clearance": 0.1524,
         "name": "GND",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 1,
         "schematic_color": "rgb(0, 0, 0)",
-        "tuning_profile": ""
+        "track_width": 0.508,
+        "tuning_profile": "",
+        "via_diameter": 0.6096,
+        "via_drill": 0.3048
       },
       {
         "clearance": 0.203,
@@ -587,15 +591,20 @@
         "priority": 0,
         "schematic_color": "rgb(163, 157, 6)",
         "track_width": 0.27,
-        "tuning_profile": ""
+        "tuning_profile": "",
+        "via_diameter": 0.6096,
+        "via_drill": 0.3048
       },
       {
+        "clearance": 0.2032,
         "name": "Power",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 2,
         "schematic_color": "rgb(255, 48, 46)",
-        "track_width": 0.5,
-        "tuning_profile": ""
+        "track_width": 0.381,
+        "tuning_profile": "",
+        "via_diameter": 0.8128,
+        "via_drill": 0.4064
       }
     ],
     "meta": {
@@ -644,6 +653,9 @@
       ],
       "/oscillator/unbalanced OX DC0": [
         "High Speed 50Ohm"
+      ],
+      "/power/Shield": [
+        "GND"
       ],
       "/receiver/Rx In": [
         "High Speed 50Ohm"

@@ -2074,6 +2074,81 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "Tx In ->"
+		(exclude_from_sim no)
+		(at 16.51 129.54 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+				(color 62 180 4 1)
+			)
+			(justify left)
+		)
+		(uuid "2a75db6b-2682-4091-b67a-19df2ee3dba0")
+	)
+	(text "Amplifier"
+		(exclude_from_sim no)
+		(at 181.102 35.052 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+				(color 62 180 4 1)
+			)
+			(justify left)
+		)
+		(uuid "b68c6cd2-5587-4ad0-a072-94b807b84b47")
+	)
+	(text "Tx Out ->"
+		(exclude_from_sim no)
+		(at 243.332 62.484 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+				(color 62 180 4 1)
+			)
+			(justify left)
+		)
+		(uuid "c8665c8b-7c7d-4a1c-90fb-990e06c39e2a")
+	)
+	(text "Mixer"
+		(exclude_from_sim no)
+		(at 71.882 138.938 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+				(color 62 180 4 1)
+			)
+			(justify left)
+		)
+		(uuid "d9c87341-f671-4ae4-8aeb-d784e1a72b26")
+	)
+	(text "Band pass"
+		(exclude_from_sim no)
+		(at 83.058 187.96 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+				(color 62 180 4 1)
+			)
+			(justify left)
+		)
+		(uuid "e232bacf-142c-4d7f-b766-d07fb75699f6")
+	)
 	(text_box "Place close together!"
 		(exclude_from_sim no)
 		(at 69.85 29.21 0)

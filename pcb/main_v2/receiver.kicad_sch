@@ -1745,6 +1745,96 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "Bandpass low Frequency"
+		(exclude_from_sim no)
+		(at 185.928 158.75 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+				(color 62 180 4 1)
+			)
+			(justify left)
+		)
+		(uuid "28919bf1-1ec5-44da-b40b-c7077eb9896f")
+	)
+	(text "Rx in ->"
+		(exclude_from_sim no)
+		(at 30.988 58.166 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+				(color 62 180 4 1)
+			)
+			(justify left)
+		)
+		(uuid "2ec100a6-a2ea-423b-ac36-6ae7c48559e9")
+	)
+	(text "LNA"
+		(exclude_from_sim no)
+		(at 177.038 23.622 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+				(color 62 180 4 1)
+			)
+			(justify left)
+		)
+		(uuid "3b64f606-066a-4856-ba2f-d0bd3605fb24")
+	)
+	(text "Bandpass"
+		(exclude_from_sim no)
+		(at 99.568 57.15 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+				(color 62 180 4 1)
+			)
+			(justify left)
+		)
+		(uuid "5a27a6ad-f9d5-4565-898f-854e536fda0f")
+	)
+	(text "Rx Out ->"
+		(exclude_from_sim no)
+		(at 240.538 90.678 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+				(color 62 180 4 1)
+			)
+			(justify left)
+		)
+		(uuid "63ae3a54-7451-4009-9e6b-95acd22f0595")
+	)
+	(text "Mixer"
+		(exclude_from_sim no)
+		(at 55.372 125.222 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+				(color 62 180 4 1)
+			)
+			(justify left)
+		)
+		(uuid "7511a440-6c8a-4252-bd25-4a935456e987")
+	)
 	(text_box "Place close together!"
 		(exclude_from_sim no)
 		(at 153.67 30.48 0)

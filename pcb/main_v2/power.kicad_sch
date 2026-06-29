@@ -2366,6 +2366,51 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "USB Power"
+		(exclude_from_sim no)
+		(at 41.402 31.496 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+				(color 62 180 4 1)
+			)
+			(justify left)
+		)
+		(uuid "145c0ba6-9c94-463c-a586-a96aca779c40")
+	)
+	(text "Load Management"
+		(exclude_from_sim no)
+		(at 174.498 25.654 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+				(color 62 180 4 1)
+			)
+			(justify left)
+		)
+		(uuid "46d9bf11-4594-4c66-a8eb-c4b9e904d417")
+	)
+	(text "3.3V LDO"
+		(exclude_from_sim no)
+		(at 52.832 112.776 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+				(color 62 180 4 1)
+			)
+			(justify left)
+		)
+		(uuid "5c7dd445-d4a5-4188-bb52-b8eb0104dfe6")
+	)
 	(text "Imax: 0,9 A"
 		(exclude_from_sim no)
 		(at 113.2367 41.402 0)
@@ -3245,6 +3290,29 @@
 			(type default)
 		)
 		(uuid "ff9fc7c1-2186-41f6-92a4-ffb4ab0b3646")
+	)
+	(label "Shield"
+		(at 33.02 59.69 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "11b45c1e-c376-4f1b-a116-9f5d6f721c6d")
+		(property "Net Class" "GND"
+			(at 34.29 59.69 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
 	)
 	(global_label "CONN-1"
 		(shape input)
