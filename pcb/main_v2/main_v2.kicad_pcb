@@ -137,7 +137,6 @@
 		)
 		(capping no)
 		(filling no)
-		(zone_defaults)
 		(pcbplotparams
 			(layerselection 0x00000000_00000000_55555555_57555501)
 			(plot_on_all_layers_selection 0x00000000_00000000_00000000_00000000)
@@ -22383,32 +22382,6 @@
 		(fill no)
 		(layer "Edge.Cuts")
 		(uuid "dd57a30f-4d82-499e-9e28-aaba37abe3b4")
-	)
-	(gr_text "TODO: Pi Attenuators"
-		(at 162.25 128 0)
-		(layer "F.Cu")
-		(uuid "3efcb003-d7e7-4f18-adf3-6884c7949fed")
-		(effects
-			(font
-				(size 1.5 1.5)
-				(thickness 0.3)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-	)
-	(gr_text "TODO: Via Fencing"
-		(at 162.25 135.25 0)
-		(layer "F.Cu")
-		(uuid "50af2d8a-3ac9-4c02-b200-acb37472fb9b")
-		(effects
-			(font
-				(size 1.5 1.5)
-				(thickness 0.3)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
 	)
 	(gr_text "Rx: Out\n<-"
 		(at 75.8625 100.5 0)
