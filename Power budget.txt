@@ -1,0 +1,9 @@
+teste power path
+db
+max voltage
+
+checke requirements srfsoc
+
+frequenzbild pfadwege erstellen
+
+todo: kostenaufstellung aus bom
