@@ -2180,6 +2180,16 @@
 		)
 		(uuid "5982d911-3e7d-4b23-957d-644d7246ce62")
 	)
+	(text "f_c = 1.5 GHz"
+		(exclude_from_sim no)
+		(at 210.82 113.03 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "8335088e-3faf-4522-88ed-911c9530a8d0")
+	)
 	(text "Output: LVPECL"
 		(exclude_from_sim no)
 		(at 101.346 42.418 0)
@@ -2189,6 +2199,16 @@
 			)
 		)
 		(uuid "a381f87d-e2cd-4c3b-aafc-1c002003f16c")
+	)
+	(text "f_c = 1.5 GHz"
+		(exclude_from_sim no)
+		(at 216.408 150.876 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e1601abf-7412-409a-a800-5683b2377df3")
 	)
 	(text "Amplifier"
 		(exclude_from_sim no)
@@ -2773,7 +2793,7 @@
 	)
 	(wire
 		(pts
-			(xy 198.12 115.57) (xy 195.58 115.57)
+			(xy 205.74 115.57) (xy 195.58 115.57)
 		)
 		(stroke
 			(width 0)
@@ -3131,6 +3151,16 @@
 			)
 		)
 	)
+	(label "f_c = 1.5 GHz"
+		(at 60.96 63.5 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "71a5a6e8-8cef-40e3-b566-e4c4ed786c38")
+	)
 	(label "filtered XO 1"
 		(at 99.06 123.19 180)
 		(fields_autoplaced yes)
@@ -3246,9 +3276,9 @@
 			)
 		)
 	)
-	(global_label "Carrier Frequency: Tx"
+	(hierarchical_label "Oscillator Rx"
 		(shape input)
-		(at 204.47 153.67 0)
+		(at 198.12 115.57 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3256,35 +3286,23 @@
 			)
 			(justify left)
 		)
-		(uuid "0653228e-f02d-4730-8501-f34b6fb560d1")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 228.0171 153.67 0)
-			(hide yes)
+		(uuid "1784396f-ce24-40d2-9740-93c1163c3959")
+		(property "Netzklasse" "High Speed 50Ohm"
+			(at 199.39 115.57 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Net Class" "High Speed 50Ohm"
-			(at 204.47 157.5118 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
+					(italic yes)
 				)
 				(justify left)
 			)
 		)
 	)
-	(global_label "Carrier Frequency: Rx"
+	(hierarchical_label "Oscillator Tx"
 		(shape input)
-		(at 198.12 115.57 0)
+		(at 200.66 153.67 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3292,27 +3310,15 @@
 			)
 			(justify left)
 		)
-		(uuid "203b896b-4f84-4481-830b-a6691bd3f157")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 221.9695 115.57 0)
-			(hide yes)
+		(uuid "5970d5ae-8ef9-449b-8ad8-920eec4beacd")
+		(property "Netzklasse" "High Speed 50Ohm"
+			(at 201.93 153.67 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Net Class" "High Speed 50Ohm"
-			(at 198.12 119.4118 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
+					(italic yes)
 				)
 				(justify left)
 			)

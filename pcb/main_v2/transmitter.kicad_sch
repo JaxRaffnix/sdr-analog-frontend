@@ -2119,6 +2119,16 @@
 		)
 		(uuid "c8665c8b-7c7d-4a1c-90fb-990e06c39e2a")
 	)
+	(text "f_c = 1.5 GHz"
+		(exclude_from_sim no)
+		(at 129.032 150.876 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "cf7e832b-a986-4320-b5cc-68665cb59c33")
+	)
 	(text "Mixer"
 		(exclude_from_sim no)
 		(at 71.882 138.938 0)
@@ -2174,6 +2184,12 @@
 		(uuid "9aa267dc-3fcf-43df-98e8-f8572001823f")
 	)
 	(junction
+		(at 90.17 73.66)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "097c40a4-d2f4-4973-bfb5-01a8746a6ef1")
+	)
+	(junction
 		(at 232.41 73.66)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2198,10 +2214,10 @@
 		(uuid "2848679a-455c-4c27-a565-cf409c1bb25d")
 	)
 	(junction
-		(at 90.17 73.66)
+		(at 130.81 99.06)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "3e4bdc0f-acad-435e-a2af-eb32f35c69d1")
+		(uuid "2957cbe0-211e-40a2-8bf2-b0a4706acaef")
 	)
 	(junction
 		(at 77.47 179.07)
@@ -2226,12 +2242,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8afa74ca-9573-4fa4-898c-5c9d142c0a3a")
-	)
-	(junction
-		(at 130.81 99.06)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9a96004b-6489-4e4e-a2da-6d4f07f17f37")
 	)
 	(junction
 		(at 148.59 73.66)
@@ -2369,6 +2379,16 @@
 	)
 	(wire
 		(pts
+			(xy 69.85 73.66) (xy 90.17 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "35f68520-549b-4d38-a21a-6206b2c9451d")
+	)
+	(wire
+		(pts
 			(xy 207.01 73.66) (xy 212.09 73.66)
 		)
 		(stroke
@@ -2459,6 +2479,16 @@
 	)
 	(wire
 		(pts
+			(xy 105.41 152.4) (xy 137.16 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "71360c9d-3d42-4796-865a-dcd12b21df28")
+	)
+	(wire
+		(pts
 			(xy 49.53 157.48) (xy 52.07 157.48)
 		)
 		(stroke
@@ -2529,16 +2559,6 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 73.66) (xy 90.17 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a228a158-ce73-4fdd-9510-2005337f36f7")
-	)
-	(wire
-		(pts
 			(xy 191.77 50.8) (xy 191.77 66.04)
 		)
 		(stroke
@@ -2569,7 +2589,7 @@
 	)
 	(wire
 		(pts
-			(xy 130.81 99.06) (xy 138.43 99.06)
+			(xy 130.81 99.06) (xy 148.59 99.06)
 		)
 		(stroke
 			(width 0)
@@ -2686,16 +2706,6 @@
 			(type default)
 		)
 		(uuid "f337cfd4-b17c-4e04-8613-d04357b8d38c")
-	)
-	(wire
-		(pts
-			(xy 111.76 152.4) (xy 105.41 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f44be989-e587-4c42-8784-4317fe9644e4")
 	)
 	(wire
 		(pts
@@ -2887,6 +2897,16 @@
 			)
 		)
 	)
+	(label "f_antenne = 2.4 GHz"
+		(at 68.58 173.99 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6e45796a-805d-422b-a2ab-66ae82ec8b06")
+	)
 	(label "Filtered Tx"
 		(at 91.44 71.12 180)
 		(fields_autoplaced yes)
@@ -2933,6 +2953,16 @@
 			)
 		)
 	)
+	(label "https:{slash}{slash}www.eevblog.com{slash}forum{slash}rf-microwave{slash}2-4ghz-amplifier-quadrature-hybrid-coupler-balanced{slash}?action=dlattach;attach=686451"
+		(at 121.92 25.4 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c4d46ef8-c8d1-48e8-b982-714584e2869d")
+	)
 	(label "amplified Tx 2"
 		(at 246.38 73.66 270)
 		(fields_autoplaced yes)
@@ -2955,6 +2985,26 @@
 				(justify right)
 			)
 		)
+	)
+	(label "f_antenne = 2.4 GHz"
+		(at 259.08 68.58 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "eca308ca-cadd-4820-993a-7d547e3135a4")
+	)
+	(label "f_sdr = 0.9 GHz"
+		(at 36.83 154.94 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f4408282-4203-425e-a309-869433f6b73a")
 	)
 	(label "LO in"
 		(at 93.98 152.4 90)
@@ -2979,9 +3029,9 @@
 			)
 		)
 	)
-	(global_label "CONN-3"
+	(hierarchical_label "PA Enable"
 		(shape input)
-		(at 77.47 73.66 270)
+		(at 69.85 73.66 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2989,23 +3039,23 @@
 			)
 			(justify right)
 		)
-		(uuid "1b0017c7-276a-4749-b324-c9f937cbafb4")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 77.47 84.6886 90)
-			(hide yes)
+		(uuid "25c869b5-a8fe-4acf-af8e-1ad0269a76a4")
+		(property "Netzklasse" "Default"
+			(at 69.85 74.93 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
+					(italic yes)
 				)
 				(justify right)
 			)
 		)
 	)
-	(global_label "Carrier Frequency: Tx"
+	(hierarchical_label "PA DET Output"
 		(shape input)
-		(at 111.76 152.4 0)
+		(at 148.59 99.06 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3013,23 +3063,23 @@
 			)
 			(justify left)
 		)
-		(uuid "32a43210-5ea0-471f-bf56-d6914cb64631")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 135.3071 152.4 0)
-			(hide yes)
+		(uuid "886971a0-f1ff-40dc-8787-faa3b611bf4c")
+		(property "Netzklasse" "Default"
+			(at 148.59 100.33 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
+					(italic yes)
 				)
 				(justify left)
 			)
 		)
 	)
-	(global_label "CONN-4"
+	(hierarchical_label "Oscillator Tx"
 		(shape input)
-		(at 138.43 99.06 0)
+		(at 137.16 152.4 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3037,15 +3087,15 @@
 			)
 			(justify left)
 		)
-		(uuid "402d9782-443d-4f70-8691-3e2904238962")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 149.4586 99.06 0)
-			(hide yes)
+		(uuid "d3888e93-0f04-460f-bbe4-241c6298851f")
+		(property "Netzklasse" "High Speed 50Ohm"
+			(at 137.16 153.67 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
+					(italic yes)
 				)
 				(justify left)
 			)

@@ -1760,6 +1760,16 @@
 		)
 		(uuid "28919bf1-1ec5-44da-b40b-c7077eb9896f")
 	)
+	(text "f_c = 1.5 GHz"
+		(exclude_from_sim no)
+		(at 119.126 127 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "2e317dde-94c9-401e-87b3-1e7fbbea78cd")
+	)
 	(text "Rx in ->"
 		(exclude_from_sim no)
 		(at 30.988 58.166 0)
@@ -1807,7 +1817,7 @@
 	)
 	(text "Rx Out ->"
 		(exclude_from_sim no)
-		(at 240.538 90.678 0)
+		(at 243.078 84.074 0)
 		(effects
 			(font
 				(size 5.08 5.08)
@@ -2001,6 +2011,16 @@
 	)
 	(wire
 		(pts
+			(xy 153.67 73.66) (xy 170.18 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5492ad09-187d-4b7d-af83-1951568cb508")
+	)
+	(wire
+		(pts
 			(xy 214.63 68.58) (xy 200.66 68.58)
 		)
 		(stroke
@@ -2018,6 +2038,16 @@
 			(type default)
 		)
 		(uuid "7db21930-6934-4f66-946f-346acb7d2b51")
+	)
+	(wire
+		(pts
+			(xy 132.08 73.66) (xy 146.05 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "82173928-6ce7-45a6-a65b-dabbe399f41c")
 	)
 	(wire
 		(pts
@@ -2138,16 +2168,6 @@
 			(type default)
 		)
 		(uuid "e3ad2a32-b7ee-431e-b9ad-cbb4becb428e")
-	)
-	(wire
-		(pts
-			(xy 132.08 73.66) (xy 170.18 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e52f1dac-9dc9-4a39-98de-279b477a02aa")
 	)
 	(wire
 		(pts
@@ -2347,6 +2367,16 @@
 			)
 		)
 	)
+	(label "f_antenne = 2.4 GHz"
+		(at 74.93 73.66 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "77283f49-dfd2-4604-88ae-3609ab411e85")
+	)
 	(label "downconverted Rx 1"
 		(at 204.47 146.05 90)
 		(fields_autoplaced yes)
@@ -2393,6 +2423,29 @@
 			)
 		)
 	)
+	(label "filtered Rx 1"
+		(at 158.75 73.66 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "86a89e28-6fc6-4b33-9994-b655e57d2888")
+		(property "Net Class" "High Speed 50Ohm"
+			(at 160.02 73.66 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+			)
+		)
+	)
 	(label "downconverted Rx"
 		(at 44.45 143.51 180)
 		(fields_autoplaced yes)
@@ -2415,6 +2468,16 @@
 				(justify right)
 			)
 		)
+	)
+	(label "f_sdr = 0.9 GHz"
+		(at 248.92 104.14 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a29f6090-e866-4fff-96b4-ef69940ed613")
 	)
 	(label "low filtered Rx"
 		(at 217.17 115.57 180)
@@ -2485,9 +2548,9 @@
 			)
 		)
 	)
-	(global_label "Carrier Frequency: Rx"
+	(hierarchical_label "Oscillator Rx"
 		(shape input)
-		(at 115.57 137.16 90)
+		(at 115.57 140.97 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2495,15 +2558,15 @@
 			)
 			(justify left)
 		)
-		(uuid "ee0eef60-a3ed-4c22-bf65-d0e99c84e2e7")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 115.57 113.3105 90)
-			(hide yes)
+		(uuid "7deacdec-96b2-459b-90de-53310159914d")
+		(property "Netzklasse" "High Speed 50Ohm"
+			(at 115.57 142.24 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
+					(italic yes)
 				)
 				(justify left)
 			)
@@ -3865,6 +3928,105 @@
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/6cc491e9-db51-4c07-9c5c-0fdbb3f258a1"
 					(reference "#PWR0405")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 149.86 73.66 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ab1369d7-0974-482f-9c32-e14f020bdb78")
+		(property "Reference" "C408"
+			(at 149.86 66.04 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "150 pF"
+			(at 149.86 68.58 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 153.67 72.6948 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 149.86 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 149.86 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Package" "0402"
+			(at 149.86 76.962 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage" "50 V"
+			(at 149.606 78.74 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "974a0925-58ce-45d0-b8e3-8e3334dc3a6d")
+		)
+		(pin "2"
+			(uuid "97e4717c-05d5-4018-844a-a1ee6e97cc87")
+		)
+		(instances
+			(project "main_v2"
+				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/6cc491e9-db51-4c07-9c5c-0fdbb3f258a1"
+					(reference "C408")
 					(unit 1)
 				)
 			)

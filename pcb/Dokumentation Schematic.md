@@ -1,7 +1,23 @@
 # Dokumentation Schematic
 
+## Aisler
 
 [Aisler PCB](https://aisler.net/p/YPFMCLNO)
+
+[Design Rules](https://community.aisler.net/t/4-layer-35-m-enig-design-rules/3733)
+
+[Stackup](https://community.aisler.net/t/4-layers-1-6mm-35-m-stackup/5457)
+
+## Trace Width Calculation
+
+coplanar strip with gnd plane
+
+e-r = 4.3
+H = 70*2 mu m
+T = 35 mu m
+f = 2,4 GHz, 1.5 Ghz, 0.9 Ghz
+W = 0,27 mm
+L = 0,203 mm
 
 ## Power
 Power good LEDs für 5V und 3,3 V Rails.
