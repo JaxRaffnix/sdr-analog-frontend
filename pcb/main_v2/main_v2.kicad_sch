@@ -3411,6 +3411,52 @@
 		)
 	)
 	(sheet
+		(at 125.73 142.24)
+		(size 36.83 16.51)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "87c8c23a-5063-4def-b6c3-72078f0eafd4")
+		(property "Sheetname" "oscillator2"
+			(at 125.73 141.5284 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "oscillator2.kicad_sch"
+			(at 125.73 159.3346 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "main_v2"
+				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
 		(at 185.42 99.06)
 		(size 73.66 43.18)
 		(exclude_from_sim no)

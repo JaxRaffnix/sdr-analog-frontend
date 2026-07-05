@@ -666,6 +666,12 @@
       "/oscillator/unbalanced OX DC0": [
         "High Speed 50Ohm"
       ],
+      "/oscillator2/Oscillator Rx": [
+        "High Speed 50Ohm"
+      ],
+      "/oscillator2/Oscillator Tx": [
+        "High Speed 50Ohm"
+      ],
       "/power/Power Enable": [
         "Default"
       ],
@@ -674,6 +680,9 @@
       ],
       "/power/Shield": [
         "GND"
+      ],
+      "/power/USB Power": [
+        "Power"
       ],
       "/receiver/Rx In": [
         "High Speed 50Ohm"
@@ -1068,7 +1077,7 @@
         "uuid": "0599865e-4bed-44f1-b46e-4b55335b49b2"
       }
     ],
-    "used_designators": "C408",
+    "used_designators": "C408,U601",
     "variants": []
   },
   "sheets": [
@@ -1091,6 +1100,10 @@
     [
       "b22a796e-006f-46a5-be9e-a0e5db4c4b8e",
       "oscillator"
+    ],
+    [
+      "87c8c23a-5063-4def-b6c3-72078f0eafd4",
+      "oscillator2"
     ]
   ],
   "text_variables": {},

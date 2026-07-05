@@ -2703,16 +2703,6 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 39.37) (xy 90.17 43.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "200a4511-f091-4ece-8614-3602f882f9a5")
-	)
-	(wire
-		(pts
 			(xy 190.5 144.78) (xy 190.5 146.05)
 		)
 		(stroke
@@ -3304,64 +3294,25 @@
 			)
 		)
 	)
-	(global_label "USB Power"
-		(shape input)
-		(at 90.17 39.37 90)
-		(fields_autoplaced yes)
+	(label "USB Power"
+		(at 86.36 43.18 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify left bottom)
 		)
-		(uuid "9b662c16-e8d6-4cbe-bd49-5bc0f3ab7394")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 90.17 25.9829 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Net Class" "Power"
-			(at 94.0118 39.37 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
+		(uuid "d8d22402-49d2-4e93-a81e-7483e226648c")
 	)
-	(global_label "USB Power"
-		(shape input)
+	(label "USB Power"
 		(at 212.09 80.01 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify left bottom)
 		)
-		(uuid "b649ff24-ee85-41a2-8d65-11f5316a5bc5")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 225.4771 80.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
+		(uuid "fca6e971-b2d9-4601-8b61-721e0fcdb827")
 	)
 	(hierarchical_label "Power Enable"
 		(shape input)
@@ -3408,6 +3359,41 @@
 					(italic yes)
 				)
 				(justify right)
+			)
+		)
+	)
+	(netclass_flag ""
+		(length 2.54)
+		(shape diamond)
+		(at 69.85 43.18 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0c7043e7-746a-4dd7-b3c3-60214d82cbc9")
+		(property "Net Class" "Power"
+			(at 71.0565 40.64 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Component Class" ""
+			(at 60.96 35.56 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
 			)
 		)
 	)
