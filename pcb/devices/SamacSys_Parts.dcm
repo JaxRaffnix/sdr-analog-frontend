@@ -84,4 +84,16 @@ K
 F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0001+ERJ2GE0R00X+7+WW
 $ENDCMP
 #
+$CMP PD0922J5050D2HF
+D RF Power Divider 950 MHz ~ 2.15 GHz 0805 (2012 Metric), 6 PC Pad
+K
+F https://cdn.ttm.com/repository/products/wireless-xinger/power-dividers/PD0922J5050D2HF/PD0922J5050D2HF.pdf
+$ENDCMP
+#
+$CMP ATX-11-F-26.000MHZ-F05-T
+D TCXO Oscillators XTAL OSC TCXO 26 MHz Clipped Sinewave SMD 1.68V ~ +3.63V
+K
+F https://abracon.com/datasheets/ATX-11.pdf
+$ENDCMP
+#
 #End Doc Library

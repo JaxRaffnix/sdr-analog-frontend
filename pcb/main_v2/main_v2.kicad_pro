@@ -666,10 +666,19 @@
       "/oscillator/unbalanced OX DC0": [
         "High Speed 50Ohm"
       ],
+      "/oscillator2/OX Out +": [
+        "High Speed 50Ohm"
+      ],
+      "/oscillator2/OX Out -": [
+        "High Speed 50Ohm"
+      ],
       "/oscillator2/Oscillator Rx": [
         "High Speed 50Ohm"
       ],
       "/oscillator2/Oscillator Tx": [
+        "High Speed 50Ohm"
+      ],
+      "/oscillator2/RF In": [
         "High Speed 50Ohm"
       ],
       "/power/Power Enable": [
@@ -765,6 +774,12 @@
       "Carrier Frequency: Tx": [
         "High Speed 50Ohm"
       ],
+      "Net-(C624-Pad1)": [
+        "High Speed 50Ohm"
+      ],
+      "Net-(C625-Pad1)": [
+        "High Speed 50Ohm"
+      ],
       "Net-(FL401-IN{slash}OUT)": [
         "High Speed 50Ohm"
       ],
@@ -784,6 +799,18 @@
         "High Speed 50Ohm"
       ],
       "Net-(IC402-OUT)": [
+        "High Speed 50Ohm"
+      ],
+      "Net-(U601-RF_OUT_A+)": [
+        "High Speed 50Ohm"
+      ],
+      "Net-(U601-RF_OUT_A-)": [
+        "High Speed 50Ohm"
+      ],
+      "Net-(U603-INPUT)": [
+        "High Speed 50Ohm"
+      ],
+      "Net-(Y601-OUTPUT)": [
         "High Speed 50Ohm"
       ],
       "USB Power": [
@@ -1101,7 +1128,7 @@
         "uuid": "0599865e-4bed-44f1-b46e-4b55335b49b2"
       }
     ],
-    "used_designators": "C408,C601-617,U601,#PWR601-614,R601-604,IC601",
+    "used_designators": "C408,C601-604,C608-628,U601-603,R601,R605-618,L601-602,D601,#PWR601-603,#PWR605-608,#PWR611-636,Y601",
     "variants": []
   },
   "sheets": [
