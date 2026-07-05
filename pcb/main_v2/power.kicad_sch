@@ -2494,12 +2494,6 @@
 		(uuid "aaab14cc-0b95-4096-8284-c3cb7301d3e0")
 	)
 	(junction
-		(at 50.8 67.31)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0569e4b2-42ec-41a7-8c56-77a54a4124ed")
-	)
-	(junction
 		(at 193.04 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2530,12 +2524,6 @@
 		(uuid "4efaafbd-66c0-4bf0-a82d-3f52219d9af5")
 	)
 	(junction
-		(at 50.8 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "56a86395-84ca-428a-9dfd-a9b9f27359e7")
-	)
-	(junction
 		(at 226.06 43.18)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2558,6 +2546,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7b9af17b-c547-4f5d-be86-58e46b63dc82")
+	)
+	(junction
+		(at 50.8 67.31)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "80cd36f6-f794-44e2-8cf6-0636a0f3cd3f")
 	)
 	(junction
 		(at 116.84 128.27)
@@ -2596,7 +2590,13 @@
 		(uuid "ac95b777-4954-47b9-b54d-39c4ec4fc781")
 	)
 	(junction
-		(at 27.94 67.31)
+		(at 50.8 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b24ed75c-a2ba-46f7-97d5-2533b4cd7685")
+	)
+	(junction
+		(at 33.02 67.31)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b607e7ed-5503-472b-8ad2-8211aab2f82e")
@@ -2843,7 +2843,7 @@
 	)
 	(wire
 		(pts
-			(xy 27.94 59.69) (xy 50.8 59.69)
+			(xy 33.02 59.69) (xy 50.8 59.69)
 		)
 		(stroke
 			(width 0)
@@ -2893,7 +2893,7 @@
 	)
 	(wire
 		(pts
-			(xy 27.94 67.31) (xy 50.8 67.31)
+			(xy 33.02 67.31) (xy 50.8 67.31)
 		)
 		(stroke
 			(width 0)
@@ -3272,7 +3272,7 @@
 		(uuid "ff9fc7c1-2186-41f6-92a4-ffb4ab0b3646")
 	)
 	(label "Shield"
-		(at 33.02 59.69 90)
+		(at 38.1 59.69 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3282,7 +3282,7 @@
 		)
 		(uuid "11b45c1e-c376-4f1b-a116-9f5d6f721c6d")
 		(property "Net Class" "GND"
-			(at 34.29 59.69 90)
+			(at 39.37 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4567,7 +4567,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 27.94 67.31 180)
+		(at 33.02 67.31 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4578,7 +4578,7 @@
 		(fields_autoplaced yes)
 		(uuid "4c54c8bb-6584-4ee0-b7b1-575c97e21f3f")
 		(property "Reference" "TP202"
-			(at 30.48 69.3419 0)
+			(at 35.56 69.3419 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4589,7 +4589,7 @@
 			)
 		)
 		(property "Value" "TestPoint"
-			(at 30.48 71.8819 0)
+			(at 35.56 71.8819 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4600,7 +4600,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 22.86 67.31 0)
+			(at 27.94 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4611,7 +4611,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 22.86 67.31 0)
+			(at 27.94 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4622,7 +4622,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 27.94 67.31 0)
+			(at 33.02 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5229,7 +5229,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 27.94 63.5 0)
+		(at 33.02 63.5 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5240,7 +5240,7 @@
 		(fields_autoplaced yes)
 		(uuid "779a6066-2797-4fee-88d1-2250b1cec4c6")
 		(property "Reference" "R202"
-			(at 30.48 62.2299 0)
+			(at 35.56 62.2299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5251,7 +5251,7 @@
 			)
 		)
 		(property "Value" "1M"
-			(at 30.48 64.7699 0)
+			(at 35.56 64.7699 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5262,7 +5262,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 26.162 63.5 90)
+			(at 31.242 63.5 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5273,7 +5273,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 27.94 63.5 0)
+			(at 33.02 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5284,7 +5284,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 27.94 63.5 0)
+			(at 33.02 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

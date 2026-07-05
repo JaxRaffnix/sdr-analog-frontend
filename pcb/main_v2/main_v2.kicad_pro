@@ -702,6 +702,9 @@
       "/receiver/downconverted Rx 1": [
         "High Speed 50Ohm"
       ],
+      "/receiver/f = 2.4 GHz": [
+        "High Speed 50Ohm"
+      ],
       "/receiver/f_sdr = 0.9 GHz": [
         "High Speed 50Ohm"
       ],
@@ -760,6 +763,27 @@
         "High Speed 50Ohm"
       ],
       "Carrier Frequency: Tx": [
+        "High Speed 50Ohm"
+      ],
+      "Net-(FL401-IN{slash}OUT)": [
+        "High Speed 50Ohm"
+      ],
+      "Net-(FL401-_IN{slash}OUT)": [
+        "High Speed 50Ohm"
+      ],
+      "Net-(FL402-RF_IN)": [
+        "High Speed 50Ohm"
+      ],
+      "Net-(FL402-RF_OUT)": [
+        "High Speed 50Ohm"
+      ],
+      "Net-(IC401-LO)": [
+        "High Speed 50Ohm"
+      ],
+      "Net-(IC402-IN)": [
+        "High Speed 50Ohm"
+      ],
+      "Net-(IC402-OUT)": [
         "High Speed 50Ohm"
       ],
       "USB Power": [
@@ -1077,7 +1101,7 @@
         "uuid": "0599865e-4bed-44f1-b46e-4b55335b49b2"
       }
     ],
-    "used_designators": "C408,U601",
+    "used_designators": "C408,C601-617,U601,#PWR601-614,R601-604,IC601",
     "variants": []
   },
   "sheets": [
@@ -1104,6 +1128,10 @@
     [
       "87c8c23a-5063-4def-b6c3-72078f0eafd4",
       "oscillator2"
+    ],
+    [
+      "647b90a7-2af9-4750-95f9-1b3f769199f2",
+      "IO Interface"
     ]
   ],
   "text_variables": {},
