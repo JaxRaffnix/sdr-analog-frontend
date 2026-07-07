@@ -49,6 +49,9 @@ def _(mo):
 
 @app.cell
 def _(mixer, mo, ox_freq, ox_power, temp):
+    mixer.lo_freq = ox_freq.value 
+    mixer.lo_power = ox_power.value
+
     lpf_model = temp.TableModel([
         [100.0, 0.07], [500.0, 0.21], [1000.0, 0.41], [1500.0, 0.62], 
         [1850.0, 0.86], [2000.0, 1.21], [2450.0, 32.51], [9000.0, 19.80]
