@@ -8,9 +8,9 @@ app = marimo.App(width="medium")
 def _():
     import marimo as mo
 
-    import temp as temp
-    # import components as components
-    return mo, temp
+    import models as md
+
+    return md, mo
 
 
 @app.cell
@@ -25,9 +25,11 @@ def _(mo):
 
 
 @app.cell
-def _(temp):
-    mixer =  temp.Mixer("Mixer ", "RMS-30+", conversion_loss_db=7.5)
-    return (mixer,)
+def _(md):
+    mixer =  md.Mixer("Mixer ", "RMS-30+", conversion_loss_db=7.5)
+
+    bandpass = md.Filter("Bandpass", "2450BP", loss_model=1.2, passband_min=2400.0, passband_max=2500.0, rejection_db=40.0)
+    return bandpass, mixer
 
 
 @app.cell(hide_code=True)
@@ -48,92 +50,51 @@ def _(mo):
 
 
 @app.cell
-def _(mixer, mo, ox_freq, ox_power, temp):
+def _(md, mixer, mo, ox_freq, ox_power):
     mixer.lo_freq = ox_freq.value 
     mixer.lo_power = ox_power.value
 
-    lpf_model = temp.TableModel([
+    lpf_model = md.TableModel([
         [100.0, 0.07], [500.0, 0.21], [1000.0, 0.41], [1500.0, 0.62], 
         [1850.0, 0.86], [2000.0, 1.21], [2450.0, 32.51], [9000.0, 19.80]
     ])
-    psa4_model = temp.AmplifierModel(
+    psa4_model = md.AmplifierModel(
         gain_data=[[0.05, 25.4], [0.5, 22.1], [1.0, 18.4], [2.0, 13.3], [3.0, 10.2], [4.0, 8.0]],
         oip3_data=[[0.05, 31.0], [0.5, 32.1], [1.0, 33.5], [2.0, 32.7], [3.0, 33.6], [4.0, 32.6]],
         p1db_data=[[0.05, 18.9], [0.5, 19.3], [1.0, 19.8], [2.0, 20.7], [3.0, 21.2], [4.0, 21.5]]
     )
 
     path = [
-        temp.PLLADF4351("PLL", "ADF4351", freq_mhz=ox_freq.value, output_power_dbm=ox_power.value),
-        temp.Filter("Balun", "XMB0220K1", loss_model=-5.0),
-        temp.Filter("Low Pass","LFCN-1800+", loss_model=lpf_model),
-        temp.Filter("Power Splitter", "PD0922J5050D2HF", loss_model=-3.71),
-        temp.Amplifier("Amp", "PSA4-5043+", psa4_model, voltage=5.0, current_typ_ma=58.0, current_max_ma=66.0),
-        mixer
+        md.PLLADF4351("PLL", "ADF4351", freq_mhz=ox_freq.value, output_power_dbm=ox_power.value),
+        md.Filter("Balun", "XMB0220K1", loss_model=-5.0),
+        md.Filter("Low Pass","LFCN-1800+", loss_model=lpf_model),
+        md.Filter("Power Splitter", "PD0922J5050D2HF", loss_model=-3.71),
+        md.Amplifier("Amp", "PSA4-5043+", psa4_model, voltage=5.0, current_typ_ma=58.0, current_max_ma=66.0),
+        # mixer
     ]
-    results = temp.run_simulation(path, temp.SpectrumSignal())
+    results_ox = md.run_simulation(path, md.SpectrumSignal())
 
-    temp.print_system_health(results)
+    md.print_system_health(results_ox)
 
-    df_matrix = temp.create_frequency_matrix(results)
-
-
-    comp_names = [c["name"] for c in results]
-    selected_comp = mo.ui.dropdown(options=comp_names, value=comp_names[0], label="Select Stage:")
-    return df_matrix, results, selected_comp
+    df_matrix_ox = md.create_frequency_matrix(results_ox)
 
 
-@app.cell
-def _(df_matrix, temp):
-    temp.style_rf_matrix(df_matrix)
-    return
+    comp_names_ox = [c["name"] for c in results_ox]
+    selected_comp_ox = mo.ui.dropdown(options=comp_names_ox, value=comp_names_ox[0], label="Select Stage:")
+
+    # if lo_final_power < 6.5 or lo_final_power > 10.0:
+    #     mixer_warning = f"\n> <span style='color:orange;'>⚠️ **LO POWER WARNUNG:** Der RMS-30+ Mixer benötigt +7 dBm. Aktuell liefert der Pfad **{lo_final_power:.2f} dBm**.</span>\n"
+    return df_matrix_ox, results_ox, selected_comp_ox
 
 
 @app.cell
-def _(df_matrix, mo, results, selected_comp, temp):
+def _(df_matrix_ox, md, mo, results_ox, selected_comp_ox):
     mo.vstack([
-        temp.style_rf_matrix(df_matrix),
-        selected_comp,
-        temp.plot_spectrum(results, selected_comp.value),
+        md.style_rf_matrix(df_matrix_ox),
+        selected_comp_ox,
+        md.plot_spectrum(results_ox, selected_comp_ox.value),
     ])
     return
-
-
-@app.cell
-def _(
-    amplifier_ox,
-    balun,
-    components,
-    low_pass_ox,
-    mo,
-    ox_freq,
-    ox_power,
-    splitter,
-):
-    ox_signal = components.SpectrumSignal(tones={ox_freq.value: ox_power.value})
-
-    ox_components = [
-        balun,
-        low_pass_ox,
-        splitter,
-        amplifier_ox
-    ]
-
-    osc_md, final_lo_signal = components.analyze_system("Oszillator Pfad", ox_signal, ox_components)
-    lo_final_power = final_lo_signal.total_power_dbm()
-
-    mixer_warning = ""
-    if lo_final_power < 6.5 or lo_final_power > 10.0:
-        mixer_warning = f"\n> <span style='color:orange;'>⚠️ **LO POWER WARNUNG:** Der RMS-30+ Mixer benötigt +7 dBm. Aktuell liefert der Pfad **{lo_final_power:.2f} dBm**.</span>\n"
-
-    mo.md(osc_md)
-    return
-
-
-@app.cell
-def _(components):
-
-    bandpass = components.Filter("Bandpass", "2450BP", passband_min=2400.0, passband_max=2500.0, insertion_loss_db=-1.2, rejection_db=40.0),
-    return (bandpass,)
 
 
 @app.cell(hide_code=True)
@@ -154,19 +115,33 @@ def _(mo):
 
 
 @app.cell
-def _(components, mixer, mo, tx_freq, tx_power):
-    # Tx Spektrum (inklusive einer simulierten 2. Harmonischen des DACs bei -40 dBc)
-    tx_start = components.SpectrumSignal({tx_freq.value: tx_power.value, (tx_freq.value * 2): (tx_power.value - 40.0)})
-
-    tx_components = [
+def _(bandpass, md, mixer, mo, tx_freq, tx_power):
+    tx_path = [ 
+        md.RFSoC_SDR("Tx DAC", "RFSoC_SDR",freq_mhz=tx_freq.value,output_power_dbm=tx_power.value),
         mixer,
-        components.Filter("Bandpass "," 2450BP", passband_min=2400.0, passband_max=2500.0, insertion_loss_db=-1.2, rejection_db=45.0),
-        components.Amplifier("PA", "SE2576L-R", gain_db=28.0, voltage_v=3.3, current_typ_ma=450.0, current_max_ma=600.0, 
-                  max_input_dbm=12.0, p1db_dbm=32.0, oip3_dbm=40.0)
+        bandpass,
+        md.Amplifier("PA", "SE2576L-R", model=28.0, p1db_dbm=32.0, oip3_dbm=40.0, voltage=3.3, current_typ_ma=450)
     ]
 
-    tx_md, _ = components.analyze_system("Transmitter Pfad (Tx)", tx_start, tx_components)
-    mo.md(tx_md)
+    tx_results = md.run_simulation(tx_path, md.SpectrumSignal())
+
+    md.print_system_health(tx_results)
+
+    df_matrix_tx = md.create_frequency_matrix(tx_results)
+
+
+    comp_names_tx = [c["name"] for c in tx_results]
+    selected_comp_tx = mo.ui.dropdown(options=comp_names_tx, value=comp_names_tx[0], label="Select Stage:")
+    return df_matrix_tx, selected_comp_tx, tx_results
+
+
+@app.cell
+def _(df_matrix_tx, md, mo, selected_comp_tx, tx_results):
+    mo.vstack([
+        md.style_rf_matrix(df_matrix_tx),
+        selected_comp_tx,
+        md.plot_spectrum(tx_results, selected_comp_tx.value),
+    ])
     return
 
 
@@ -191,19 +166,41 @@ def _(mo):
 
 
 @app.cell
-def _(bandpass, components, mixer, mo, rx_f1, rx_f2, rx_p1, rx_p2):
-    rx_start = components.SpectrumSignal({rx_f1.value: rx_p1.value, rx_f2.value: rx_p2.value})
+def _(bandpass, md, mixer, mo, rx_f1, rx_f2, rx_p1, rx_p2):
+    rx_input = md.AntennaSource("Antenna")
+    rx_input.add_signal(rx_f1.value, rx_p1.value)    # Wanted signal at -90 dBm
+    rx_input.add_signal(rx_f2.value, rx_p2.value)    # Strong interferer (blocker) at 2460 MHz
+    rx_input.add_thermal_noise(bandwidth_mhz=20.0)
 
-    rx_components = [
+
+    path_rx = [
+        rx_input,
         bandpass,
-        components.Amplifier("LNA", "HMC374", gain_db=9.0, voltage_v=5.0, current_typ_ma=90.0, current_max_ma=110.0, 
+        md.Amplifier("LNA", "HMC374", model=9.0, voltage=5.0, current_typ_ma=90.0, current_max_ma=110.0, 
                   max_input_dbm=13.0, p1db_dbm=22.0, oip3_dbm=37.0),
        mixer,
-        components.Filter("Bandpass ", "SYBP-92+", passband_min=800.0, passband_max=1000.0, insertion_loss_db=-2.24, rejection_db=40.0)
+        md.Filter("Bandpass ", "SYBP-92+", passband_min=800.0, passband_max=1000.0, loss_model=-2.24, rejection_db=40.0)
     ]
 
-    rx_md, _ = components.analyze_system("Receiver Pfad (Rx)", rx_start, rx_components)
-    mo.md(rx_md)
+    results_rx = md.run_simulation(path_rx, md.SpectrumSignal())
+
+    md.print_system_health(results_rx)
+
+    df_matrix_rx = md.create_frequency_matrix(results_rx)
+
+
+    comp_names_rx = [c["name"] for c in results_rx]
+    selected_comp_rx = mo.ui.dropdown(options=comp_names_rx, value=comp_names_rx[0], label="Select Stage:")
+    return df_matrix_rx, results_rx, selected_comp_rx
+
+
+@app.cell
+def _(df_matrix_rx, md, mo, results_rx, selected_comp_rx):
+    mo.vstack([
+        md.style_rf_matrix(df_matrix_rx),
+        selected_comp_rx,
+        md.plot_spectrum(results_rx, selected_comp_rx.value),
+    ])
     return
 
 

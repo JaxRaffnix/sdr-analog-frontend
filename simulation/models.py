@@ -136,22 +136,37 @@ class RFComponent:
 
 
 class Amplifier(RFComponent):
-    def __init__(self, name, part_number, model, voltage=5.0, current_typ_ma=58.0, current_max_ma=66.0, **kwargs):
-        super().__init__(name, part_number, **kwargs)
-        self.model = model
+    def __init__(self, name, part_number, model, voltage=5.0, current_typ_ma=58.0, 
+                 current_max_ma=66.0, p1db_dbm=100.0, oip3_dbm=100.0, max_input_dbm=20.0, **kwargs):
+        super().__init__(name, part_number,  **kwargs)
+        self.model = model  # Can be a model object or a fixed gain (float/int)
+        self.voltage = voltage
+        self.current_typ_ma = current_typ_ma
         self.current_max_ma = current_max_ma
+        self.p1db_dbm = p1db_dbm
+        self.oip3_dbm = oip3_dbm
+        self.max_input_power_dbm = max_input_dbm
 
+    # --- Helper methods to support both Model Objects and Fixed Values ---
+    def _get_gain(self, freq):
+        return self.model.get_gain(freq) if hasattr(self.model, 'get_gain') else self.model
+
+    def _get_p1db(self, freq_ghz):
+        return self.model.get_p1db(freq_ghz) if hasattr(self.model, 'get_p1db') else self.p1db_dbm
+
+    def _get_oip3(self, freq):
+        return self.model.get_oip3(freq) if hasattr(self.model, 'get_oip3') else self.oip3_dbm
+
+    # --- Processing Logic ---
     def check_compression(self, signal, output_power_dbm):
         """Checks if output power is pushing the amp into saturation."""
-        # Get P1dB at the signal frequency
         center_f = list(signal.tones.keys())[0] if signal.tones else 1000.0
-        p1db = self.model.get_p1db(center_f / 1000.0) # convert MHz to GHz
+        p1db = self._get_p1db(center_f / 1000.0) # convert MHz to GHz
         
-        # Check against P1dB
         headroom = p1db - output_power_dbm
         
         if output_power_dbm >= p1db:
-            self.warnings.append(f"CRITICAL: Amp in saturation! Pout ({output_power_dbm:.1f} dBm) >= P1dB ({p1db:.1f} dBm)")
+            self.warnings.append(f"CRITICAL: Amp '{self.name}' in saturation! Pout ({output_power_dbm:.1f} dBm) >= P1dB ({p1db:.1f} dBm)")
         elif headroom < 1.0:
             self.warnings.append(f"WARNING: Compression! Pout is {headroom:.1f} dB from P1dB. Expect high distortion.")
 
@@ -162,39 +177,61 @@ class Amplifier(RFComponent):
         # 1. Apply Gain
         out_tones = {}
         for f, p in signal.tones.items():
-            gain = self.model.get_gain(f)
+            gain = self._get_gain(f)
             out_tones[f] = p + gain
 
-        # 3. Compression Check
-        pout = signal.total_power_dbm()
+        # 2. Compression Check
+        # We check based on total power at the output
+        temp_signal = SpectrumSignal(out_tones)
+        pout = temp_signal.total_power_dbm()
         self.check_compression(signal, pout)
             
         # 3. Apply Non-Linearity (IM3)
-        # We assume OIP3 is roughly constant or taken at the center freq
         center_f = list(signal.tones.keys())[0] if signal.tones else 0
-        oip3 = self.model.get_oip3(center_f)
+        oip3 = self._get_oip3(center_f)
         
-        temp_signal = SpectrumSignal(out_tones)
         final_tones = _apply_im3(temp_signal, oip3)
         
         return SpectrumSignal(final_tones), self.warnings
 
 
 class Filter(RFComponent):
-    def __init__(self, name, part_number, loss_model, **kwargs):
+    def __init__(self, name, part_number, loss_model=None, 
+                 passband_min=None, passband_max=None, rejection_db=None, **kwargs):
         super().__init__(name, part_number, **kwargs)
         self.loss_model = loss_model
-    
+        
+        # New Bandpass parameters
+        self.passband_min = passband_min
+        self.passband_max = passband_max
+        self.rejection_db = abs(rejection_db) if rejection_db else None
+
     def process(self, signal: SpectrumSignal):
-        self.warnings = []
         out_tones = {}
         
         for f, p in signal.tones.items():
-            # Support both static float loss or a function/model
-            loss = self.loss_model(f) if callable(self.loss_model) else self.loss_model
-            out_tones[f] = p - abs(loss) # Assuming loss is positive input
+            # 1. BANDPASS LOGIC (If configured)
+            if self.passband_min is not None and self.passband_max is not None:
+                if self.passband_min <= f <= self.passband_max:
+                    # Inside passband: Apply normal loss_model
+                    out_tones[f] = self._apply_loss(f, p)
+                else:
+                    # Outside passband: Apply Rejection
+                    out_tones[f] = p - self.rejection_db
             
-        return SpectrumSignal(out_tones), self.warnings
+            # 2. STANDARD FILTER LOGIC
+            else:
+                out_tones[f] = self._apply_loss(f, p)
+                
+        return SpectrumSignal(out_tones), []
+
+    def _apply_loss(self, freq, pwr):
+        """Helper to handle both static loss and TableModel loss."""
+        if isinstance(self.loss_model, (int, float)):
+            return pwr - abs(self.loss_model)
+        elif hasattr(self.loss_model, 'get_loss'): # Assuming TableModel has this
+            return pwr - self.loss_model.get_loss(freq)
+        return pwr
     
 
 class Mixer(RFComponent):
@@ -220,10 +257,6 @@ class Mixer(RFComponent):
         # Initialize output with LO Leakage
         out_tones = {self.lo_freq: self.lo_power - self.lo_rf_iso}
         
-        print(f"--- Mixer Input ---")
-        for f, p in signal.tones.items():
-            print(f"Input Tone: {f} MHz @ {p:.2f} dBm")
-
         for f, p in signal.tones.items():
             # A. IF-RF Feedthrough (Original signal leakage)
             # Use mW summation to handle potential overlapping frequencies
@@ -235,10 +268,6 @@ class Mixer(RFComponent):
             conv_p = p - self.conversion_loss_db
             _merge_tone(out_tones, f + self.lo_freq, conv_p)
             _merge_tone(out_tones, abs(f - self.lo_freq), conv_p)
-
-        print(f"--- Mixer Output ---")
-        for f, p in out_tones.items():
-            print(f"Output Tone: {f} MHz @ {p:.2f} dBm")
             
         return SpectrumSignal(out_tones), self.warnings
 
@@ -276,7 +305,7 @@ class AmplifierModel:
     
 
 # ___________________________________________________________________
-# Components
+# Signal Sources
 class PLLADF4351(RFComponent):
     MIN_FREQ = 35.0 # MHz
     MAX_FREQ = 4400.0
@@ -310,6 +339,67 @@ class PLLADF4351(RFComponent):
         signal = SpectrumSignal(_apply_spurs(signal, self.spur_spacing_mhz, self.spur_level_dbc))
         
         return signal, []
+    
+
+class RFSoC_SDR(RFComponent):
+    MIN_POWER = -18.5  # dBm
+    MAX_POWER = 6.5    # dBm
+    
+    def __init__(self, name, part_number, freq_mhz=1500.0, output_power_dbm=0.0, 
+                 spur_level_dbc=-60.0, **kwargs):
+        # Pass the RFSoC current limit to the base class
+        super().__init__(name, part_number, **kwargs)
+        self.freq_mhz = freq_mhz
+        self.output_power_dbm = output_power_dbm
+        self.spur_level_dbc = spur_level_dbc
+        # DACs usually have harmonics, often lower than PLLs
+        self.harmonics_map = {2: -35, 3: -45} 
+
+    def _validate_settings(self):
+        """Checks if the SDR power settings are within datasheet limits."""
+        self.warnings = []
+        if not (self.MIN_POWER <= self.output_power_dbm <= self.MAX_POWER):
+            self.warnings.append(
+                f"Power out of range: {self.output_power_dbm:.1f} dBm "
+                f"(Limit: {self.MIN_POWER} to {self.MAX_POWER} dBm)"
+            )
+
+    def process(self, signal=None):
+        self._validate_settings()
+        
+        # 1. Create base signal
+        signal = SpectrumSignal({self.freq_mhz: self.output_power_dbm})
+        
+        # 2. Apply Imperfections (Harmonics & Spurs)
+        signal = SpectrumSignal(_apply_harmonics(signal, self.harmonics_map))
+        # Assuming your helper function _apply_spurs exists
+        signal = SpectrumSignal(_apply_spurs(signal, self.freq_mhz, self.spur_level_dbc))
+        
+        return signal, self.warnings
+    
+
+class AntennaSource(RFComponent):
+    def __init__(self, name, temp_k=290.0):
+        super().__init__(name, "Antenna")
+        self.temp_k = temp_k # Kelvin
+        self.tones = {}
+
+    def add_signal(self, freq_mhz, power_dbm):
+        """Adds a wanted signal or an interferer."""
+        self.tones[freq_mhz] = power_dbm
+        return self
+
+    def add_thermal_noise(self, bandwidth_mhz):
+        """Adds thermal noise floor: -174 dBm/Hz + 10*log10(BW)."""
+        # Noise (dBm) = -174 + 10*log10(BW_in_Hz)
+        bw_hz = bandwidth_mhz * 1e6
+        noise_floor_dbm = -174 + 10 * math.log10(bw_hz)
+        self.tones[0.0] = noise_floor_dbm # Or apply to a range of frequencies
+        return self
+
+    def process(self, signal=None):
+        # Returns the composite signal as the start of the RX path
+        return SpectrumSignal(self.tones), []
 
 # ___________________________________________________________________
 # Run Simulation Function
