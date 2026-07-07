@@ -2056,6 +2056,16 @@
 		)
 		(uuid "46d9bf11-4594-4c66-a8eb-c4b9e904d417")
 	)
+	(text "Imax = 200mA"
+		(exclude_from_sim no)
+		(at 170.18 126.492 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "4bf1225c-7294-41d4-b751-2af30876017a")
+	)
 	(text "3.3V LDO"
 		(exclude_from_sim no)
 		(at 52.832 112.776 0)

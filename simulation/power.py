@@ -71,7 +71,7 @@ def _(md, mixer, mo, ox_freq, ox_power):
             freq_mhz=ox_freq.value, output_power_dbm=ox_power.value, freq_range=md.Range(35.0, 4400.0), power_range=md.Range(-4.0, 5.0), 
             harmonics={2: -20.0, 3: -10.0}, 
             pfd_freq_mhz=32, spur_level_dbc=80,
-            power_rail = md.PowerRail(3.3, 437.0, 679.0)    
+            power_rail = md.PowerRail(3.3, 125.0, 179.0)    
         ),
         md.Filter("Balun", "XMB0220K1", insertion_loss=5.0),
         md.Filter("Low Pass","LFCN-1800+", insertion_loss=lfcn_model),
@@ -112,18 +112,19 @@ def _(mo):
 def _(mo):
     tx_freq = mo.ui.slider(start=800.0, stop=1100.0, step=1.0, value=950.0, label="Tx DAC Freq (MHz)", show_value=True)
     tx_power = mo.ui.slider(start=-18.5, stop=6.5, step=0.5, value=6.5, label="Tx DAC Power (dBm)", show_value=True)
+    tx_sample_freq = mo.ui.slider(start=500.0, stop=7000.0, step=500.0, value=6000.0, label="Tx DAC Sample Freq (MHz)", show_value=True)
 
-    mo.vstack([tx_freq, tx_power])
-    return tx_freq, tx_power
+    mo.vstack([tx_freq, tx_power, tx_sample_freq])
+    return tx_freq, tx_power, tx_sample_freq
 
 
 @app.cell
-def _(bandpass, md, mixer, mo, tx_freq, tx_power):
+def _(bandpass, md, mixer, mo, tx_freq, tx_power, tx_sample_freq):
     path_tx = [ 
-        md.Source("Tx DAC", "RFSoC_SDR",freq_mhz=tx_freq.value,output_power_dbm=tx_power.value),
+        md.Source("Tx DAC", "RFSoC_SDR",freq_mhz=tx_freq.value,output_power_dbm=tx_power.value, fs_mhz=tx_sample_freq.value, power_range=md.Range(-18.5, 6.5), freq_range=md.Range(800.0, 1100.0)),
         mixer,
         bandpass,
-        md.Amplifier("PA", "SE2576L-R", gain_model=28.0, p1db_dbm=32.0, oip3_dbm=40.0, power_rail=md.PowerRail(voltage=3.3, current_typ_ma=500, current_max_ma=650))
+        md.Amplifier("PA", "SE2576L-R", gain_model=28.0, p1db_dbm=32.0, oip3_dbm=40.0, power_rail=md.PowerRail(voltage=5.0, current_typ_ma=500, current_max_ma=650))
     ]
     results_tx = md.run_simulation(path_tx, md.SpectrumSignal())
     df_matrix_tx = md.create_frequency_matrix(results_tx)
@@ -220,10 +221,12 @@ def _(mo):
 
 @app.cell
 def _(md, mo, path_ox, path_rx, path_tx):
-    mo.vstack([
-        md.calculate_system_budget(path_ox + path_tx + path_rx),
-    ])
+    tcxo = md.RFComponent(name="TCXO", part_number="ATX-11-F-26.000MHZ-F05-T", power_rail=md.PowerRail(voltage=3.3, current_typ_ma=2.0, current_max_ma=2.5))
+    path_additional = [tcxo]
 
+    mo.vstack([
+        md.calculate_system_budget(path_ox + path_tx + path_rx + path_additional),
+    ])
     return
 
 

@@ -4,6 +4,7 @@ import itertools
 import numpy as np
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import pandas as pd
 from typing import Callable
 
@@ -89,32 +90,8 @@ def _merge_tone(tones_dict, freq, power_dbm):
 
 # ___________________________________________________________________
 # Signal Processing
-def _apply_im3(signal, oip3_dbm, threshold_dbm=-60):
-    """Calculates IM3 products and returns a new dictionary of tones."""
-    new_tones = signal.tones.copy()
-    
-    # Only process signals above the threshold to improve performance and realism
-    active_tones = [t for t in signal.tones.items() if t[1] > threshold_dbm]
-    
-    if len(active_tones) < 2:
-        return new_tones
 
-    for (f1, p1), (f2, p2) in itertools.combinations(active_tones, 2):
-        # Calculate IM3 frequencies
-        f_im3a, f_im3b = abs(2 * f1 - f2), abs(2 * f2 - f1)
-        
-        # IM3 Power = 2*P1 + P2 - 2*OIP3
-        p_im3 = 2 * p1 + p2 - (2 * oip3_dbm)
-        
-        # Add products to spectrum
-        if p_im3 > threshold_dbm:
-            total_mw_a = _dbm_to_mw(new_tones.get(f_im3a, -999)) + _dbm_to_mw(p_im3)
-            new_tones[f_im3a] = _mw_to_dbm(total_mw_a)
-            
-            total_mw_b = _dbm_to_mw(new_tones.get(f_im3b, -999)) + _dbm_to_mw(p_im3)
-            new_tones[f_im3b] = _mw_to_dbm(total_mw_b)
-            
-    return new_tones
+
 
 
 # ___________________________________________________________________
@@ -153,8 +130,8 @@ class RFComponent:
             "voltage": rail.voltage,
             "current_typ_ma": rail.current_typ_ma,
             "current_max_ma": rail.current_max_ma,
-            "power_typ_mw": rail.voltage * rail.current_typ_ma,
-            "power_max_mw": rail.voltage * rail.current_max_ma,
+            "power_typ_mw": round(rail.voltage * rail.current_typ_ma, 2),
+            "power_max_mw": round(rail.voltage * rail.current_max_ma, 2),
         }
 
     def process(self, signal):
@@ -182,6 +159,33 @@ class Amplifier(RFComponent):
         return self.gain_model.get_p1db(freq) if hasattr(self.gain_model, "get_p1db") else self.p1db_dbm
     def _get_oip3(self, freq):
         return self.gain_model.get_oip3(freq) if hasattr(self.gain_model, "get_oip3") else self.oip3_dbm
+    
+    def _apply_im3(self, signal, oip3_dbm, threshold_dbm=-60):
+        """Calculates IM3 products and returns a new dictionary of tones."""
+        new_tones = signal.tones.copy()
+        
+        # Only process signals above the threshold to improve performance and realism
+        active_tones = [t for t in signal.tones.items() if t[1] > threshold_dbm]
+        
+        if len(active_tones) < 2:
+            return new_tones
+
+        for (f1, p1), (f2, p2) in itertools.combinations(active_tones, 2):
+            # Calculate IM3 frequencies
+            f_im3a, f_im3b = abs(2 * f1 - f2), abs(2 * f2 - f1)
+            
+            # IM3 Power = 2*P1 + P2 - 2*OIP3
+            p_im3 = 2 * p1 + p2 - (2 * oip3_dbm)
+            
+            # Add products to spectrum
+            if p_im3 > threshold_dbm:
+                total_mw_a = _dbm_to_mw(new_tones.get(f_im3a, -999)) + _dbm_to_mw(p_im3)
+                new_tones[f_im3a] = _mw_to_dbm(total_mw_a)
+                
+                total_mw_b = _dbm_to_mw(new_tones.get(f_im3b, -999)) + _dbm_to_mw(p_im3)
+                new_tones[f_im3b] = _mw_to_dbm(total_mw_b)
+                
+        return new_tones
 
     def check_compression(self, signal):
         center_f = signal.center_frequency()
@@ -218,7 +222,7 @@ class Amplifier(RFComponent):
         # 3. Apply Non-Linearity (IM3)
         center_f = signal.center_frequency()
         oip3 = self._get_oip3(center_f)        
-        final_tones = _apply_im3(temp_signal, oip3)
+        final_tones = self._apply_im3(temp_signal, oip3)
         
         return SpectrumSignal(final_tones)
 
@@ -444,7 +448,7 @@ class Source(RFComponent):
         harmonics=None,
         pfd_freq_mhz=None,
         spur_level_dbc=None,
-        dc=None,
+        fs_mhz=None,
         **kwargs,
     ):
         super().__init__(name, part_number, **kwargs)
@@ -455,7 +459,7 @@ class Source(RFComponent):
         self.harmonics = harmonics or {}
         self.pfd_freq_mhz  = pfd_freq_mhz
         self.spur_level_dbc = spur_level_dbc
-        self.dc = dc
+        self.fs_mhz = fs_mhz
 
     def check_range(self):
         if self.freq_range is not None and not self.freq_range.contains(self.freq_mhz):
@@ -470,7 +474,32 @@ class Source(RFComponent):
                 f"range {self.power_range.minimum:.1f}-"
                 f"{self.power_range.maximum:.1f} dBm"
             )
-    
+
+    def _apply_sinc_roll_off(self, signal, fs_mhz):
+        """Applies the DAC sinc(x) roll-off: sin(pi*f/fs) / (pi*f/fs)"""
+        tones = signal.tones.copy()
+        for f, p in tones.items():
+            if f > 0:
+                sinc_val = np.sin(np.pi * f / fs_mhz) / (np.pi * f / fs_mhz)
+                loss_db = 20 * np.log10(abs(sinc_val))
+                tones[f] = p + loss_db
+        return SpectrumSignal(tones)
+
+
+    def _apply_images(self, signal, fs_mhz):
+        tones = signal.tones.copy()
+        carrier_power = signal.tones[self.freq_mhz]
+        
+        # Typical DAC image suppression is 40-60 dBc depending on filtering
+        image_suppression = -50 
+        
+        # First Nyquist zone images
+        images = [fs_mhz - self.freq_mhz, fs_mhz + self.freq_mhz]
+        for img_f in images:
+            if img_f > 0:
+                _merge_tone(tones, img_f, carrier_power + image_suppression)
+        return SpectrumSignal(tones)
+        
     def _apply_harmonics(self, signal):
         tones = signal.tones.copy()
         for f_fund, p_fund in signal.tones.items():
@@ -511,6 +540,10 @@ class Source(RFComponent):
         if self.spur_level_dbc is not None:
             signal = self._apply_spurs(signal)
 
+        if hasattr(self, 'fs_mhz') and self.fs_mhz:
+            signal = self._apply_sinc_roll_off(signal, self.fs_mhz)
+            signal = self._apply_images(signal, self.fs_mhz)
+
         return signal
     
 
@@ -540,53 +573,46 @@ class AntennaSource(RFComponent):
 # ___________________________________________________________________
 # DC Power Calculation
 def calculate_system_budget(components):
-    # 1. Extract reports concisely
     reports = [c.dc_power_report() for c in components if c.dc_power_report()]
     if not reports:
         return None
 
-    df = pd.DataFrame(reports)
-
-    # 2. Rename columns for clean display
-    df = df.rename(columns={
+    df = pd.DataFrame(reports).rename(columns={
         "voltage": "Voltage [V]",
-        "component": "Component",
+        "part_number": "part_number",
         "current_typ_ma": "Current typ [mA]",
         "current_max_ma": "Current max [mA]",
         "power_typ_mw": "Power typ [mW]",
         "power_max_mw": "Power max [mW]",
     })
 
-    # 3. Group by voltage and inject a subtotal row for each rail
-    rows_with_subtotals = []
-    
+    rows = []
     for voltage, group in df.groupby("Voltage [V]"):
-        # Add the individual devices for this rail
-        rows_with_subtotals.append(group)
-        
-        # Add a subtotal row
-        subtotal = pd.DataFrame({
+        rows.append(group)        
+        rows.append(pd.DataFrame({
             "Voltage [V]": [voltage],
-            "Component": [f"↳ {voltage}V RAIL TOTAL"],
+            "part_number": [f"↳ {voltage}V RAIL TOTAL"],
             "Current typ [mA]": [group["Current typ [mA]"].sum()],
             "Current max [mA]": [group["Current max [mA]"].sum()],
             "Power typ [mW]": [group["Power typ [mW]"].sum()],
             "Power max [mW]": [group["Power max [mW]"].sum()]
-        })
-        rows_with_subtotals.append(subtotal)
+        }))
 
-    # 4. Combine everything
-    final_df = pd.concat(rows_with_subtotals, ignore_index=True)
+    # Calculate Grand Total
+    grand_total = pd.DataFrame({
+        "Voltage [V]": ["SYSTEM"],
+        "part_number": ["GRAND TOTAL"],
+        "Current typ [mA]": [df["Current typ [mA]"].sum()],
+        "Current max [mA]": [df["Current max [mA]"].sum()],
+        "Power typ [mW]": [df["Power typ [mW]"].sum()],
+        "Power max [mW]": [df["Power max [mW]"].sum()]
+    })
+    rows.append(grand_total)
 
-    # 5. Set a MultiIndex to visually nest the devices under their voltage rail
-    # We drop part_number here to keep the visual focus on current/power, 
-    # but you can easily add it back to the index if needed.
-    final_df = final_df.set_index(["Voltage [V]", "Component"])
+    final_df = pd.concat(rows, ignore_index=True)
+    final_df = final_df.set_index(["Voltage [V]", "part_number"]).round(2)
     
-    # Optional: Keep only the columns you care about most
-    columns_to_show = ["Current typ [mA]", "Current max [mA]", "Power typ [mW]", "Power max [mW]"]
-    
-    return final_df[columns_to_show]
+    return final_df[["Current typ [mA]", "Current max [mA]", "Power typ [mW]", "Power max [mW]"]]
 
 # ___________________________________________________________________
 # Run Simulation Function
@@ -621,32 +647,51 @@ def format_simulation_results(log):
         for stage in log
     ])
 
-
+# ___________________________________________________________________
+# plotting
 def plot_spectrum(log: list[StageResult], component: str):
+
     stage = next(s for s in log if s.name == component)
-
-    df = pd.DataFrame(
-        stage.tones.items(),
-        columns=["Frequency (MHz)", "Power (dBm)"],
+    df = (
+        pd.DataFrame(
+            stage.tones.items(),
+            columns=["Frequency (MHz)", "Power (dBm)"],
+        )
+        .assign(**{"Frequency (MHz)": lambda x: x["Frequency (MHz)"].round(0)})
+        .sort_values("Frequency (MHz)")
     )
 
-    fig = px.bar(
-        df,
-        x="Frequency (MHz)",
-        y="Power (dBm)",
-        title=f"Spectrum at {component}",
-        range_y=[-120, 20],
+    fig = go.Figure()
+
+    # Stem lines
+    for _, row in df.iterrows():
+        fig.add_trace(
+            go.Scatter(
+                x=[row["Frequency (MHz)"], row["Frequency (MHz)"]],
+                y=[-120, row["Power (dBm)"]],
+                mode="lines",
+                line=dict(width=2),
+                hoverinfo="skip",
+                showlegend=False,
+            )
+        )
+    fig.update_layout(
+        height=450,
+        xaxis=dict(title="Frequency [MHz]", showgrid=True, zeroline=False,),
+        yaxis=dict(title="Power [dBm]", range=[-120, 20], showgrid=True,),
+        title=dict(text=f"Spectrum at {component}",x=0.5,xanchor="center",)
     )
 
-    fig.update_traces(width=2)
     return fig
 
 
+# ___________________________________________________________________
+# table formatting
 def create_frequency_matrix(log):
+    # Get all frequencies, excluding DC (0.0 MHz)
     freqs = sorted({
-        f
-        for stage in log
-        for f in stage.tones
+        f for stage in log
+        for f in stage.tones if f > 0.1  # Filter out everything below 100 kHz
     })
 
     return (
@@ -667,11 +712,15 @@ def create_frequency_matrix(log):
 def style_rf_matrix(df):
     return (
         df.style
+        # Apply gradient only to the numerical values (exclude index)
         .background_gradient(
             cmap="viridis",
             axis=None,
             vmin=-80,
             vmax=10,
         )
+        # Use a dictionary or subset to ensure only cell values are formatted as dBm
         .format("{:.1f} dBm", na_rep="-")
+        # Explicitly format the index (frequencies) separately to avoid "dBm" units
+        .format_index("{:.2f}", axis=0) 
     )
