@@ -96,4 +96,28 @@ K
 F https://abracon.com/datasheets/ATX-11.pdf
 $ENDCMP
 #
+$CMP PSA4-5043+
+D Low Noise, High IP3 Monolithic Amplifier
+K
+F https://www.minicircuits.com/pdfs/PSA4-5043+.pdf
+$ENDCMP
+#
+$CMP LFCN-1800+
+D Low Pass Filter
+K
+F https://datasheet.datasheetarchive.com/originals/distributors/Datasheets-28/DSA-545743.pdf
+$ENDCMP
+#
+$CMP QPC6614TR13
+D 5 - 6000 MHz Serial Controlled Digital Step Attenuator, 6-Bit, 0.5 dB Steps
+K
+F https://www.qorvo.com/products/d/da000278
+$ENDCMP
+#
+$CMP 694106106102
+D WR-DCPJ_SMT_R/A_Plastic DCPowerJack_SMT_R/A_Plastic_CenterPin_ 2.0_4Sold.Pads
+K
+F https://www.we-online.com/catalog/datasheet/694106106102.pdf
+$ENDCMP
+#
 #End Doc Library

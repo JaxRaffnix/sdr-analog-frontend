@@ -585,12 +585,12 @@
         "via_drill": 0.3048
       },
       {
-        "clearance": 0.203,
-        "name": "High Speed 50Ohm",
+        "clearance": 0.9,
+        "name": "HF 50R",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 0,
-        "schematic_color": "rgb(163, 157, 6)",
-        "track_width": 0.27,
+        "schematic_color": "rgb(6, 181, 206)",
+        "track_width": 0.295,
         "tuning_profile": "",
         "via_diameter": 0.6096,
         "via_drill": 0.3048
@@ -617,6 +617,27 @@
       ],
       "+5V": [
         "Power"
+      ],
+      "/Oscillator Splitter/Oscillator In +": [
+        "HF 50R"
+      ],
+      "/Oscillator Splitter/Oscillator In -": [
+        "HF 50R"
+      ],
+      "/Oscillator Splitter/Oscillator Rx": [
+        "HF 50R"
+      ],
+      "/Oscillator Splitter/Oscillator Tx": [
+        "HF 50R"
+      ],
+      "/Oscillator Splitter/Rx": [
+        "HF 50R"
+      ],
+      "/Oscillator Splitter/Tx": [
+        "HF 50R"
+      ],
+      "/Phase locked loop/TCXO": [
+        "HF 50R"
       ],
       "/oscillator/Oscillator Rx": [
         "High Speed 50Ohm"
@@ -694,13 +715,16 @@
         "Power"
       ],
       "/receiver/Rx In": [
-        "High Speed 50Ohm"
+        "HF 50R"
       ],
       "/receiver/Rx In 1": [
         "High Speed 50Ohm"
       ],
+      "/receiver/Rx Out": [
+        "HF 50R"
+      ],
       "/receiver/amplified Rx": [
-        "High Speed 50Ohm"
+        "HF 50R"
       ],
       "/receiver/amplified Rx 1": [
         "High Speed 50Ohm"
@@ -733,7 +757,7 @@
         "High Speed 50Ohm"
       ],
       "/transmitter/Filtered Tx": [
-        "High Speed 50Ohm"
+        "HF 50R"
       ],
       "/transmitter/LO in": [
         "High Speed 50Ohm"
@@ -748,10 +772,13 @@
         "Power"
       ],
       "/transmitter/Tx In": [
-        "High Speed 50Ohm"
+        "HF 50R"
       ],
       "/transmitter/Tx In 1": [
         "High Speed 50Ohm"
+      ],
+      "/transmitter/Tx Out": [
+        "HF 50R"
       ],
       "/transmitter/Upconverted": [
         "High Speed 50Ohm"
@@ -774,44 +801,92 @@
       "Carrier Frequency: Tx": [
         "High Speed 50Ohm"
       ],
+      "GND": [
+        "GND"
+      ],
+      "Net-(C306-Pad2)": [
+        "HF 50R"
+      ],
+      "Net-(C613-Pad1)": [
+        "HF 50R"
+      ],
       "Net-(C624-Pad1)": [
-        "High Speed 50Ohm"
+        "HF 50R"
       ],
       "Net-(C625-Pad1)": [
-        "High Speed 50Ohm"
+        "HF 50R"
+      ],
+      "Net-(FL301-IN{slash}OUT)": [
+        "HF 50R"
       ],
       "Net-(FL401-IN{slash}OUT)": [
-        "High Speed 50Ohm"
+        "HF 50R"
       ],
       "Net-(FL401-_IN{slash}OUT)": [
-        "High Speed 50Ohm"
+        "HF 50R"
       ],
       "Net-(FL402-RF_IN)": [
-        "High Speed 50Ohm"
+        "HF 50R"
       ],
       "Net-(FL402-RF_OUT)": [
-        "High Speed 50Ohm"
+        "HF 50R"
+      ],
+      "Net-(IC301-RFOUT)": [
+        "HF 50R"
+      ],
+      "Net-(IC301-VCC1)": [
+        "Power"
+      ],
+      "Net-(IC302-IF)": [
+        "HF 50R"
+      ],
+      "Net-(IC302-LO)": [
+        "HF 50R"
+      ],
+      "Net-(IC302-RF)": [
+        "HF 50R"
+      ],
+      "Net-(IC401-IF)": [
+        "HF 50R"
       ],
       "Net-(IC401-LO)": [
-        "High Speed 50Ohm"
+        "HF 50R"
+      ],
+      "Net-(IC401-RF)": [
+        "HF 50R"
       ],
       "Net-(IC402-IN)": [
-        "High Speed 50Ohm"
+        "HF 50R"
       ],
       "Net-(IC402-OUT)": [
         "High Speed 50Ohm"
       ],
+      "Net-(IC601-RF-OUT_&_DC-IN)": [
+        "HF 50R"
+      ],
+      "Net-(IC601-RF_IN)": [
+        "HF 50R"
+      ],
+      "Net-(IC602-RF-OUT_&_DC-IN)": [
+        "HF 50R"
+      ],
+      "Net-(IC602-RF_IN)": [
+        "HF 50R"
+      ],
+      "Net-(U601-REFIN)": [
+        "HF 50R"
+      ],
       "Net-(U601-RF_OUT_A+)": [
-        "High Speed 50Ohm"
+        "HF 50R"
       ],
       "Net-(U601-RF_OUT_A-)": [
-        "High Speed 50Ohm"
+        "HF 50R"
       ],
       "Net-(U603-INPUT)": [
         "High Speed 50Ohm"
       ],
       "Net-(Y601-OUTPUT)": [
-        "High Speed 50Ohm"
+        "HF 50R"
       ],
       "USB Power": [
         "Power"
@@ -827,7 +902,7 @@
         "pattern": "+5V"
       },
       {
-        "netclass": "High Speed 50Ohm",
+        "netclass": "HF 50R",
         "pattern": "RF*"
       },
       {
@@ -835,11 +910,11 @@
         "pattern": "GND"
       },
       {
-        "netclass": "High Speed 50Ohm",
+        "netclass": "HF 50R",
         "pattern": "/oscillator/TCX 1"
       },
       {
-        "netclass": "High Speed 50Ohm",
+        "netclass": "HF 50R",
         "pattern": "/oscillator/TCX 2"
       }
     ]
@@ -1128,7 +1203,7 @@
         "uuid": "0599865e-4bed-44f1-b46e-4b55335b49b2"
       }
     ],
-    "used_designators": "C408,C601-604,C608-628,U601-603,R601,R605-618,L601-602,D601,#PWR601-603,#PWR605-608,#PWR611-636,Y601",
+    "used_designators": "IC601-602,R701-702,J101-105,J202-203,J701-702,L603-605,#PWR101-104,#PWR208,#PWR501-502,#PWR608,#PWR633-634,#PWR637-648,#PWR701-706,U602,U701,C404,C501-503,C629-634,FL601,H101-104,TP202",
     "variants": []
   },
   "sheets": [
@@ -1149,12 +1224,12 @@
       "receiver"
     ],
     [
-      "b22a796e-006f-46a5-be9e-a0e5db4c4b8e",
-      "oscillator"
+      "87c8c23a-5063-4def-b6c3-72078f0eafd4",
+      "Phase locked loop"
     ],
     [
-      "87c8c23a-5063-4def-b6c3-72078f0eafd4",
-      "oscillator2"
+      "b6e6140a-6309-4e0e-b6e0-c9d1e1fed4e9",
+      "Oscillator Splitter"
     ],
     [
       "647b90a7-2af9-4750-95f9-1b3f769199f2",
