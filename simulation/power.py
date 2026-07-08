@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.23.9"
+__generated_with = "0.23.13"
 app = marimo.App(width="medium")
 
 
@@ -17,8 +17,10 @@ def _():
 @app.cell
 def _(mo):
     mo.md("""
-    # RF Link Budget, Frequency and Power Analysis
+    # RF Link Budget, Noise Budget, Frequency and DC Power Analysis
     Calculates the link budget for a chain of RF components, including mixers, filters, and amplifiers. Frequency behavior is roughly modeled.
+
+    Noise Budget is calculated for the Receiver Path as well.
 
     Additionally, the total DC power draw is estimated.
     """)
@@ -27,16 +29,7 @@ def _(mo):
 
 @app.cell
 def _(md):
-    mixer = md.Mixer(
-        "Mixer ",
-        "RMS-30+",
-        conversion_loss_db=7.5,
-        lo_rf_iso_db=27.0,
-        rf_if_iso_db=20.0,
-        required_lo_power_dbm=7.0,
-        max_lo_power_dbm=10.0,
-        noise_figure_db=8.0,
-    )
+    mixer = md.Mixer("Mixer", "RMS-30+", conversion_loss_db=7.5, lo_rf_iso_db=27.0, rf_if_iso_db=20.0, required_lo_power_dbm=7.0, max_lo_power_dbm=10.0, noise_figure_db=8.0)
     bandpass = md.Filter("Bandpass", "2450BP", insertion_loss=1.2, freq_range=md.Range(2_400e6, 2_500e6), rejection_db=40)
     return bandpass, mixer
 
@@ -180,10 +173,9 @@ def _(mo):
 
 @app.cell
 def _(bandpass, md, mixer, mo, rx_f1_hz, rx_f2_hz, rx_p1, rx_p2):
-    rx_input = md.AntennaSource("Antenna")
+    rx_input = md.AntennaSource("Antenna", "ANT-001", bandwidth_hz=500e6)
     rx_input.add_signal(rx_f1_hz.value, rx_p1.value)    # Wanted signal at -90 dBm
     rx_input.add_signal(rx_f2_hz.value, rx_p2.value)    # Strong interferer (blocker) at 2460 MHz
-    rx_input.add_thermal_noise(bandwidth_hz=20e6)
 
     hmc_model = md.AmplifierModel(
         gain_data=[[freq_hz * 1e6, gain_db] for freq_hz, gain_db in [[500, 14.0], [1000, 14.0], [1500, 13.0], [2000, 12.0], [2500, 10.0], [3000, 8.0], [3500, 7.0], [4000, 4.0]]],
@@ -200,8 +192,6 @@ def _(bandpass, md, mixer, mo, rx_f1_hz, rx_f2_hz, rx_p1, rx_p2):
 
     # todo check hmc max ratings for:
     # RF Input Power (RFIN)(Vdd = +5.0 Vdc) 15 
-
-    #todo: noise figure
 
     path_rx = [
         rx_input,
@@ -229,6 +219,16 @@ def _(df_matrix_rx, md, mo, results_rx, selected_comp_rx):
     return
 
 
+@app.cell
+def _(df_matrix_rx, mo):
+    mo.ui.text_area(
+            value=df_matrix_rx.to_markdown(index=False),
+            rows=20,
+            full_width=True,
+        )
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -238,11 +238,14 @@ def _(mo):
 
 
 @app.cell
-def _(md, mo, rx_noise_budget):
-    mo.vstack([
-        mo.md(f"Estimated Rx SNR at the ADC input: **{md.rx_snr_db:.2f} dB**"),
-        rx_noise_budget,
-    ])
+def _(md, results_rx, rx_f1_hz):
+    input_snr = results_rx[0].signal.get_snr_db(rx_f1_hz.value)
+    output_snr = results_rx[-1].signal.get_snr_db(rx_f1_hz.value)
+
+    system_nf = input_snr - output_snr
+    print(f"Total System Noise Figure: {system_nf:.2f} dB")
+
+    md.print_noise_budget(results_rx, rx_f1_hz.value)
     return
 
 
