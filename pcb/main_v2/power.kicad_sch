@@ -13966,6 +13966,7 @@
 	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 38.1 43.18 0)
+		(mirror y)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13975,7 +13976,7 @@
 		(dnp no)
 		(uuid "ee020e97-4c0f-4c6b-9ecd-224856253a22")
 		(property "Reference" "TP201"
-			(at 34.798 34.29 0)
+			(at 41.402 34.29 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13986,7 +13987,7 @@
 			)
 		)
 		(property "Value" "TestPoint"
-			(at 34.798 36.83 0)
+			(at 41.402 36.83 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13997,7 +13998,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 43.18 43.18 0)
+			(at 33.02 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14008,7 +14009,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 43.18 43.18 0)
+			(at 33.02 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

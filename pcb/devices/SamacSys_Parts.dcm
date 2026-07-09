@@ -162,4 +162,10 @@ K
 F https://assets.nexperia.com/documents/data-sheet/74LVC4T3144.pdf
 $ENDCMP
 #
+$CMP RCLAMP0502BATCT
+D ESD Suppressors / TVS Diodes Low Capacitance ESD & CDE Protection
+K
+F https://rs.componentsearchengine.com/Datasheets/1/RCLAMP0502BATCT.pdf
+$ENDCMP
+#
 #End Doc Library

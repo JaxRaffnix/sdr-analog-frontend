@@ -406,6 +406,16 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "todo: CONMHF1-SMD-T\nfür rf debugging"
+		(exclude_from_sim no)
+		(at 37.592 61.214 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "4dfcb129-6169-48c9-8ac5-762b1ab12fc7")
+	)
 	(text "RFSOC:\nhttps://www.realdigital.org/downloads/15456c97a4fe5a1ee66208c5aa3894bb.pdf\n\nADC:\nmax input power: 14.6 dBm\nattenuation range: 27 dB\ninput bandwith: 6 GHz\n\nDAC:\nMax output power: -18.5 to 6.5 dBm\ncurrent max: 40.5 mA\n"
 		(exclude_from_sim no)
 		(at 15.748 84.074 0)

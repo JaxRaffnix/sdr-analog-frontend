@@ -1619,6 +1619,16 @@
 		)
 		(uuid "7511a440-6c8a-4252-bd25-4a935456e987")
 	)
+	(text "TODO:PE45361A-X\nmit 0.3V am Control Pin"
+		(exclude_from_sim no)
+		(at 248.412 101.6 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9ffd2d12-ea8f-48ca-b55e-c38deb508821")
+	)
 	(text_box "Place close together!"
 		(exclude_from_sim no)
 		(at 114.3 20.32 0)

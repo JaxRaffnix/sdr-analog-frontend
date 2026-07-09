@@ -1895,22 +1895,16 @@
 		(uuid "dac012da-30d7-4bfd-bfa8-22ad061b5043")
 	)
 	(junction
-		(at 50.8 55.88)
+		(at 50.8 53.34)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "27c4dbda-3ca5-4e7d-88e2-80d7876929cd")
+		(uuid "3ca854dc-be93-4795-9330-0639738148f0")
 	)
 	(junction
 		(at 91.44 58.42)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "53fccd88-ab4f-4915-8aa8-9aa6561d18d1")
-	)
-	(junction
-		(at 50.8 58.42)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6dc7e2da-df64-4e51-86ea-f227c3bda9ca")
 	)
 	(junction
 		(at 207.01 64.77)
@@ -1925,16 +1919,16 @@
 		(uuid "76e67373-6111-4233-84b5-45e71398aac2")
 	)
 	(junction
-		(at 50.8 53.34)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7fe30098-2809-44f8-b1ae-45d0d0080145")
-	)
-	(junction
 		(at 245.11 64.77)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ad0d92f8-ca0a-4a91-ab6f-2a768d8df09d")
+	)
+	(junction
+		(at 50.8 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c1e424dd-ec0e-4139-a2f3-26f3fadd7206")
 	)
 	(junction
 		(at 99.06 130.81)
@@ -1953,6 +1947,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ead0e7d4-9492-496a-b3ef-6fec269723df")
+	)
+	(junction
+		(at 50.8 58.42)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fc00703c-b6eb-406a-8441-fda84d46ca94")
 	)
 	(wire
 		(pts
@@ -1983,16 +1983,6 @@
 			(type default)
 		)
 		(uuid "2188b6e1-ebc8-44ff-bf77-2fd5d6452a3f")
-	)
-	(wire
-		(pts
-			(xy 50.8 58.42) (xy 50.8 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2ddc78f8-7b27-4047-a281-3c9848ef9565")
 	)
 	(wire
 		(pts
@@ -2036,13 +2026,13 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 55.88) (xy 50.8 58.42)
+			(xy 50.8 58.42) (xy 50.8 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5fcd08d4-0cb7-4ad7-8c6b-1f3fbf594e19")
+		(uuid "63daf304-ed5f-4ed5-bb9d-d8e14b0e46e2")
 	)
 	(wire
 		(pts
@@ -2246,6 +2236,16 @@
 	)
 	(wire
 		(pts
+			(xy 50.8 55.88) (xy 50.8 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eccb5445-dcc9-405e-80db-6df1e9797ce2")
+	)
+	(wire
+		(pts
 			(xy 50.8 53.34) (xy 50.8 55.88)
 		)
 		(stroke
@@ -2399,7 +2399,7 @@
 			)
 		)
 	)
-	(hierarchical_label "Oscillator In +"
+	(hierarchical_label "Oscillator In -"
 		(shape input)
 		(at 39.37 71.12 180)
 		(effects
@@ -2408,7 +2408,7 @@
 			)
 			(justify right)
 		)
-		(uuid "a8e646f2-0cc0-4f6f-977a-0066488802b7")
+		(uuid "50d4aa36-e7ac-4e1a-969d-6b6d925cb64d")
 		(property "Net Class" "HF 50R"
 			(at 38.862 75.184 0)
 			(show_name no)
@@ -2423,6 +2423,41 @@
 		)
 		(property "Frequency" "1.5 Ghz"
 			(at 39.37 73.406 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+			)
+		)
+	)
+	(hierarchical_label "Oscillator In +"
+		(shape input)
+		(at 39.37 63.5 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "9e7e3f95-2ea8-4cd2-a4a2-916166d22408")
+		(property "Net Class" "HF 50R"
+			(at 38.862 67.564 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+			)
+		)
+		(property "Frequency" "1.5 Ghz"
+			(at 39.37 65.786 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2464,41 +2499,6 @@
 					(size 1.27 1.27)
 					(italic yes)
 				)
-			)
-		)
-	)
-	(hierarchical_label "Oscillator In -"
-		(shape input)
-		(at 39.37 63.5 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "eec2560f-4eb6-41a3-8aea-db6da8673a0f")
-		(property "Net Class" "HF 50R"
-			(at 38.862 67.564 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify right)
-			)
-		)
-		(property "Frequency" "1.5 Ghz"
-			(at 39.37 65.786 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify right)
 			)
 		)
 	)
