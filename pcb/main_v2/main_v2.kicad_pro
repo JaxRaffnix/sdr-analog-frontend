@@ -702,14 +702,14 @@
       "/oscillator2/RF In": [
         "High Speed 50Ohm"
       ],
-      "/power/DC Power": [
-        "Power"
-      ],
       "/power/Power Enable": [
         "Default"
       ],
       "/power/Power Faulty": [
         "Default"
+      ],
+      "/power/Power Raw": [
+        "Power"
       ],
       "/power/Shield": [
         "GND"
@@ -774,6 +774,9 @@
       "/transmitter/Power 1": [
         "Power"
       ],
+      "/transmitter/RF Out": [
+        "HF 50R"
+      ],
       "/transmitter/Tx In": [
         "HF 50R"
       ],
@@ -810,8 +813,20 @@
       "Net-(C306-Pad2)": [
         "HF 50R"
       ],
-      "Net-(C502-Pad1)": [
+      "Net-(C309-Pad2)": [
+        "HF 50R"
+      ],
+      "Net-(C503-Pad1)": [
         "Power"
+      ],
+      "Net-(C511-Pad1)": [
+        "HF 50R"
+      ],
+      "Net-(C512-Pad1)": [
+        "HF 50R"
+      ],
+      "Net-(C513-Pad1)": [
+        "HF 50R"
       ],
       "Net-(C514-Pad1)": [
         "HF 50R"
@@ -831,6 +846,9 @@
       "Net-(C625-Pad1)": [
         "HF 50R"
       ],
+      "Net-(D201-K)": [
+        "Power"
+      ],
       "Net-(FL301-IN{slash}OUT)": [
         "HF 50R"
       ],
@@ -844,6 +862,15 @@
         "HF 50R"
       ],
       "Net-(FL402-RF_OUT)": [
+        "HF 50R"
+      ],
+      "Net-(IC301-IF)": [
+        "HF 50R"
+      ],
+      "Net-(IC301-LO)": [
+        "HF 50R"
+      ],
+      "Net-(IC301-RF)": [
         "HF 50R"
       ],
       "Net-(IC301-RFOUT)": [
@@ -860,6 +887,12 @@
       ],
       "Net-(IC302-RF)": [
         "HF 50R"
+      ],
+      "Net-(IC302-RFOUT)": [
+        "HF 50R"
+      ],
+      "Net-(IC302-VCC1)": [
+        "Power"
       ],
       "Net-(IC401-IF)": [
         "HF 50R"
@@ -900,7 +933,7 @@
       "Net-(IC602-RF_IN)": [
         "HF 50R"
       ],
-      "Net-(IC703-VCC(A))": [
+      "Net-(IC701-VCC(A))": [
         "Power"
       ],
       "Net-(Q201-S)": [
@@ -1074,7 +1107,7 @@
           "group_by": false,
           "label": "Mouser Price/Stock",
           "name": "Mouser Price/Stock",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,
@@ -1176,13 +1209,13 @@
           "group_by": false,
           "label": "Availability",
           "name": "Availability",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,
           "label": "Check_prices",
           "name": "Check_prices",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,
@@ -1212,7 +1245,25 @@
           "group_by": false,
           "label": "Self Resonance",
           "name": "Self Resonance",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Device",
+          "name": "Sim.Device",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Impedance",
+          "name": "Impedance",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MaxCurrent",
+          "name": "MaxCurrent",
+          "show": true
         }
       ],
       "filter_string": "",
@@ -1251,6 +1302,14 @@
     "meta": {
       "version": 1
     },
+    "ngspice": {
+      "fix_include_paths": true,
+      "meta": {
+        "version": 0
+      },
+      "model_mode": 4,
+      "workbook_filename": ""
+    },
     "page_layout_descr_file": "",
     "plot_directory": "",
     "reuse_designators": true,
@@ -1263,7 +1322,7 @@
         "uuid": "0599865e-4bed-44f1-b46e-4b55335b49b2"
       }
     ],
-    "used_designators": "L501-502,D201,D206,#PWR203,#PWR220-222,#PWR325,#PWR501,#PWR503,#PWR506-507,#PWR509-510,#PWR512-514,#PWR532,#PWR536-542,#PWR702,#PWR709-710,#PWR713-717,R206,R211-212,R305,R710-714,C208,C501-503,C508-513,C701-702,C704,#SYM201,FB201-202,FB501-504,Q201,U701,IC703",
+    "used_designators": "D201-206,D301,D501,#PWR101-104,#PWR201-222,#PWR301-325,#PWR401-410,#PWR501-541,#PWR601-613,#PWR701-718,J101-104,J201,J701-709,FB201,FB501-502,#SYM201,TP201-205,C201-208,C301-313,C401-408,C501-531,C601-606,C701-703,FL301,FL401-402,FL601,H101-104,IC201,IC301-302,IC401-402,IC601-602,IC701-703,L301,L401,L501-502,L601-602,Q201,R201-212,R301-305,R501-515,R601-602,R701-713,SW201,U201,U501,U601-602,Y501",
     "variants": []
   },
   "sheets": [

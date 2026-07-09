@@ -2417,7 +2417,7 @@
 	)
 	(text "from SDR FPGA:\nio vcc\ndata\nclock\nenable\ngnd"
 		(exclude_from_sim no)
-		(at 15.748 50.8 0)
+		(at 22.098 50.8 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2428,7 +2428,7 @@
 	)
 	(text "Digital Inputs"
 		(exclude_from_sim no)
-		(at 55.118 82.804 0)
+		(at 51.054 85.09 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2478,7 +2478,7 @@
 	)
 	(text "Digital Outputs"
 		(exclude_from_sim no)
-		(at 37.338 82.804 0)
+		(at 33.274 85.09 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2539,7 +2539,7 @@
 	)
 	(text "SPI"
 		(exclude_from_sim no)
-		(at 99.06 25.146 0)
+		(at 105.41 25.146 0)
 		(effects
 			(font
 				(size 5.08 5.08)
@@ -2578,7 +2578,7 @@
 	)
 	(text_box "Place close together!"
 		(exclude_from_sim no)
-		(at 12.7 16.51 0)
+		(at 19.05 16.51 0)
 		(size 161.29 54.61)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
@@ -2619,13 +2619,13 @@
 		(uuid "5e2459da-3d0a-4ce2-8da0-240b3b2a09e3")
 	)
 	(junction
-		(at 83.82 44.45)
+		(at 90.17 44.45)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "62efca0d-7e1a-4fb7-aff1-c811e08df922")
 	)
 	(junction
-		(at 87.63 59.69)
+		(at 93.98 59.69)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "69125cf8-687c-4d71-a567-99d4c5a9f020")
@@ -2643,7 +2643,7 @@
 		(uuid "9afeb1f2-400f-4e6e-96ac-15ff61391b0e")
 	)
 	(junction
-		(at 87.63 57.15)
+		(at 93.98 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a61ec89d-7639-48f8-9278-d6f4a0c522b9")
@@ -2661,7 +2661,7 @@
 		(uuid "c87a2419-8b7c-472c-8d1e-373c2af740f0")
 	)
 	(junction
-		(at 127 46.99)
+		(at 133.35 46.99)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cb6ab996-f0ff-44f4-b116-5043609b7710")
@@ -2679,20 +2679,20 @@
 		(uuid "f6a74c7c-0d36-4834-ac3c-7a4c9a066442")
 	)
 	(no_connect
-		(at 87.63 54.61)
+		(at 93.98 54.61)
 		(uuid "39280be9-27cd-48d3-a146-6edb420c08ac")
 	)
 	(no_connect
-		(at 120.65 57.15)
+		(at 127 57.15)
 		(uuid "5cc55134-c593-423e-902d-24db674844db")
 	)
 	(no_connect
-		(at 120.65 59.69)
+		(at 127 59.69)
 		(uuid "77d595e4-74b6-4afc-a016-feb0ecca6ebf")
 	)
 	(wire
 		(pts
-			(xy 144.78 36.83) (xy 144.78 49.53)
+			(xy 151.13 36.83) (xy 151.13 49.53)
 		)
 		(stroke
 			(width 0)
@@ -2762,7 +2762,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 54.61) (xy 161.29 54.61)
+			(xy 127 54.61) (xy 167.64 54.61)
 		)
 		(stroke
 			(width 0)
@@ -2802,7 +2802,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 44.45) (xy 171.45 54.61)
+			(xy 177.8 44.45) (xy 177.8 54.61)
 		)
 		(stroke
 			(width 0)
@@ -2832,7 +2832,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 35.56) (xy 83.82 44.45)
+			(xy 90.17 35.56) (xy 90.17 44.45)
 		)
 		(stroke
 			(width 0)
@@ -2842,7 +2842,7 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 52.07) (xy 87.63 52.07)
+			(xy 46.99 52.07) (xy 93.98 52.07)
 		)
 		(stroke
 			(width 0)
@@ -2862,7 +2862,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 44.45) (xy 40.64 44.45)
+			(xy 90.17 44.45) (xy 46.99 44.45)
 		)
 		(stroke
 			(width 0)
@@ -2872,7 +2872,7 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 46.99) (xy 87.63 46.99)
+			(xy 46.99 46.99) (xy 93.98 46.99)
 		)
 		(stroke
 			(width 0)
@@ -3032,7 +3032,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 46.99) (xy 127 46.99)
+			(xy 127 46.99) (xy 133.35 46.99)
 		)
 		(stroke
 			(width 0)
@@ -3042,7 +3042,7 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 40.64) (xy 157.48 52.07)
+			(xy 163.83 40.64) (xy 163.83 52.07)
 		)
 		(stroke
 			(width 0)
@@ -3052,7 +3052,7 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 40.64) (xy 179.07 40.64)
+			(xy 163.83 40.64) (xy 185.42 40.64)
 		)
 		(stroke
 			(width 0)
@@ -3062,7 +3062,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 54.61) (xy 168.91 54.61)
+			(xy 177.8 54.61) (xy 175.26 54.61)
 		)
 		(stroke
 			(width 0)
@@ -3102,7 +3102,7 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 49.53) (xy 142.24 49.53)
+			(xy 151.13 49.53) (xy 148.59 49.53)
 		)
 		(stroke
 			(width 0)
@@ -3142,7 +3142,7 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 49.53) (xy 87.63 49.53)
+			(xy 46.99 49.53) (xy 93.98 49.53)
 		)
 		(stroke
 			(width 0)
@@ -3202,7 +3202,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 46.99) (xy 130.81 46.99)
+			(xy 133.35 46.99) (xy 137.16 46.99)
 		)
 		(stroke
 			(width 0)
@@ -3252,7 +3252,7 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 57.15) (xy 87.63 57.15)
+			(xy 46.99 57.15) (xy 93.98 57.15)
 		)
 		(stroke
 			(width 0)
@@ -3322,7 +3322,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 49.53) (xy 134.62 49.53)
+			(xy 127 49.53) (xy 140.97 49.53)
 		)
 		(stroke
 			(width 0)
@@ -3372,7 +3372,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 59.69) (xy 87.63 57.15)
+			(xy 93.98 59.69) (xy 93.98 57.15)
 		)
 		(stroke
 			(width 0)
@@ -3402,7 +3402,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 44.45) (xy 87.63 44.45)
+			(xy 90.17 44.45) (xy 93.98 44.45)
 		)
 		(stroke
 			(width 0)
@@ -3442,7 +3442,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 60.96) (xy 87.63 59.69)
+			(xy 93.98 60.96) (xy 93.98 59.69)
 		)
 		(stroke
 			(width 0)
@@ -3472,7 +3472,7 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 57.15) (xy 40.64 54.61)
+			(xy 46.99 57.15) (xy 46.99 54.61)
 		)
 		(stroke
 			(width 0)
@@ -3492,7 +3492,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 52.07) (xy 147.32 52.07)
+			(xy 127 52.07) (xy 153.67 52.07)
 		)
 		(stroke
 			(width 0)
@@ -3532,7 +3532,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 35.56) (xy 127 46.99)
+			(xy 133.35 35.56) (xy 133.35 46.99)
 		)
 		(stroke
 			(width 0)
@@ -3572,7 +3572,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 44.45) (xy 181.61 44.45)
+			(xy 177.8 44.45) (xy 187.96 44.45)
 		)
 		(stroke
 			(width 0)
@@ -3602,7 +3602,7 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 52.07) (xy 154.94 52.07)
+			(xy 163.83 52.07) (xy 161.29 52.07)
 		)
 		(stroke
 			(width 0)
@@ -3612,7 +3612,7 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 36.83) (xy 179.07 36.83)
+			(xy 151.13 36.83) (xy 185.42 36.83)
 		)
 		(stroke
 			(width 0)
@@ -3622,7 +3622,7 @@
 	)
 	(hierarchical_label "SPI: Load Enable"
 		(shape input)
-		(at 181.61 44.45 0)
+		(at 187.96 44.45 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3677,7 +3677,7 @@
 	)
 	(hierarchical_label "SPI: CLK"
 		(shape input)
-		(at 179.07 40.64 0)
+		(at 185.42 40.64 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3699,7 +3699,7 @@
 	)
 	(hierarchical_label "SPI: DATA"
 		(shape input)
-		(at 179.07 36.83 0)
+		(at 185.42 36.83 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3744,7 +3744,7 @@
 	(netclass_flag ""
 		(length 2.54)
 		(shape diamond)
-		(at 73.66 44.45 0)
+		(at 80.01 44.45 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3754,7 +3754,7 @@
 		)
 		(uuid "a2aa1f61-6d2f-4956-9576-0c5234b8df27")
 		(property "Net Class" "Power"
-			(at 74.8665 41.91 0)
+			(at 81.2165 41.91 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3765,13 +3765,91 @@
 			)
 		)
 		(property "Component Class" ""
-			(at 36.83 24.13 0)
+			(at 43.18 24.13 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 					(italic yes)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 224.79 62.23 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0048abbd-fad7-44e2-8292-058e70f6a943")
+		(property "Reference" "#PWR0717"
+			(at 224.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 224.79 57.15 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 224.79 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 224.79 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 224.79 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "dc0794ca-d598-4114-a211-81b8311bdcac")
+		)
+		(instances
+			(project "main_v2"
+				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
+					(reference "#PWR0717")
+					(unit 1)
 				)
 			)
 		)
@@ -3787,7 +3865,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "00988639-8bdb-4fdf-bc64-3cf787c809a9")
-		(property "Reference" "R708"
+		(property "Reference" "R712"
 			(at 191.516 139.446 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3862,6 +3940,138 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 185.42 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 185.42 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 185.42 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 185.42 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 185.42 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 185.42 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 185.42 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 185.42 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 185.42 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 185.42 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 185.42 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 185.42 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "244bca6d-f5fc-45fe-9f25-3f28ce3d8edd")
 		)
@@ -3871,7 +4081,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "R708")
+					(reference "R712")
 					(unit 1)
 				)
 			)
@@ -3879,7 +4089,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 130.81 46.99 0)
+		(at 137.16 46.99 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3889,8 +4099,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "19c8f8ad-7903-4558-9f9b-d0541d00e373")
-		(property "Reference" "#PWR0716"
-			(at 130.81 50.8 0)
+		(property "Reference" "#PWR0704"
+			(at 137.16 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3901,7 +4111,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 130.81 41.91 0)
+			(at 137.16 41.91 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3911,7 +4121,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 130.81 46.99 0)
+			(at 137.16 46.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3922,7 +4132,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 130.81 46.99 0)
+			(at 137.16 46.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3933,7 +4143,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 130.81 46.99 0)
+			(at 137.16 46.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3949,7 +4159,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "#PWR0716")
+					(reference "#PWR0704")
 					(unit 1)
 				)
 			)
@@ -3967,7 +4177,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1f04b32b-fa47-4a0f-bc76-7792f855187b")
-		(property "Reference" "J704"
+		(property "Reference" "J706"
 			(at 52.705 128.27 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4020,6 +4230,138 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 52.07 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 52.07 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 52.07 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 52.07 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 52.07 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 52.07 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 52.07 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 52.07 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 52.07 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 52.07 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 52.07 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 52.07 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "3"
 			(uuid "b2bdc133-4c4a-4be5-8bc9-412e9004b676")
 		)
@@ -4032,7 +4374,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "J704")
+					(reference "J706")
 					(unit 1)
 				)
 			)
@@ -4040,7 +4382,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 138.43 49.53 90)
+		(at 144.78 49.53 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4049,8 +4391,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "230efe24-1dbc-4f2d-b806-d6321e731629")
-		(property "Reference" "R710"
-			(at 143.764 42.164 0)
+		(property "Reference" "R701"
+			(at 150.114 42.164 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4061,7 +4403,7 @@
 			)
 		)
 		(property "Value" "100R"
-			(at 141.224 42.164 0)
+			(at 147.574 42.164 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4072,7 +4414,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 138.43 51.308 90)
+			(at 144.78 51.308 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4083,7 +4425,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 138.43 49.53 0)
+			(at 144.78 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4094,7 +4436,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 138.43 49.53 0)
+			(at 144.78 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4105,7 +4447,7 @@
 			)
 		)
 		(property "Package" "0603"
-			(at 136.398 44.958 0)
+			(at 142.748 44.958 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4115,7 +4457,139 @@
 			)
 		)
 		(property "Tolerance" "10%"
-			(at 138.684 45.212 0)
+			(at 145.034 45.212 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Availability" ""
+			(at 144.78 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 144.78 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 144.78 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 144.78 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 144.78 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 144.78 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 144.78 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 144.78 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 144.78 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 144.78 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 144.78 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 144.78 49.53 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4133,7 +4607,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "R710")
+					(reference "R701")
 					(unit 1)
 				)
 			)
@@ -4151,7 +4625,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "262d6cfb-097d-4921-b79f-1d7bf8b035a8")
-		(property "Reference" "J706"
+		(property "Reference" "J707"
 			(at 37.465 138.43 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4204,13 +4678,145 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 36.83 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 36.83 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 36.83 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 36.83 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 36.83 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 36.83 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 36.83 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 36.83 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 36.83 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 36.83 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 36.83 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 36.83 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b8c0ba23-b7bb-4cb8-ad86-0878bec6951d")
 		)
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "J706")
+					(reference "J707")
 					(unit 1)
 				)
 			)
@@ -4297,7 +4903,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x05_Pin")
-		(at 35.56 49.53 0)
+		(at 41.91 49.53 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4307,8 +4913,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "27c55515-86ae-4f2b-b73a-57162491a5d8")
-		(property "Reference" "J703"
-			(at 36.195 39.37 0)
+		(property "Reference" "J701"
+			(at 42.545 39.37 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4318,7 +4924,7 @@
 			)
 		)
 		(property "Value" "Conn_01x05_Pin"
-			(at 36.195 41.91 0)
+			(at 42.545 41.91 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4328,7 +4934,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical"
-			(at 35.56 49.53 0)
+			(at 41.91 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4339,7 +4945,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 35.56 49.53 0)
+			(at 41.91 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4350,7 +4956,139 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x05, script generated"
-			(at 35.56 49.53 0)
+			(at 41.91 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Availability" ""
+			(at 41.91 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 41.91 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 41.91 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 41.91 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 41.91 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 41.91 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 41.91 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 41.91 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 41.91 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 41.91 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 41.91 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 41.91 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4378,7 +5116,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "J703")
+					(reference "J701")
 					(unit 1)
 				)
 			)
@@ -4395,7 +5133,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "32388c33-6841-4236-b090-0fbd4d7a00e2")
-		(property "Reference" "#PWR0706"
+		(property "Reference" "#PWR0711"
 			(at 132.08 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -4455,7 +5193,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "#PWR0706")
+					(reference "#PWR0711")
 					(unit 1)
 				)
 			)
@@ -4463,7 +5201,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 165.1 54.61 90)
+		(at 171.45 54.61 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4472,8 +5210,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3be611ef-7031-43af-89db-049829537ebe")
-		(property "Reference" "R712"
-			(at 170.434 47.244 0)
+		(property "Reference" "R703"
+			(at 176.784 47.244 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4484,7 +5222,7 @@
 			)
 		)
 		(property "Value" "100R"
-			(at 167.894 47.244 0)
+			(at 174.244 47.244 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4495,7 +5233,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 165.1 56.388 90)
+			(at 171.45 56.388 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4506,7 +5244,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 165.1 54.61 0)
+			(at 171.45 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4517,7 +5255,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 165.1 54.61 0)
+			(at 171.45 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4528,7 +5266,7 @@
 			)
 		)
 		(property "Package" "0603"
-			(at 163.068 50.038 0)
+			(at 169.418 50.038 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4538,7 +5276,139 @@
 			)
 		)
 		(property "Tolerance" "10%"
-			(at 165.354 50.292 0)
+			(at 171.704 50.292 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Availability" ""
+			(at 171.45 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 171.45 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 171.45 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 171.45 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 171.45 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 171.45 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 171.45 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 171.45 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 171.45 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 171.45 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 171.45 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 171.45 54.61 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4556,7 +5426,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "R712")
+					(reference "R703")
 					(unit 1)
 				)
 			)
@@ -4574,7 +5444,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3c27f382-df90-4ea5-8cf5-0b54e7d0d52f")
-		(property "Reference" "IC701"
+		(property "Reference" "IC702"
 			(at 96.52 90.17 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4689,6 +5559,138 @@
 				(justify left top)
 			)
 		)
+		(property "Availability" ""
+			(at 82.55 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 82.55 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 82.55 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 82.55 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 82.55 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 82.55 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 82.55 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 82.55 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 82.55 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 82.55 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 82.55 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 82.55 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "19"
 			(uuid "db7278cb-c370-42d3-beb9-90cbc2355cfa")
 		)
@@ -4752,7 +5754,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "IC701")
+					(reference "IC702")
 					(unit 1)
 				)
 			)
@@ -4769,7 +5771,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3e763f1f-dd83-4e66-80c1-7ff52d2045ff")
-		(property "Reference" "R706"
+		(property "Reference" "R705"
 			(at 127 98.298 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4824,6 +5826,138 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 125.73 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 125.73 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 125.73 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 125.73 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 125.73 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 125.73 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 125.73 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 125.73 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 125.73 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 125.73 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 125.73 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 125.73 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "cd32603e-dde5-47c5-a8fd-bd36789a3e14")
 		)
@@ -4833,7 +5967,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "R706")
+					(reference "R705")
 					(unit 1)
 				)
 			)
@@ -4841,7 +5975,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 127 27.94 180)
+		(at 133.35 27.94 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4851,7 +5985,7 @@
 		(dnp no)
 		(uuid "3f530846-67ef-4a43-bc42-c07f821a7a24")
 		(property "Reference" "#PWR0702"
-			(at 127 21.59 0)
+			(at 133.35 21.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4862,7 +5996,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 123.444 25.908 0)
+			(at 129.794 25.908 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4872,7 +6006,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 127 27.94 0)
+			(at 133.35 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4883,7 +6017,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 27.94 0)
+			(at 133.35 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4894,7 +6028,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 127 27.94 0)
+			(at 133.35 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4928,7 +6062,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3f72d36a-dda0-4457-b333-db3d0a437d35")
-		(property "Reference" "#PWR0735"
+		(property "Reference" "#PWR0710"
 			(at 82.55 127 0)
 			(hide yes)
 			(show_name no)
@@ -4988,7 +6122,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "#PWR0735")
+					(reference "#PWR0710")
 					(unit 1)
 				)
 			)
@@ -5005,7 +6139,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3fe39359-f52b-4be6-8e2b-59a207f5e255")
-		(property "Reference" "R704"
+		(property "Reference" "R710"
 			(at 163.8299 115.57 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5060,6 +6194,138 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 165.1 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 165.1 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 165.1 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 165.1 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 165.1 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 165.1 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 165.1 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 165.1 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 165.1 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 165.1 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 165.1 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 165.1 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "5e909846-8dd2-4d63-9a02-8a15f4b069ef")
 		)
@@ -5069,7 +6335,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "R704")
+					(reference "R710")
 					(unit 1)
 				)
 			)
@@ -5086,7 +6352,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "45375e5a-d986-4598-a979-ff7065bdad4a")
-		(property "Reference" "R702"
+		(property "Reference" "R708"
 			(at 147.3199 110.49 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5141,6 +6407,138 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 148.59 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 148.59 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 148.59 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 148.59 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 148.59 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 148.59 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 148.59 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 148.59 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 148.59 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 148.59 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 148.59 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 148.59 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "ab6d6eb0-a6ca-4090-9fb4-b26687caa1bc")
 		)
@@ -5150,7 +6548,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "R702")
+					(reference "R708")
 					(unit 1)
 				)
 			)
@@ -5167,7 +6565,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "45c7557e-8d08-48c6-9989-74530606da1d")
-		(property "Reference" "#PWR0708"
+		(property "Reference" "#PWR0713"
 			(at 185.42 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -5227,7 +6625,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "#PWR0708")
+					(reference "#PWR0713")
 					(unit 1)
 				)
 			)
@@ -5235,7 +6633,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 87.63 60.96 0)
+		(at 93.98 60.96 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5245,8 +6643,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4744ce2c-a8fd-4124-b8ff-97e8f8e86af2")
-		(property "Reference" "#PWR0701"
-			(at 87.63 67.31 0)
+		(property "Reference" "#PWR0705"
+			(at 93.98 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5257,7 +6655,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 87.63 66.04 0)
+			(at 93.98 66.04 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5267,7 +6665,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 87.63 60.96 0)
+			(at 93.98 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5278,7 +6676,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 87.63 60.96 0)
+			(at 93.98 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5289,7 +6687,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 87.63 60.96 0)
+			(at 93.98 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5305,7 +6703,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "#PWR0701")
+					(reference "#PWR0705")
 					(unit 1)
 				)
 			)
@@ -5323,7 +6721,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4ae6ddbd-5eac-4181-a6dd-ca2301f630a9")
-		(property "Reference" "J709"
+		(property "Reference" "J704"
 			(at 52.705 110.49 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5376,6 +6774,138 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 52.07 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 52.07 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 52.07 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 52.07 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 52.07 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 52.07 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 52.07 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 52.07 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 52.07 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 52.07 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 52.07 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 52.07 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "3"
 			(uuid "6a8d3e6c-04fc-44c3-be5e-5a5e5fa168c8")
 		)
@@ -5388,7 +6918,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "J709")
+					(reference "J704")
 					(unit 1)
 				)
 			)
@@ -5396,7 +6926,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 127 31.75 180)
+		(at 133.35 31.75 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5406,7 +6936,7 @@
 		(dnp no)
 		(uuid "5812e226-2a73-473a-b9b3-22eb89c611be")
 		(property "Reference" "C702"
-			(at 133.35 30.48 0)
+			(at 139.7 30.48 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5416,7 +6946,7 @@
 			)
 		)
 		(property "Value" "0.1 uF"
-			(at 133.35 33.02 0)
+			(at 139.7 33.02 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5426,7 +6956,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 126.0348 27.94 0)
+			(at 132.3848 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5437,7 +6967,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 31.75 0)
+			(at 133.35 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5448,7 +6978,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 127 31.75 0)
+			(at 133.35 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5459,7 +6989,7 @@
 			)
 		)
 		(property "Tolerance" "±10%"
-			(at 127 31.75 90)
+			(at 133.35 31.75 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5470,7 +7000,7 @@
 			)
 		)
 		(property "Voltage" "50V"
-			(at 117.602 31.242 0)
+			(at 123.952 31.242 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5480,7 +7010,7 @@
 			)
 		)
 		(property "Material" "X7R"
-			(at 122.174 31.242 0)
+			(at 128.524 31.242 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5490,7 +7020,139 @@
 			)
 		)
 		(property "Package" "0402 "
-			(at 119.634 33.274 0)
+			(at 125.984 33.274 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Availability" ""
+			(at 133.35 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 133.35 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 133.35 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 133.35 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 133.35 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 133.35 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 133.35 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 133.35 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 133.35 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 133.35 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 133.35 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 133.35 31.75 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5526,7 +7188,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5ae7dc91-8caa-4e4d-be2e-08e20e120c3e")
-		(property "Reference" "#PWR0736"
+		(property "Reference" "#PWR0708"
 			(at 110.49 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -5586,7 +7248,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "#PWR0736")
+					(reference "#PWR0708")
 					(unit 1)
 				)
 			)
@@ -5603,7 +7265,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "66b0b2a4-3bab-4035-8417-846056ee0671")
-		(property "Reference" "R703"
+		(property "Reference" "R706"
 			(at 132.0799 105.41 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5658,6 +7320,138 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 133.35 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 133.35 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 133.35 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 133.35 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 133.35 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 133.35 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 133.35 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 133.35 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 133.35 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 133.35 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 133.35 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 133.35 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "d5dc8b71-67a1-431c-8585-9ffa8983180a")
 		)
@@ -5667,7 +7461,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "R703")
+					(reference "R706")
 					(unit 1)
 				)
 			)
@@ -5739,6 +7533,138 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 140.97 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 140.97 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 140.97 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 140.97 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 140.97 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 140.97 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 140.97 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 140.97 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 140.97 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 140.97 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 140.97 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 140.97 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "7d62ca38-9b8a-4b37-b74e-30a3524ae40d")
 		)
@@ -5756,7 +7682,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 151.13 52.07 90)
+		(at 157.48 52.07 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5765,8 +7691,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "70cbfe33-d628-4ec3-a9ce-5d858f04b04f")
-		(property "Reference" "R711"
-			(at 156.464 44.704 0)
+		(property "Reference" "R702"
+			(at 162.814 44.704 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5777,7 +7703,7 @@
 			)
 		)
 		(property "Value" "100R"
-			(at 153.924 44.704 0)
+			(at 160.274 44.704 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5788,7 +7714,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 151.13 53.848 90)
+			(at 157.48 53.848 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5799,7 +7725,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 151.13 52.07 0)
+			(at 157.48 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5810,7 +7736,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 151.13 52.07 0)
+			(at 157.48 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5821,7 +7747,7 @@
 			)
 		)
 		(property "Package" "0603"
-			(at 149.098 47.498 0)
+			(at 155.448 47.498 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5831,7 +7757,139 @@
 			)
 		)
 		(property "Tolerance" "10%"
-			(at 151.384 47.752 0)
+			(at 157.734 47.752 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Availability" ""
+			(at 157.48 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 157.48 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 157.48 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 157.48 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 157.48 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 157.48 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 157.48 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 157.48 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 157.48 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 157.48 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 157.48 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 157.48 52.07 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5849,7 +7907,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "R711")
+					(reference "R702")
 					(unit 1)
 				)
 			)
@@ -5867,7 +7925,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "715c0802-b188-4c7a-b927-ecfc1aa4b0f7")
-		(property "Reference" "#PWR0738"
+		(property "Reference" "#PWR0716"
 			(at 62.23 175.26 0)
 			(hide yes)
 			(show_name no)
@@ -5927,7 +7985,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "#PWR0738")
+					(reference "#PWR0716")
 					(unit 1)
 				)
 			)
@@ -5944,7 +8002,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "81ff2dfc-7ff7-412c-80d8-abb86ddfbc82")
-		(property "Reference" "#PWR0703"
+		(property "Reference" "#PWR0706"
 			(at 60.96 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -6004,7 +8062,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "#PWR0703")
+					(reference "#PWR0706")
 					(unit 1)
 				)
 			)
@@ -6012,7 +8070,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 83.82 31.75 180)
+		(at 90.17 31.75 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6022,7 +8080,7 @@
 		(dnp no)
 		(uuid "825d9b94-fd5f-4b3f-bb75-9b855b05655c")
 		(property "Reference" "C701"
-			(at 90.17 30.48 0)
+			(at 96.52 30.48 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6032,7 +8090,7 @@
 			)
 		)
 		(property "Value" "0.1 uF"
-			(at 90.17 33.02 0)
+			(at 96.52 33.02 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6042,7 +8100,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 82.8548 27.94 0)
+			(at 89.2048 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6053,7 +8111,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 83.82 31.75 0)
+			(at 90.17 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6064,7 +8122,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 83.82 31.75 0)
+			(at 90.17 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6075,7 +8133,7 @@
 			)
 		)
 		(property "Tolerance" "±10%"
-			(at 83.82 31.75 90)
+			(at 90.17 31.75 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6086,7 +8144,7 @@
 			)
 		)
 		(property "Voltage" "50V"
-			(at 74.422 31.242 0)
+			(at 80.772 31.242 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6096,7 +8154,7 @@
 			)
 		)
 		(property "Material" "X7R"
-			(at 78.994 31.242 0)
+			(at 85.344 31.242 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6106,7 +8164,139 @@
 			)
 		)
 		(property "Package" "0402 "
-			(at 76.454 33.274 0)
+			(at 82.804 33.274 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Availability" ""
+			(at 90.17 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 90.17 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 90.17 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 90.17 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 90.17 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 90.17 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 90.17 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 90.17 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 90.17 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 90.17 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 90.17 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 90.17 31.75 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6131,6 +8321,219 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 224.79 66.04 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "85829613-6902-4bb6-96b9-9799c8e14f33")
+		(property "Reference" "R713"
+			(at 230.886 65.786 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "50k"
+			(at 230.886 63.246 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 223.012 66.04 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 224.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 224.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Availability" ""
+			(at 224.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 224.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 224.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 224.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 224.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 224.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 224.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 224.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 224.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 224.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 224.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 224.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "68c72cf8-a6df-4c92-ba08-d64578043714")
+		)
+		(pin "2"
+			(uuid "0819750a-13be-4bdd-b6a7-0524307e8360")
+		)
+		(instances
+			(project "main_v2"
+				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
+					(reference "R713")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 132.08 140.97 0)
 		(unit 1)
@@ -6142,7 +8545,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9a18682a-fff5-49e7-a60e-7d8b1851fdd7")
-		(property "Reference" "#PWR0707"
+		(property "Reference" "#PWR0714"
 			(at 132.08 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -6202,7 +8605,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "#PWR0707")
+					(reference "#PWR0714")
 					(unit 1)
 				)
 			)
@@ -6220,7 +8623,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9b8af1d9-b661-409a-a5be-6b031549ea5f")
-		(property "Reference" "J702"
+		(property "Reference" "J703"
 			(at 37.465 104.14 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6273,13 +8676,145 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 36.83 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 36.83 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 36.83 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 36.83 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 36.83 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 36.83 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 36.83 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 36.83 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 36.83 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 36.83 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 36.83 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 36.83 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "63c4cd27-568b-4f30-bdab-e6bda9a84002")
 		)
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "J702")
+					(reference "J703")
 					(unit 1)
 				)
 			)
@@ -6296,7 +8831,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a1723100-edb1-4fdd-9cc4-089a898351c5")
-		(property "Reference" "R701"
+		(property "Reference" "R704"
 			(at 116.8399 100.33 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6351,6 +8886,138 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 118.11 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 118.11 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 118.11 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 118.11 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 118.11 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 118.11 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 118.11 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 118.11 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 118.11 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 118.11 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 118.11 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 118.11 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "f358fa73-5807-40ed-8533-5e508d17e600")
 		)
@@ -6360,7 +9027,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "R701")
+					(reference "R704")
 					(unit 1)
 				)
 			)
@@ -6377,7 +9044,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ad0ecb56-aee1-48ab-be51-5ba9100d3433")
-		(property "Reference" "R709"
+		(property "Reference" "R711"
 			(at 212.344 123.952 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6452,6 +9119,138 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 207.01 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 207.01 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 207.01 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 207.01 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 207.01 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 207.01 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 207.01 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 207.01 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 207.01 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 207.01 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 207.01 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 207.01 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "9cf721eb-719f-401a-94f3-3476f0fc36ee")
 		)
@@ -6461,7 +9260,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "R709")
+					(reference "R711")
 					(unit 1)
 				)
 			)
@@ -6479,7 +9278,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b576115c-dc9e-43d1-99c2-7e7d33bdc60e")
-		(property "Reference" "#PWR0704"
+		(property "Reference" "#PWR0707"
 			(at 82.55 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -6539,7 +9338,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "#PWR0704")
+					(reference "#PWR0707")
 					(unit 1)
 				)
 			)
@@ -6556,7 +9355,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "be691a4f-9ad6-4be4-b11f-d19e3c57be06")
-		(property "Reference" "R705"
+		(property "Reference" "R709"
 			(at 158.496 108.966 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6611,6 +9410,138 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 157.48 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 157.48 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 157.48 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 157.48 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 157.48 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 157.48 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 157.48 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 157.48 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 157.48 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 157.48 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 157.48 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 157.48 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "6510c645-d3fb-475c-b814-3b0544e1656a")
 		)
@@ -6620,7 +9551,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "R705")
+					(reference "R709")
 					(unit 1)
 				)
 			)
@@ -6638,7 +9569,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c4052a8e-43e5-409a-8c90-54d95763b6f6")
-		(property "Reference" "J701"
+		(property "Reference" "J702"
 			(at 52.705 92.71 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6691,6 +9622,138 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 52.07 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 52.07 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 52.07 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 52.07 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 52.07 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 52.07 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 52.07 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 52.07 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 52.07 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 52.07 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 52.07 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 52.07 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "3"
 			(uuid "2edfe3bf-83ce-47a6-9285-638a44c5e41a")
 		)
@@ -6703,7 +9766,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "J701")
+					(reference "J702")
 					(unit 1)
 				)
 			)
@@ -6721,7 +9784,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c4dbe758-4b10-43c1-844c-84dfddad2cc5")
-		(property "Reference" "#PWR0711"
+		(property "Reference" "#PWR0715"
 			(at 185.42 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -6781,7 +9844,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "#PWR0711")
+					(reference "#PWR0715")
 					(unit 1)
 				)
 			)
@@ -6799,7 +9862,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c5043266-ca60-4d72-8b44-900b4681b999")
-		(property "Reference" "J707"
+		(property "Reference" "J709"
 			(at 37.465 154.94 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6852,13 +9915,145 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 36.83 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 36.83 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 36.83 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 36.83 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 36.83 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 36.83 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 36.83 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 36.83 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 36.83 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 36.83 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 36.83 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 36.83 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "fa6aa020-f4a9-4db8-a577-aa915ef3091c")
 		)
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "J707")
+					(reference "J709")
 					(unit 1)
 				)
 			)
@@ -6866,7 +10061,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 120.65 44.45 180)
+		(at 127 44.45 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6876,8 +10071,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d15fb73d-fa82-452f-8c63-b0c1247951ce")
-		(property "Reference" "#PWR0713"
-			(at 120.65 38.1 0)
+		(property "Reference" "#PWR0703"
+			(at 127 38.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6888,7 +10083,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 120.65 39.37 0)
+			(at 127 39.37 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6898,7 +10093,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 120.65 44.45 0)
+			(at 127 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6909,7 +10104,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 120.65 44.45 0)
+			(at 127 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6920,7 +10115,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 120.65 44.45 0)
+			(at 127 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6936,7 +10131,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "#PWR0713")
+					(reference "#PWR0703")
 					(unit 1)
 				)
 			)
@@ -6944,7 +10139,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 83.82 27.94 180)
+		(at 90.17 27.94 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6954,8 +10149,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d2d340c8-bec6-4eb1-a82c-8ff7b36909b0")
-		(property "Reference" "#PWR0709"
-			(at 83.82 21.59 0)
+		(property "Reference" "#PWR0701"
+			(at 90.17 21.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6966,7 +10161,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 83.82 22.86 0)
+			(at 90.17 22.86 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6976,7 +10171,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 83.82 27.94 0)
+			(at 90.17 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6987,7 +10182,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 83.82 27.94 0)
+			(at 90.17 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6998,7 +10193,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 83.82 27.94 0)
+			(at 90.17 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7014,7 +10209,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "#PWR0709")
+					(reference "#PWR0701")
 					(unit 1)
 				)
 			)
@@ -7022,7 +10217,7 @@
 	)
 	(symbol
 		(lib_id "My Symbols:74LVC4T3144PWJ")
-		(at 87.63 44.45 0)
+		(at 93.98 44.45 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7032,8 +10227,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d7fe43c2-58cd-479b-a753-dc1229aaa141")
-		(property "Reference" "IC703"
-			(at 104.14 36.83 0)
+		(property "Reference" "IC701"
+			(at 110.49 36.83 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7043,7 +10238,7 @@
 			)
 		)
 		(property "Value" "74LVC4T3144PWJ"
-			(at 104.14 39.37 0)
+			(at 110.49 39.37 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7052,8 +10247,8 @@
 				)
 			)
 		)
-		(property "Footprint" "SOP65P640X110-14N"
-			(at 116.84 139.37 0)
+		(property "Footprint" "My Footprints:SOP65P640X110-14N"
+			(at 123.19 139.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7065,7 +10260,7 @@
 			)
 		)
 		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/74LVC4T3144.pdf"
-			(at 116.84 239.37 0)
+			(at 123.19 239.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7077,7 +10272,7 @@
 			)
 		)
 		(property "Description" "74LVC4T3144 - 4-bit dual supply buffer/line driver; 3-state@en-us"
-			(at 87.63 44.45 0)
+			(at 93.98 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7088,7 +10283,7 @@
 			)
 		)
 		(property "Height" "1.1"
-			(at 116.84 439.37 0)
+			(at 123.19 439.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7100,7 +10295,7 @@
 			)
 		)
 		(property "Mouser Part Number" "771-74LVC4T3144PWJ"
-			(at 116.84 539.37 0)
+			(at 123.19 539.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7112,7 +10307,7 @@
 			)
 		)
 		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Nexperia/74LVC4T3144PWJ?qs=YCa%2FAAYMW01m27lw9PSQNA%3D%3D"
-			(at 116.84 639.37 0)
+			(at 123.19 639.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7124,7 +10319,7 @@
 			)
 		)
 		(property "Manufacturer_Name" "Nexperia"
-			(at 116.84 739.37 0)
+			(at 123.19 739.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7136,7 +10331,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "74LVC4T3144PWJ"
-			(at 116.84 839.37 0)
+			(at 123.19 839.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7145,6 +10340,138 @@
 					(size 1.27 1.27)
 				)
 				(justify left top)
+			)
+		)
+		(property "Availability" ""
+			(at 93.98 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 93.98 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 93.98 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 93.98 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 93.98 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 93.98 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 93.98 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 93.98 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 93.98 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 93.98 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 93.98 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 93.98 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "6"
@@ -7192,7 +10519,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "IC703")
+					(reference "IC701")
 					(unit 1)
 				)
 			)
@@ -7303,6 +10630,138 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 132.08 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 132.08 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 132.08 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 132.08 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 132.08 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 132.08 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 132.08 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 132.08 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 132.08 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 132.08 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 132.08 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 132.08 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "2d16fe5d-b075-4038-87a2-40ed7551aea5")
 		)
@@ -7330,7 +10789,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e0bf2efa-7891-4d54-9f99-73cb519853f7")
-		(property "Reference" "#PWR0705"
+		(property "Reference" "#PWR0709"
 			(at 113.03 93.98 0)
 			(hide yes)
 			(show_name no)
@@ -7390,7 +10849,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "#PWR0705")
+					(reference "#PWR0709")
 					(unit 1)
 				)
 			)
@@ -7408,7 +10867,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e729995e-b216-4081-8ad4-803a13854828")
-		(property "Reference" "J710"
+		(property "Reference" "J708"
 			(at 52.705 146.05 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7461,6 +10920,138 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 52.07 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 52.07 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 52.07 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 52.07 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 52.07 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 52.07 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 52.07 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 52.07 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 52.07 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 52.07 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 52.07 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 52.07 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "3"
 			(uuid "4487f5f0-c146-463b-b28c-d84649245b72")
 		)
@@ -7473,7 +11064,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "J710")
+					(reference "J708")
 					(unit 1)
 				)
 			)
@@ -7544,6 +11135,138 @@
 				)
 			)
 		)
+		(property "Availability" ""
+			(at 36.83 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 36.83 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 36.83 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 36.83 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 36.83 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 36.83 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 36.83 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 36.83 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 36.83 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 36.83 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 36.83 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 36.83 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "ce2b683a-1f26-4df2-a4ce-df08fe85a993")
 		)
@@ -7568,7 +11291,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fb7c3695-8dd9-4eed-9841-14804dd4cb4e")
-		(property "Reference" "IC702"
+		(property "Reference" "IC703"
 			(at 157.48 123.19 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7683,6 +11406,138 @@
 				(justify left top)
 			)
 		)
+		(property "Availability" ""
+			(at 170.18 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Check_prices" ""
+			(at 170.18 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 170.18 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 170.18 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 170.18 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 170.18 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 170.18 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 170.18 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" ""
+			(at 170.18 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 170.18 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Size" ""
+			(at 170.18 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SnapEDA_Link" ""
+			(at 170.18 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "21ad8b15-b4c7-4e69-a15d-4ceca1aa6156")
 		)
@@ -7704,7 +11559,85 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
-					(reference "IC702")
+					(reference "IC703")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 224.79 69.85 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fbbae3bb-54b6-407d-8a71-56f805f39d74")
+		(property "Reference" "#PWR0718"
+			(at 224.79 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 224.79 74.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 224.79 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 224.79 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 224.79 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f0eea0e5-79d4-4266-83a9-a84a89d9bbc4")
+		)
+		(instances
+			(project "main_v2"
+				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/647b90a7-2af9-4750-95f9-1b3f769199f2"
+					(reference "#PWR0718")
 					(unit 1)
 				)
 			)
