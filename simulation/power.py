@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.23.13"
+__generated_with = "0.23.9"
 app = marimo.App(width="medium")
 
 
@@ -84,7 +84,7 @@ def _(md, mixer, mo, ox_freq_hz, ox_power):
         md.Filter("Balun", "XMB0220K1", insertion_loss=5.0),
         md.Filter("Low Pass", "LFCN-1800+", insertion_loss=lfcn_model),
         md.Filter("Power Splitter", "PD0922J5050D2HF", insertion_loss=pd09_model),
-        md.Amplifier("Amp", "PSA4-5043+", psa4_model, noise_figure_db=4.0, power_rail=md.PowerRail(5.0, 58.0, 66.0)),
+        md.Amplifier("Amp", "PSA4-5043+", psa4_model, noise_figure_db=4.0, power_rail=md.PowerRail(5.0, 0.058, 0.066)),
     ]
     results_ox = md.run_simulation(path_ox, md.SpectrumSignal())
     df_matrix_ox = md.create_frequency_matrix(results_ox)

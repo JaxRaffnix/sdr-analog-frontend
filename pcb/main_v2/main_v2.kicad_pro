@@ -702,6 +702,9 @@
       "/oscillator2/RF In": [
         "High Speed 50Ohm"
       ],
+      "/power/DC Power": [
+        "Power"
+      ],
       "/power/Power Enable": [
         "Default"
       ],
@@ -807,6 +810,18 @@
       "Net-(C306-Pad2)": [
         "HF 50R"
       ],
+      "Net-(C502-Pad1)": [
+        "Power"
+      ],
+      "Net-(C514-Pad1)": [
+        "HF 50R"
+      ],
+      "Net-(C515-Pad1)": [
+        "HF 50R"
+      ],
+      "Net-(C516-Pad1)": [
+        "HF 50R"
+      ],
       "Net-(C613-Pad1)": [
         "HF 50R"
       ],
@@ -849,17 +864,29 @@
       "Net-(IC401-IF)": [
         "HF 50R"
       ],
+      "Net-(IC401-IN)": [
+        "HF 50R"
+      ],
       "Net-(IC401-LO)": [
         "HF 50R"
       ],
       "Net-(IC401-RF)": [
         "HF 50R"
       ],
+      "Net-(IC402-IF)": [
+        "HF 50R"
+      ],
       "Net-(IC402-IN)": [
+        "HF 50R"
+      ],
+      "Net-(IC402-LO)": [
         "HF 50R"
       ],
       "Net-(IC402-OUT)": [
         "High Speed 50Ohm"
+      ],
+      "Net-(IC402-RF)": [
+        "HF 50R"
       ],
       "Net-(IC601-RF-OUT_&_DC-IN)": [
         "HF 50R"
@@ -873,6 +900,21 @@
       "Net-(IC602-RF_IN)": [
         "HF 50R"
       ],
+      "Net-(IC703-VCC(A))": [
+        "Power"
+      ],
+      "Net-(Q201-S)": [
+        "Power"
+      ],
+      "Net-(U501-REFIN)": [
+        "HF 50R"
+      ],
+      "Net-(U501-RF_OUT_A+)": [
+        "HF 50R"
+      ],
+      "Net-(U501-RF_OUT_A-)": [
+        "HF 50R"
+      ],
       "Net-(U601-REFIN)": [
         "HF 50R"
       ],
@@ -884,6 +926,12 @@
       ],
       "Net-(U603-INPUT)": [
         "High Speed 50Ohm"
+      ],
+      "Net-(Y501-OUTPUT)": [
+        "HF 50R"
+      ],
+      "Net-(Y501-VDD)": [
+        "Power"
       ],
       "Net-(Y601-OUTPUT)": [
         "HF 50R"
@@ -1153,6 +1201,18 @@
           "label": "Color",
           "name": "Color",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Power",
+          "name": "Power",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Self Resonance",
+          "name": "Self Resonance",
+          "show": false
         }
       ],
       "filter_string": "",
@@ -1203,7 +1263,7 @@
         "uuid": "0599865e-4bed-44f1-b46e-4b55335b49b2"
       }
     ],
-    "used_designators": "U702-703,#PWR707-711,C701-702,R703-707",
+    "used_designators": "L501-502,D201,D206,#PWR203,#PWR220-222,#PWR325,#PWR501,#PWR503,#PWR506-507,#PWR509-510,#PWR512-514,#PWR532,#PWR536-542,#PWR702,#PWR709-710,#PWR713-717,R206,R211-212,R305,R710-714,C208,C501-503,C508-513,C701-702,C704,#SYM201,FB201-202,FB501-504,Q201,U701,IC703",
     "variants": []
   },
   "sheets": [
