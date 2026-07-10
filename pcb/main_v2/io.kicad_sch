@@ -7752,7 +7752,7 @@
 				)
 			)
 		)
-		(property "Footprint" "SOIC127P1032X265-20N"
+		(property "Footprint" "My Footprints:SOIC127P1032X265-20N"
 			(at 106.68 192.71 0)
 			(hide yes)
 			(show_name no)

@@ -174,4 +174,10 @@ K
 F https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=conmhf1-smd-g-t-ds&DocType=Data%20Sheet&DocLang=English&PartCntxt=CONMHF1-SMD-T&DocFormat=pdf
 $ENDCMP
 #
+$CMP SKY16602-632LF
+D PIN Diodes .2-4.0GHz -40C +85C RL 14dB Pin CW 30dBm
+K
+F https://www.mouser.de/datasheet/2/472/SKYS_S_A0013006819_1-2515864.pdf
+$ENDCMP
+#
 #End Doc Library

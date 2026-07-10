@@ -7,6 +7,10 @@ HF 50R
 clearance 0.9 mm
 track width 0,295 mm
 
+power
+clearance 0,2032 mm
+
+
 ## Aisler
 
 [Aisler PCB](https://aisler.net/p/YPFMCLNO)
