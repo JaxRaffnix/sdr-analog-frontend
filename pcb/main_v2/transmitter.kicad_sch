@@ -4446,7 +4446,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 69.85 76.2 270)
+		(at 69.85 76.2 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4456,7 +4456,7 @@
 		(dnp no)
 		(uuid "37a326b9-5662-490c-b576-aee7b9343fb3")
 		(property "Reference" "R301"
-			(at 71.1201 78.74 0)
+			(at 68.5799 73.66 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4467,7 +4467,7 @@
 			)
 		)
 		(property "Value" "91"
-			(at 68.5801 78.74 0)
+			(at 71.1199 73.66 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4478,7 +4478,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 69.85 74.422 90)
+			(at 69.85 77.978 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4511,7 +4511,7 @@
 			)
 		)
 		(property "Package" "0402 "
-			(at 69.85 71.628 0)
+			(at 69.85 80.772 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5531,6 +5531,7 @@
 	(symbol
 		(lib_id "Device:C")
 		(at 78.74 119.38 0)
+		(mirror y)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5540,7 +5541,7 @@
 		(dnp no)
 		(uuid "618683b5-acd0-4307-a84c-5710161489a1")
 		(property "Reference" "C310"
-			(at 82.55 118.1099 0)
+			(at 74.93 118.1099 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5551,7 +5552,7 @@
 			)
 		)
 		(property "Value" "100 nF"
-			(at 82.55 120.6499 0)
+			(at 74.93 120.6499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5562,7 +5563,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 79.7052 123.19 0)
+			(at 77.7748 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5617,7 +5618,7 @@
 			)
 		)
 		(property "Package" "0402"
-			(at 73.914 118.618 0)
+			(at 83.566 118.618 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5627,7 +5628,7 @@
 			)
 		)
 		(property "Voltage" "10 V"
-			(at 74.168 121.158 0)
+			(at 83.312 121.158 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects

@@ -2732,7 +2732,7 @@
 	)
 	(text "from SDR FPGA:\nio vcc\ndata\nclock\nenable\ngnd"
 		(exclude_from_sim no)
-		(at 81.788 52.07 0)
+		(at 77.978 49.022 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2884,8 +2884,8 @@
 	)
 	(text_box "Place close together!"
 		(exclude_from_sim no)
-		(at 78.74 13.97 0)
-		(size 161.29 55.88)
+		(at 72.39 13.97 0)
+		(size 167.64 55.88)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width 0)

@@ -168,4 +168,10 @@ K
 F https://rs.componentsearchengine.com/Datasheets/1/RCLAMP0502BATCT.pdf
 $ENDCMP
 #
+$CMP CONMHF1-SMD-T
+D U.FL (UMCC) Connector Jack, Male Pin 50 Ohms Surface Mount Solder 
+K
+F https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=conmhf1-smd-g-t-ds&DocType=Data%20Sheet&DocLang=English&PartCntxt=CONMHF1-SMD-T&DocFormat=pdf
+$ENDCMP
+#
 #End Doc Library

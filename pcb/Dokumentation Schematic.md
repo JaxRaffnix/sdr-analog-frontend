@@ -1,5 +1,12 @@
 # Dokumentation Schematic
 
+
+
+## Layout
+HF 50R
+clearance 0.9 mm
+track width 0,295 mm
+
 ## Aisler
 
 [Aisler PCB](https://aisler.net/p/YPFMCLNO)

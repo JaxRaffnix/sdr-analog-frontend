@@ -581,11 +581,11 @@
         "schematic_color": "rgb(0, 0, 0)",
         "track_width": 0.381,
         "tuning_profile": "",
-        "via_diameter": 0.6096,
-        "via_drill": 0.3048
+        "via_diameter": 0.8128,
+        "via_drill": 0.4064
       },
       {
-        "clearance": 0.9,
+        "clearance": 0.0,
         "name": "HF 50R",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 0,
@@ -1334,7 +1334,7 @@
         "uuid": "0599865e-4bed-44f1-b46e-4b55335b49b2"
       }
     ],
-    "used_designators": "R713-717,IC704,D401,#PWR411,#PWR703,#PWR717-721,Q701",
+    "used_designators": "J105,J501",
     "variants": []
   },
   "sheets": [
