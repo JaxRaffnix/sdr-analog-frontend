@@ -11,6 +11,8 @@ def _():
     import models as md
 
     # todo: max_input_power_dbm gloablly for all components
+    # todo: print every device check, including all good results
+    # todo: make device check a unique function that run_simulation() calls?
     return md, mo
 
 
@@ -87,23 +89,26 @@ def _(md, mixer, mo, ox_freq_hz, ox_power):
         md.Amplifier("Amp", "PSA4-5043+", psa4_model, noise_figure_db=4.0, power_rail=md.PowerRail(5.0, 0.058, 0.066)),
     ]
     results_ox = md.run_simulation(path_ox, md.SpectrumSignal(analysis_freq=ox_freq_hz.value))
-    df_matrix_ox = md.create_frequency_matrix(results_ox)
 
     mixer.set_lo_signal(
-        results_ox[-1].signal,
+        results_ox.iloc[-1]["Signal"],
         lo_freq_hz=ox_freq_hz.value,
     )
 
-    selected_comp_ox = mo.ui.dropdown(options=[c.name for c in results_ox], value=results_ox[-1].name, label="Select Stage:")
-    return df_matrix_ox, path_ox, results_ox, selected_comp_ox
+    ui_stage_ox = mo.ui.dropdown(
+        options=results_ox.index.tolist(), 
+        value=results_ox.index[-1], 
+        label="Select Oscillator Stage:"
+    )
+    return path_ox, results_ox, ui_stage_ox
 
 
 @app.cell
-def _(df_matrix_ox, md, mo, results_ox, selected_comp_ox):
+def _(md, mo, results_ox, ui_stage_ox):
     mo.vstack([
-        md.style_rf_matrix(df_matrix_ox),
-        selected_comp_ox,
-        md.plot_spectrum(results_ox, selected_comp_ox.value),
+        md.show_frequency_matrix(results_ox),
+        ui_stage_ox,
+        md.plot_spectrum(results_ox, ui_stage_ox.value),
     ])
     return
 
@@ -132,21 +137,24 @@ def _(bandpass, md, mixer, mo, tx_freq_hz, tx_power, tx_sample_freq_hz):
         md.Source("Tx DAC", "RFSoC_SDR",freq_hz=tx_freq_hz.value,output_power_dbm=tx_power.value, fs_hz=tx_sample_freq_hz.value, power_range=md.Range(-18.5, 6.5), freq_range=md.Range(800e6, 1_100e6)),
         mixer,
         bandpass,
-        md.Amplifier("PA", "SE2576L-R", gain_model=28.0, p1db_dbm=32.0, oip3_dbm=40.0, power_rail=md.PowerRail(voltage=5.0, current_typ_a=0.5, current_max_a=0.65))
+        md.Amplifier("PA", "SE2576L-R", gain_model=28.0, p1db_dbm=32.0, oip3_dbm=40.0, power_rail=md.PowerRail(voltage=5.0, current_typ=0.5, current_max=0.65))
     ]
     results_tx = md.run_simulation(path_tx, md.SpectrumSignal(analysis_freq=tx_freq_hz.value))
-    df_matrix_tx = md.create_frequency_matrix(results_tx)
 
-    selected_comp_tx = mo.ui.dropdown(options=[c.name for c in results_tx], value=results_tx[-1].name, label="Select Stage:")
-    return df_matrix_tx, path_tx, results_tx, selected_comp_tx
+    ui_stage_tx = mo.ui.dropdown(
+        options=results_tx.index.tolist(), 
+        value=results_tx.index[-1], 
+        label="Select Transmitter Stage:"
+    )
+    return path_tx, results_tx, ui_stage_tx
 
 
 @app.cell
-def _(df_matrix_tx, md, mo, results_tx, selected_comp_tx):
+def _(md, mo, results_tx, ui_stage_tx):
     mo.vstack([
-        md.style_rf_matrix(df_matrix_tx),
-        selected_comp_tx,
-        md.plot_spectrum(results_tx, selected_comp_tx.value),
+        md.show_frequency_matrix(results_tx),
+        ui_stage_tx,
+        md.plot_spectrum(results_tx, ui_stage_tx.value),
     ])
     return
 
@@ -162,7 +170,7 @@ def _(mo):
 @app.cell
 def _(mo):
     rx_f1_hz = mo.ui.slider(start=2400e6, stop=2500e6, step=1e6, value=2450e6, label="Rx Nutzsignal Freq (Hz)", show_value=True)
-    rx_p1 = mo.ui.slider(start=-100.0, stop=0.0, step=1.0, value=-60.0, label="Rx Nutzsignal Power (dBm)", show_value=True)
+    rx_p1 = mo.ui.slider(start=-100.0, stop=0.0, step=1.0, value=-10.0, label="Rx Nutzsignal Power (dBm)", show_value=True)
 
     rx_f2_hz = mo.ui.slider(start=2400e6, stop=2500e6, step=1e6, value=2460e6, label="Rx Störsignal Freq (Hz)", show_value=True)
     rx_p2 = mo.ui.slider(start=-100.0, stop=0.0, step=1.0, value=-40.0, label="Rx Störsignal Power (dBm)", show_value=True)
@@ -196,7 +204,7 @@ def _(bandpass, md, mixer, mo, rx_f1_hz, rx_f2_hz, rx_p1, rx_p2):
     path_rx = [
         rx_input,
         bandpass,
-        md.Amplifier("LNA", "HMC374", gain_model=hmc_model, power_rail=md.PowerRail(voltage=5.0, current_typ_a=90e-3, current_max_a=90e-3), max_input_power_dbm=13.0, noise_figure_db=2.2),
+        md.Amplifier("LNA", "HMC374", gain_model=hmc_model, power_rail=md.PowerRail(voltage=5.0, current_typ=90e-3), max_input_power_dbm=13.0, noise_figure_db=2.2),
         mixer,
         md.Filter("Bandpass Low ", "SYBP-92+", insertion_loss=sybp_model, center_freq_hz=950e6),
         md.Limiter(
@@ -211,26 +219,23 @@ def _(bandpass, md, mixer, mo, rx_f1_hz, rx_f2_hz, rx_p1, rx_p2):
         md.ADC(name="ADC", part_number="RFSoC ADC", sample_rate_hz=5_000e6, bandwidth_hz=6_000e6, resolution_bits=14, full_scale_dbm=1.0, max_input_power_dbm=14.6)
     ]
     results_rx = md.run_simulation(path_rx, md.SpectrumSignal(analysis_freq=rx_f1_hz.value))
-    df_matrix_rx = md.create_frequency_matrix(results_rx)
 
 
-    selected_comp_rx = mo.ui.dropdown(options=[c.name for c in results_rx], value=results_rx[-1].name, label="Select Stage:")
-    return df_matrix_rx, path_rx, results_rx, selected_comp_rx
+    ui_stage_rx = mo.ui.dropdown(
+        options=results_rx.index.tolist(), 
+        value=results_rx.index[-1], 
+        label="Select Receiver Stage:"
+    )
+    return path_rx, results_rx, ui_stage_rx
 
 
 @app.cell
-def _(df_matrix_rx, md, mo, results_rx, selected_comp_rx):
+def _(md, mo, results_rx, ui_stage_rx):
     mo.vstack([
-        md.style_rf_matrix(df_matrix_rx),
-        selected_comp_rx,
-        md.plot_spectrum(results_rx, selected_comp_rx.value),
+        md.show_frequency_matrix(results_rx),
+        ui_stage_rx,
+        md.plot_spectrum(results_rx, ui_stage_rx.value),
     ])
-    return
-
-
-@app.cell
-def _():
-    # mo.ui.text_area(value=df_matrix_rx.to_markdown(index=False),rows=20,full_width=True,)
     return
 
 
@@ -239,28 +244,19 @@ def _(mo):
     mo.md(r"""
     ### Noise Budget
 
-    **The desired signal is inferred with signal.center_freq(), which uses a weighted average. This can lead to edge cases!**
-
-    For now, we manually specify the frequency of the desired signal for the filter stage.
+    For now, we manually specify the frequency of the desired signal in the Antenna initialization.
     """)
     return
 
 
 @app.cell
-def _():
-    # TODO: from the filter class, hardocded valzues for frequency_range and insertion_loss create wrong SNR results!
-    return
+def _(md, mo, results_rx, rx_f1_hz):
+    noise_budget_rx = md.build_noise_budget(results_rx, analysis_freq=rx_f1_hz.value)
 
-
-@app.cell
-def _(md, results_rx, rx_f1_hz):
-    input_snr = results_rx[0].signal.get_snr_db(rx_f1_hz.value)
-    output_snr = results_rx[-1].signal.get_snr_db(rx_f1_hz.value)
-
-    system_nf = input_snr - output_snr
-    print(f"Total System Noise Figure: {system_nf:.2f} dB")
-
-    md.print_noise_budget(results_rx, rx_f1_hz.value)
+    mo.vstack([
+        noise_budget_rx,
+        md.plot_noise_budget(noise_budget_rx.data),
+    ])
     return
 
 
@@ -274,33 +270,12 @@ def _(mo):
 
 @app.cell
 def _(md, mo, path_ox, path_rx, path_tx):
-    tcxo = md.RFComponent(name="TCXO", part_number="ATX-11-F-26.000MHZ-F05-T", power_rail=md.PowerRail(voltage=3.3, current_typ_a=2e-3, current_max_a=2.5e-3))
+    tcxo = md.RFComponent(name="TCXO", part_number="ATX-11-F-26.000MHZ-F05-T", power_rail=md.PowerRail(voltage=3.3, current_typ=2e-3, current_max=2.5e-3))
     path_additional = [tcxo]
 
     mo.vstack([
-        md.calculate_system_budget(path_ox + path_tx + path_rx + path_additional),
+        md.calculate_dc_power(path_ox + path_tx + path_rx + path_additional),
     ])
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    ### Noise Budget Overview
-    """)
-    return
-
-
-@app.cell
-def _():
-    def _(md, mo, results_rx, rx_f1_hz):
-        noise_budget_rx = md.build_noise_budget(results_rx, rx_f1_hz.value)
-        mo.vstack([
-            md.style_noise_budget_table(noise_budget_rx),
-            md.plot_noise_budget(noise_budget_rx),
-        ])
-        return
-
     return
 
 

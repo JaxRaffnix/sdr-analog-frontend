@@ -5,15 +5,18 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 import pandas as pd
 from typing import Callable
 
 
 # ___________________________________________________________________
-# Signal
-
+# Constants
 THERMAL_NOISE_FLOOR = -174.0  # dBm/Hz at room temperature
 
+
+# ___________________________________________________________________
+# Signal
 class SpectrumSignal:
     def __init__(self, tones=None, analysis_freq=None, noise_power_dbm=THERMAL_NOISE_FLOOR):
         self.tones = tones.copy() if tones is not None else {}
@@ -36,24 +39,13 @@ class SpectrumSignal:
 
     def power_at(self, frequency, default=-np.inf):
         power = self.tones.get(frequency, default)
-        if power == -np.inf and self.analysis_freq is not None:
-            power = self.tones.get(self.analysis_freq, default)
         if power == -np.inf:
             raise ValueError(f"Frequency {frequency} Hz not found in signal tones.")
         return power
-    
-    # def effective_frequency(self):
-    #     if not self.tones:
-    #         return None
 
-    #     freqs = np.array(list(self.tones.keys()))
-    #     powers = np.array(list(self.tones.values()))
-    #     powers_mw = _dbm_to_mw(powers)
-    #     return np.sum(freqs * powers_mw) / np.sum(powers_mw)
-
-    def get_snr_db(self, freq_hz: float) -> float:
+    def get_snr(self, freq_hz: float, default: float = -np.inf) -> float:
         """Returns the SNR in dB for a specific tone."""
-        tone_power = self.power_at(freq_hz)            
+        tone_power = self.power_at(freq_hz, default=default)
         return tone_power - self.noise_power_dbm
     
 
@@ -72,34 +64,11 @@ class Range:
         return True
 
 
-@dataclass(slots=True)
-class StageResult:
-    name: str
-    part_number: str
-    signal: SpectrumSignal
-
-    @property
-    def tones(self):
-        return self.signal.tones
-    
-    @property
-    def noise_dbm(self):
-        return self.signal.noise_power_dbm
-
-    @property
-    def total_power(self):
-        return self.signal.total_power_dbm()
-    
-    @property
-    def analysis_freq(self):
-        return self.signal.analysis_freq
-
-
 class PowerRail:
-    def __init__(self, voltage, current_typ_a, current_max_a):
+    def __init__(self, voltage, current_typ, current_max=None):
         self.voltage = voltage
-        self.current_typ_a = current_typ_a
-        self.current_max_a = current_max_a
+        self.current_typ = current_typ
+        self.current_max = current_max if current_max else current_typ
 
 
 # ___________________________________________________________________
@@ -134,13 +103,13 @@ class RFComponent:
 
         rail = self.power_rail
         return {
-            "component": self.name,
-            "part_number": self.part_number,
-            "voltage": rail.voltage,
-            "current_typ_a": rail.current_typ_a,
-            "current_max_a": rail.current_max_a,
-            "power_typ_w": round(rail.voltage * rail.current_typ_a, 6),
-            "power_max_w": round(rail.voltage * rail.current_max_a, 6),
+            "Stage": self.name,
+            "Part Number": self.part_number,
+            "Voltage [V]": rail.voltage,
+            "Current typ [A]": rail.current_typ,
+            "Current max [A]": rail.current_max,
+            "Power typ [W]": round(rail.voltage * rail.current_typ, 6),
+            "Power max [W]": round(rail.voltage * rail.current_max, 6),
         }
 
     def process(self, signal):
@@ -745,297 +714,133 @@ class AntennaSource(RFComponent):
 
 # ___________________________________________________________________
 # DC Power Calculation
-def calculate_system_budget(components):
-    reports = [c.dc_power_report() for c in components if c.dc_power_report()]
-    if not reports:
-        return None
+def calculate_dc_power(stages):
+    reports = [s.dc_power_report() for s in stages if s.dc_power_report() is not None]
+    df = pd.DataFrame(reports).set_index("Voltage [V]").sort_index().round(3)
 
-    df = pd.DataFrame(reports).rename(columns={
-        "voltage": "Voltage [V]",
-        "part_number": "part_number",
-        "current_typ_a": "Current typ [A]",
-        "current_max_a": "Current max [A]",
-        "power_typ_w": "Power typ [W]",
-        "power_max_w": "Power max [W]",
-    })
+    df["Current typ [mA]"] = df["Current typ [A]"] * 1e3
+    df["Current max [mA]"] = df["Current max [A]"] * 1e3
+    df = df.drop(columns=["Current typ [A]", "Current max [A]"])
 
-    rows = []
-    for voltage, group in df.groupby("Voltage [V]"):
-        rows.append(group)        
-        rows.append(pd.DataFrame({
-            "Voltage [V]": [voltage],
-            "part_number": [f"↳ {voltage}V RAIL TOTAL"],
-            "Current typ [A]": [group["Current typ [A]"].sum()],
-            "Current max [A]": [group["Current max [A]"].sum()],
-            "Power typ [W]": [group["Power typ [W]"].sum()],
-            "Power max [W]": [group["Power max [W]"].sum()]
-        }))
+    total_df = df.groupby("Voltage [V]").sum().drop(["Stage", "Part Number"], axis=1).round(3)
 
-    # Calculate Grand Total
-    grand_total = pd.DataFrame({
-        "Voltage [V]": ["SYSTEM"],
-        "part_number": ["GRAND TOTAL"],
-        "Current typ [A]": [df["Current typ [A]"].sum()],
-        "Current max [A]": [df["Current max [A]"].sum()],
-        "Power typ [W]": [df["Power typ [W]"].sum()],
-        "Power max [W]": [df["Power max [W]"].sum()]
-    })
-    rows.append(grand_total)
+    return df, total_df
 
-    final_df = pd.concat(rows, ignore_index=True)
-    final_df = final_df.set_index(["Voltage [V]", "part_number"]).round(2)
-    
-    return final_df[["Current typ [A]", "Current max [A]", "Power typ [W]", "Power max [W]"]]
 
 # ___________________________________________________________________
 # Run Simulation Function
-def run_simulation(components, signal) -> list[StageResult]:
-    log = []
+def run_simulation(stages, signal: SpectrumSignal) -> pd.DataFrame:
+    results = []
+    for stage in stages:
+        signal = stage.process(signal)
 
-    for component in components:
-        signal= component.process(signal)
+        def get_power_safely(sig, freq):
+            try:
+                return sig.power_at(freq)
+            except ValueError:
+                return pd.NA
+            
+        f_a = signal.analysis_freq
 
-        log.append(
-            StageResult(
-                name=component.name,
-                part_number=component.part_number,
-                signal=signal,
-            )
-        )
-
-    return log
-
-
-def format_simulation_results(log):
-    return pd.DataFrame([
-        {
-            "Component": stage.name,
+        results.append({
+            "Stage": stage.name,
             "Part Number": stage.part_number,
-            "Total P (dBm)": f"{stage.total_power:.2f}",
-            "Spectrum": ", ".join(
-                f"{f / 1e6:.3f} MHz: {p:.1f} dBm"
-                for f, p in stage.tones.items()
-            ),
-        }
-        for stage in log
-    ])
-
-# ___________________________________________________________________
-# plotting
-def plot_spectrum(log: list[StageResult], component: str):
-
-    stage = next(s for s in log if s.name == component)
-    df = (
-        pd.DataFrame(
-            stage.tones.items(),
-            columns=["Frequency (MHz)", "Power (dBm)"],
-        )
-        .assign(**{"Frequency (MHz)": lambda x: x["Frequency (MHz)"].div(1e6).round(3)})
-        .sort_values("Frequency (MHz)")
-    )
-
-    fig = go.Figure()
-
-    # Stem lines
-    for _, row in df.iterrows():
-        fig.add_trace(
-            go.Scatter(
-                x=[row["Frequency (MHz)"], row["Frequency (MHz)"]],
-                y=[-120, row["Power (dBm)"]],
-                mode="lines",
-                line=dict(width=2),
-                hoverinfo="skip",
-                showlegend=False,
-            )
-        )
-    fig.update_layout(
-        height=450,
-        xaxis=dict(title="Frequency [MHz]", showgrid=True, zeroline=False,),
-        yaxis=dict(title="Power [dBm]", range=[-120, 20], showgrid=True,),
-        title=dict(text=f"Spectrum at {component}",x=0.5,xanchor="center",)
-    )
-
-    return fig
+            "Signal": signal,
+            "Total Power [dBm]": signal.total_power_dbm(),
+            "Analysis Frequency [GHz]": f_a / 1e9 if f_a else pd.NA,
+            "Noise Floor [dBm]": signal.noise_power_dbm,
+            "Tone Power [dBm]": signal.power_at(f_a, default=pd.NA),
+            "SNR [dB]": signal.get_snr(f_a, default=pd.NA)
+        })
+    
+    return pd.DataFrame(results).set_index("Stage")
 
 
 # ___________________________________________________________________
 # table formatting
-def create_frequency_matrix(log):
-    # Get all frequencies, excluding DC (0.0 Hz)
-    freqs = sorted({
-        f for stage in log
-        for f in stage.tones if f > 100_000  # Filter out everything below 100 kHz
-    })
+PLOT_POWER_MIN = -130
+PLOT_POWER_MAX = 30
+
+
+def show_frequency_matrix(results: pd.DataFrame):
+    MIN_FREQUENCY = 100_000
+    
+    tones_df = pd.DataFrame(results["Signal"].apply(lambda s: s.tones).tolist(), index=results.index)
+    
+    matrix = tones_df.T
+    matrix = matrix[matrix.index > MIN_FREQUENCY].sort_index()
+
+    matrix.index = matrix.index / 1e9
+
+    matrix = matrix.rename_axis("Frequency [GHz]")
+    matrix.columns.name = "Stage Power [dB]"
 
     return (
-        pd.DataFrame(
-            {
-                stage.name: [
-                    stage.tones.get(f, np.nan)
-                    for f in freqs
-                ]
-                for stage in log
-            },
-            index=freqs,
+        matrix.style
+        .background_gradient(cmap="viridis", axis=None, vmin=PLOT_POWER_MIN, vmax=PLOT_POWER_MAX)
+        .format("{:.2f}", na_rep="")              
+        .format_index("{:.3f}", axis=0) 
+    )
+    
+
+# ___________________________________________________________________
+# plotting
+def plot_spectrum(results: pd.DataFrame, stage: str):
+    tones = results.loc[stage, "Signal"].tones
+    
+    freqs = [x for f in tones.keys() for x in (f / 1e9, f / 1e9, None)]
+    powers = [x for p in tones.values() for x in (PLOT_POWER_MIN, p, None)]
+
+    fig = go.Figure(
+        data=go.Scatter(
+            x=freqs, y=powers, 
+            mode='lines',
         )
-        .rename_axis("Frequency (MHz)")
+    )
+    
+    fig.update_layout(
+        title=dict(text=f"Spectrum at Stage: {stage}", x=0.5),
+        xaxis=dict(title="Frequency [GHz]", showgrid=True),
+        yaxis=dict(title="Power [dBm]", range=[PLOT_POWER_MIN, PLOT_POWER_MAX], showgrid=True)
     )
 
-
-def style_rf_matrix(df):
-    return (
-        df.style
-        # Apply gradient only to the numerical values (exclude index)
-        .background_gradient(
-            cmap="viridis",
-            axis=None,
-            vmin=-80,
-            vmax=10,
-        )
-        # Use a dictionary or subset to ensure only cell values are formatted as dBm
-        .format("{:.1f} dBm", na_rep="-")
-        # Explicitly format the index (frequencies) separately to avoid "dBm" units
-        .format_index(lambda f: f"{f / 1e6:.2f} MHz", axis=0) 
-    )
+    return fig
 
 
 # ___________________________________________________________________
 # Noise Budget Calculation
+def build_noise_budget(results: pd.DataFrame, analysis_freq):
+    df = results.copy()
+    
+    df["Stage NF [dB]"] = df["SNR [dB]"].shift(1) - df["SNR [dB]"]
+    
+    df["Cumulative NF [dB]"] = df["SNR [dB]"].iloc[0] - df["SNR [dB]"]
+        
+    df = df[["Analysis Frequency [GHz]", "Tone Power [dBm]", "Noise Floor [dBm]", "SNR [dB]", "Stage NF [dB]", "Cumulative NF [dB]"]]
+    
+    return df.style.format("{:.2f}", na_rep="")  
 
 
-def build_noise_budget(results_rx, target_freq):
-    rows = []
-    first_snr = float("nan")
-    previous_snr = float("nan")
-
-    for index, stage in enumerate(results_rx):
-        sig = stage.signal
-        snr_freq = stage.analysis_freq if stage.analysis_freq is not None else target_freq
-
-        try:
-            tone_power = sig.power_at(snr_freq)
-            snr = tone_power - sig.noise_power_dbm
-        except ValueError:
-            tone_power = float("nan")
-            snr = float("nan")
-
-        if index == 0:
-            stage_nf = float("nan")
-            cumulative_nf = 0.0 if not math.isnan(snr) else float("nan")
-            first_snr = snr
-        else:
-            stage_nf = previous_snr - snr if not (math.isnan(previous_snr) or math.isnan(snr)) else float("nan")
-            cumulative_nf = first_snr - snr if not (math.isnan(first_snr) or math.isnan(snr)) else float("nan")
-
-        rows.append(
-            {
-                "Stage": stage.name,
-                "Analysis Freq [MHz]": snr_freq / 1e6 if snr_freq is not None else float("nan"),
-                "Tone Power [dBm]": tone_power,
-                "Noise Floor [dBm]": sig.noise_power_dbm,
-                "SNR [dB]": snr,
-                "Stage NF [dB]": stage_nf,
-                "Cumulative NF [dB]": cumulative_nf,
-            }
-        )
-        previous_snr = snr
-
-    return pd.DataFrame(rows)
-
-
-def style_noise_budget_table(df):
-    return (
-        df.style
-        .format(
-            {
-                "Analysis Freq [MHz]": "{:.3f}",
-                "Tone Power [dBm]": "{:.1f} dBm",
-                "Noise Floor [dBm]": "{:.1f} dBm",
-                "SNR [dB]": "{:.1f} dB",
-                "Stage NF [dB]": "{:.1f} dB",
-                "Cumulative NF [dB]": "{:.1f} dB",
-            },
-            na_rep="-",
-        )
-        .background_gradient(subset=["Noise Floor [dBm]"], cmap="Blues_r")
-        .background_gradient(subset=["SNR [dB]"], cmap="Greens")
-        .background_gradient(subset=["Stage NF [dB]"], cmap="Oranges")
-        .background_gradient(subset=["Cumulative NF [dB]"], cmap="PuRd")
-    )
-
-
-def plot_noise_budget(df):
+def plot_noise_budget(df: pd.DataFrame):
+    plot_df = df.reset_index()
+    
     fig = go.Figure()
 
-    fig.add_trace(
-        go.Bar(
-            x=df["Stage"],
-            y=df["Noise Floor [dBm]"],
-            name="Noise Floor",
-            marker_color="rgba(96, 165, 250, 0.35)",
-        )
-    )
-    fig.add_trace(
-        go.Bar(
-            x=df["Stage"],
-            y=df["Tone Power [dBm]"],
-            name="Tone Power",
-            marker_color="rgba(34, 197, 94, 0.55)",
-        )
-    )
-    fig.add_trace(
-        go.Scatter(
-            x=df["Stage"],
-            y=df["SNR [dB]"],
-            name="SNR",
-            mode="lines+markers",
-            line=dict(color="#f59e0b", width=3),
-            marker=dict(size=8),
-        )
-    )
-    fig.add_trace(
-        go.Scatter(
-            x=df["Stage"],
-            y=df["Stage NF [dB]"],
-            name="Stage NF",
-            mode="lines+markers",
-            line=dict(color="#ef4444", width=3, dash="dot"),
-            marker=dict(size=8),
-        )
-    )
-    fig.add_trace(
-        go.Scatter(
-            x=df["Stage"],
-            y=df["Cumulative NF [dB]"],
-            name="Cumulative NF",
-            mode="lines+markers",
-            line=dict(color="#8b5cf6", width=3),
-            marker=dict(size=8),
-        )
-    )
+    fig.add_trace(go.Scatter(
+        x=plot_df["Stage"], y=plot_df["SNR [dB]"],
+        mode='lines+markers',
+        name='SNR',
+    ))
+
+    fig.add_trace(go.Bar(
+        x=plot_df["Stage"], y=plot_df["Stage NF [dB]"],
+        name='Stage NF',
+    ))
 
     fig.update_layout(
-        template="plotly_white",
-        height=520,
-        barmode="overlay",
-        hovermode="x unified",
-        title=dict(text="RX Noise Budget Overview", x=0.5, xanchor="center"),
-        xaxis=dict(title="Stage", type="category"),
-        yaxis=dict(title="dBm / dB", zeroline=False),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5),
+        title="SNR Degradation Budget",
+        xaxis_title="Stage",
+        yaxis_title="dB",
     )
+
     return fig
-
-
-def print_noise_budget(results_rx, target_freq):
-    budget = build_noise_budget(results_rx, target_freq)
-    print(f"{'Stage':<15} {'Freq [MHz]':>10} | {'Noise Floor':<12} {'SNR':<8} {'NF':<8}")
-    print("-" * 72)
-
-    for _, row in budget.iterrows():
-        print(
-            f"{row['Stage']:<15} {row['Analysis Freq [MHz]']:10.1f} | "
-            f"{row['Noise Floor [dBm]']:11.1f} dBm "
-            f"{row['SNR [dB]']:8.1f} "
-            f"{row['Stage NF [dB]']:8.1f}"
-        )
