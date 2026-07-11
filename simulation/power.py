@@ -31,7 +31,7 @@ def _(mo):
 
 @app.cell
 def _(md):
-    mixer = md.Mixer("Mixer", "RMS-30+", conversion_loss_db=7.5, lo_rf_iso_db=27.0, lo_if_iso_db=20.0, rf_if_iso_db=25.0, required_lo_power_dbm=7.0, max_lo_power_dbm=10.0, noise_figure_db=8.0)
+    mixer = md.Mixer("Mixer", "RMS-30+", conversion_loss_db=7.5, lo_rf_iso_db=27.0, lo_if_iso_db=20.0, rf_if_iso_db=25.0, required_lo_power_dbm=7.0, max_lo_power_dbm=10.0, get_noise_figure=8.0)
     bandpass = md.Filter("Bandpass", "2450BP", insertion_loss=1.2, freq_range=md.Range(2_400e6, 2_500e6), rejection_db=40)
     return bandpass, mixer
 
@@ -63,7 +63,7 @@ def _(md, mixer, mo, ox_freq_hz, ox_power):
         ]
     ])
     psa4_model = md.AmplifierModel(
-        gain_data=[[freq_hz * 1e6, gain_db] for freq_hz, gain_db in [[50, 25.4], [500, 22.1], [1000, 18.4], [2000, 13.3], [3000, 10.2], [4000, 8.0]]],
+        gain_data=[[freq_hz * 1e6, get_gain] for freq_hz, get_gain in [[50, 25.4], [500, 22.1], [1000, 18.4], [2000, 13.3], [3000, 10.2], [4000, 8.0]]],
         oip3_data=[[freq_hz * 1e6, oip3_dbm] for freq_hz, oip3_dbm in [[50, 31.0], [500, 32.1], [1000, 33.5], [2000, 32.7], [3000, 33.6], [4000, 32.6]]],
         p1db_data=[[freq_hz * 1e6, p1db_dbm] for freq_hz, p1db_dbm in [[50, 18.9], [500, 19.3], [1000, 19.8], [2000, 20.7], [3000, 21.2], [4000, 21.5]]],
     )
@@ -86,9 +86,9 @@ def _(md, mixer, mo, ox_freq_hz, ox_power):
         md.Filter("Balun", "XMB0220K1", insertion_loss=5.0),
         md.Filter("Low Pass", "LFCN-1800+", insertion_loss=lfcn_model),
         md.Filter("Power Splitter", "PD0922J5050D2HF", insertion_loss=pd09_model),
-        md.Amplifier("Amp", "PSA4-5043+", psa4_model, noise_figure_db=4.0, power_rail=md.PowerRail(5.0, 0.058, 0.066)),
+        md.Amplifier("Amp", "PSA4-5043+", psa4_model, get_noise_figure=4.0, power_rail=md.PowerRail(5.0, 0.058, 0.066)),
     ]
-    results_ox = md.run_simulation(path_ox, md.SpectrumSignal(analysis_freq=ox_freq_hz.value))
+    results_ox, diags_ox, _ = md.run_simulation(path_ox, md.SpectrumSignal())
 
     mixer.set_lo_signal(
         results_ox.iloc[-1]["Signal"],
@@ -100,12 +100,13 @@ def _(md, mixer, mo, ox_freq_hz, ox_power):
         value=results_ox.index[-1], 
         label="Select Oscillator Stage:"
     )
-    return path_ox, results_ox, ui_stage_ox
+    return diags_ox, path_ox, results_ox, ui_stage_ox
 
 
 @app.cell
-def _(md, mo, results_ox, ui_stage_ox):
+def _(diags_ox, md, mo, results_ox, ui_stage_ox):
     mo.vstack([
+        diags_ox,
         md.show_frequency_matrix(results_ox),
         ui_stage_ox,
         md.plot_spectrum(results_ox, ui_stage_ox.value),
@@ -139,19 +140,20 @@ def _(bandpass, md, mixer, mo, tx_freq_hz, tx_power, tx_sample_freq_hz):
         bandpass,
         md.Amplifier("PA", "SE2576L-R", gain_model=28.0, p1db_dbm=32.0, oip3_dbm=40.0, power_rail=md.PowerRail(voltage=5.0, current_typ=0.5, current_max=0.65))
     ]
-    results_tx = md.run_simulation(path_tx, md.SpectrumSignal(analysis_freq=tx_freq_hz.value))
+    results_tx, diags_tx, _ = md.run_simulation(path_tx, md.SpectrumSignal())
 
     ui_stage_tx = mo.ui.dropdown(
         options=results_tx.index.tolist(), 
         value=results_tx.index[-1], 
         label="Select Transmitter Stage:"
     )
-    return path_tx, results_tx, ui_stage_tx
+    return diags_tx, path_tx, results_tx, ui_stage_tx
 
 
 @app.cell
-def _(md, mo, results_tx, ui_stage_tx):
+def _(diags_tx, md, mo, results_tx, ui_stage_tx):
     mo.vstack([
+        diags_tx,
         md.show_frequency_matrix(results_tx),
         ui_stage_tx,
         md.plot_spectrum(results_tx, ui_stage_tx.value),
@@ -180,13 +182,19 @@ def _(mo):
 
 
 @app.cell
+def _(rx_f1_hz):
+    rx_f1_hz.value
+    return
+
+
+@app.cell
 def _(bandpass, md, mixer, mo, rx_f1_hz, rx_f2_hz, rx_p1, rx_p2):
     rx_input = md.AntennaSource("Antenna", "ANT-001", bandwidth_hz=500e6, analysis_freq=rx_f1_hz.value)
     rx_input.add_signal(rx_f1_hz.value, rx_p1.value)    # Wanted signal at -90 dBm
     rx_input.add_signal(rx_f2_hz.value, rx_p2.value)    # Strong interferer (blocker) at 2460 MHz
 
     hmc_model = md.AmplifierModel(
-        gain_data=[[freq_hz * 1e6, gain_db] for freq_hz, gain_db in [[500, 14.0], [1000, 14.0], [1500, 13.0], [2000, 12.0], [2500, 10.0], [3000, 8.0], [3500, 7.0], [4000, 4.0]]],
+        gain_data=[[freq_hz * 1e6, get_gain] for freq_hz, get_gain in [[500, 14.0], [1000, 14.0], [1500, 13.0], [2000, 12.0], [2500, 10.0], [3000, 8.0], [3500, 7.0], [4000, 4.0]]],
         oip3_data=[[freq_hz * 1e6, oip3_dbm] for freq_hz, oip3_dbm in [[300, 37.0], [1000, 37.0], [2000, 37.0], [3000, 37.0]]],
         p1db_data=[[freq_hz * 1e6, p1db_dbm] for freq_hz, p1db_dbm in [[300, 22.0], [1000, 22.0], [2000, 22.0], [3000, 22.0]]],
     )
@@ -204,7 +212,7 @@ def _(bandpass, md, mixer, mo, rx_f1_hz, rx_f2_hz, rx_p1, rx_p2):
     path_rx = [
         rx_input,
         bandpass,
-        md.Amplifier("LNA", "HMC374", gain_model=hmc_model, power_rail=md.PowerRail(voltage=5.0, current_typ=90e-3), max_input_power_dbm=13.0, noise_figure_db=2.2),
+        md.Amplifier("LNA", "HMC374", gain_model=hmc_model, power_rail=md.PowerRail(voltage=5.0, current_typ=90e-3), max_input_power_dbm=13.0, get_noise_figure=2.2),
         mixer,
         md.Filter("Bandpass Low ", "SYBP-92+", insertion_loss=sybp_model, center_freq_hz=950e6),
         md.Limiter(
@@ -218,7 +226,7 @@ def _(bandpass, md, mixer, mo, rx_f1_hz, rx_f2_hz, rx_p1, rx_p2):
         ),
         md.ADC(name="ADC", part_number="RFSoC ADC", sample_rate_hz=5_000e6, bandwidth_hz=6_000e6, resolution_bits=14, full_scale_dbm=1.0, max_input_power_dbm=14.6)
     ]
-    results_rx = md.run_simulation(path_rx, md.SpectrumSignal(analysis_freq=rx_f1_hz.value))
+    results_rx, diags_rx, noise_powers_rx = md.run_simulation(path_rx, md.SpectrumSignal(), analysis_freq=rx_f1_hz.value)
 
 
     ui_stage_rx = mo.ui.dropdown(
@@ -226,12 +234,13 @@ def _(bandpass, md, mixer, mo, rx_f1_hz, rx_f2_hz, rx_p1, rx_p2):
         value=results_rx.index[-1], 
         label="Select Receiver Stage:"
     )
-    return path_rx, results_rx, ui_stage_rx
+    return diags_rx, noise_powers_rx, path_rx, results_rx, ui_stage_rx
 
 
 @app.cell
-def _(md, mo, results_rx, ui_stage_rx):
+def _(diags_rx, md, mo, results_rx, ui_stage_rx):
     mo.vstack([
+        diags_rx,
         md.show_frequency_matrix(results_rx),
         ui_stage_rx,
         md.plot_spectrum(results_rx, ui_stage_rx.value),
@@ -250,8 +259,8 @@ def _(mo):
 
 
 @app.cell
-def _(md, mo, results_rx, rx_f1_hz):
-    noise_budget_rx = md.build_noise_budget(results_rx, analysis_freq=rx_f1_hz.value)
+def _(md, mo, noise_powers_rx, rx_f1_hz):
+    noise_budget_rx = md.build_noise_budget(noise_powers_rx, analysis_freq=rx_f1_hz.value)
 
     mo.vstack([
         noise_budget_rx,
