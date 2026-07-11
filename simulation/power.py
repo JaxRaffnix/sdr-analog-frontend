@@ -29,7 +29,7 @@ def _(mo):
 
 @app.cell
 def _(md):
-    mixer = md.Mixer("Mixer", "RMS-30+", conversion_loss_db=7.5, lo_rf_iso_db=27.0, rf_if_iso_db=20.0, required_lo_power_dbm=7.0, max_lo_power_dbm=10.0, noise_figure_db=8.0)
+    mixer = md.Mixer("Mixer", "RMS-30+", conversion_loss_db=7.5, lo_rf_iso_db=27.0, lo_if_iso_db=20.0, rf_if_iso_db=25.0, required_lo_power_dbm=7.0, max_lo_power_dbm=10.0, noise_figure_db=8.0)
     bandpass = md.Filter("Bandpass", "2450BP", insertion_loss=1.2, freq_range=md.Range(2_400e6, 2_500e6), rejection_db=40)
     return bandpass, mixer
 
@@ -45,7 +45,7 @@ def _(mo):
 @app.cell
 def _(mo):
     ox_freq_hz = mo.ui.slider(start=35e6, stop=4400e6, step=10e6, value=1500e6, label="PLL Freq (Hz)", show_value=True)
-    ox_power = mo.ui.slider(start=-4.0, stop=5.0, step=0.1, value=3.0, label="PLL Power (dBm)", show_value=True)
+    ox_power = mo.ui.slider(start=-4.0, stop=5.0, step=0.1, value=1.0, label="PLL Power (dBm)", show_value=True)
 
     mo.vstack([ox_freq_hz, ox_power])
     return ox_freq_hz, ox_power
@@ -86,7 +86,7 @@ def _(md, mixer, mo, ox_freq_hz, ox_power):
         md.Filter("Power Splitter", "PD0922J5050D2HF", insertion_loss=pd09_model),
         md.Amplifier("Amp", "PSA4-5043+", psa4_model, noise_figure_db=4.0, power_rail=md.PowerRail(5.0, 0.058, 0.066)),
     ]
-    results_ox = md.run_simulation(path_ox, md.SpectrumSignal())
+    results_ox = md.run_simulation(path_ox, md.SpectrumSignal(analysis_freq=ox_freq_hz.value))
     df_matrix_ox = md.create_frequency_matrix(results_ox)
 
     mixer.set_lo_signal(
@@ -134,7 +134,7 @@ def _(bandpass, md, mixer, mo, tx_freq_hz, tx_power, tx_sample_freq_hz):
         bandpass,
         md.Amplifier("PA", "SE2576L-R", gain_model=28.0, p1db_dbm=32.0, oip3_dbm=40.0, power_rail=md.PowerRail(voltage=5.0, current_typ_a=0.5, current_max_a=0.65))
     ]
-    results_tx = md.run_simulation(path_tx, md.SpectrumSignal())
+    results_tx = md.run_simulation(path_tx, md.SpectrumSignal(analysis_freq=tx_freq_hz.value))
     df_matrix_tx = md.create_frequency_matrix(results_tx)
 
     selected_comp_tx = mo.ui.dropdown(options=[c.name for c in results_tx], value=results_tx[-1].name, label="Select Stage:")
@@ -173,7 +173,7 @@ def _(mo):
 
 @app.cell
 def _(bandpass, md, mixer, mo, rx_f1_hz, rx_f2_hz, rx_p1, rx_p2):
-    rx_input = md.AntennaSource("Antenna", "ANT-001", bandwidth_hz=500e6)
+    rx_input = md.AntennaSource("Antenna", "ANT-001", bandwidth_hz=500e6, analysis_freq=rx_f1_hz.value)
     rx_input.add_signal(rx_f1_hz.value, rx_p1.value)    # Wanted signal at -90 dBm
     rx_input.add_signal(rx_f2_hz.value, rx_p2.value)    # Strong interferer (blocker) at 2460 MHz
 
@@ -196,12 +196,21 @@ def _(bandpass, md, mixer, mo, rx_f1_hz, rx_f2_hz, rx_p1, rx_p2):
     path_rx = [
         rx_input,
         bandpass,
-        md.Amplifier("LNA", "HMC374", gain_model=hmc_model, power_rail=md.PowerRail(voltage=5.0, current_typ_a=90e-3, current_max_a=90e-3), max_input_power_dbm=13.0),
+        md.Amplifier("LNA", "HMC374", gain_model=hmc_model, power_rail=md.PowerRail(voltage=5.0, current_typ_a=90e-3, current_max_a=90e-3), max_input_power_dbm=13.0, noise_figure_db=2.2),
         mixer,
-        md.Filter("Bandpass ", "SYBP-92+", insertion_loss=sybp_model, freq_range = md.Range(800e6, 1_000e6), rejection_db=40),
+        md.Filter("Bandpass Low ", "SYBP-92+", insertion_loss=sybp_model, center_freq_hz=950e6),
+        md.Limiter(
+            name="Limiter",
+            part_number="SKY16602-632LF",
+            insertion_loss_db=0.3,           # Typical small-signal IL at 2 GHz
+            limiting_threshold_dbm=6.0,     # Typical P1dB limiting threshold
+            flat_leakage_dbm=6.0,           # Maximum clamped output power
+            max_input_power_dbm=md._mw_to_dbm(12e3),
+            freq_range=(200e6, 4e9)
+        ),
         md.ADC(name="ADC", part_number="RFSoC ADC", sample_rate_hz=5_000e6, bandwidth_hz=6_000e6, resolution_bits=14, full_scale_dbm=1.0, max_input_power_dbm=14.6)
     ]
-    results_rx = md.run_simulation(path_rx, md.SpectrumSignal())
+    results_rx = md.run_simulation(path_rx, md.SpectrumSignal(analysis_freq=rx_f1_hz.value))
     df_matrix_rx = md.create_frequency_matrix(results_rx)
 
 
@@ -220,12 +229,8 @@ def _(df_matrix_rx, md, mo, results_rx, selected_comp_rx):
 
 
 @app.cell
-def _(df_matrix_rx, mo):
-    mo.ui.text_area(
-            value=df_matrix_rx.to_markdown(index=False),
-            rows=20,
-            full_width=True,
-        )
+def _():
+    # mo.ui.text_area(value=df_matrix_rx.to_markdown(index=False),rows=20,full_width=True,)
     return
 
 
@@ -233,7 +238,17 @@ def _(df_matrix_rx, mo):
 def _(mo):
     mo.md(r"""
     ### Noise Budget
+
+    **The desired signal is inferred with signal.center_freq(), which uses a weighted average. This can lead to edge cases!**
+
+    For now, we manually specify the frequency of the desired signal for the filter stage.
     """)
+    return
+
+
+@app.cell
+def _():
+    # TODO: from the filter class, hardocded valzues for frequency_range and insertion_loss create wrong SNR results!
     return
 
 
@@ -265,6 +280,27 @@ def _(md, mo, path_ox, path_rx, path_tx):
     mo.vstack([
         md.calculate_system_budget(path_ox + path_tx + path_rx + path_additional),
     ])
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ### Noise Budget Overview
+    """)
+    return
+
+
+@app.cell
+def _():
+    def _(md, mo, results_rx, rx_f1_hz):
+        noise_budget_rx = md.build_noise_budget(results_rx, rx_f1_hz.value)
+        mo.vstack([
+            md.style_noise_budget_table(noise_budget_rx),
+            md.plot_noise_budget(noise_budget_rx),
+        ])
+        return
+
     return
 
 

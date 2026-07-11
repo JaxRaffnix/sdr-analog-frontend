@@ -1,37 +1,45 @@
-# Dokumentation Schematic
+# Documentation Schematic
 
+The schematic and layout is designed with KiCad 10.0. The plugin `kicad-action-scripts` was used to generate via-stitching.
 
+## Board Stack
 
-## Layout
-HF 50R
-clearance 0.9 mm
-track width 0,295 mm
+[Aisler](https://aisler.net/de) was selected as the manufacturer. The following 4-layer stackup was chosen from the manufacturers' portfolio:
+- 4 Layer
+- 1.6 mm Thickness
+- 35 µm ENIG Surface Finish
+- FR4 TG 150°C Base material 
 
-power
-clearance 0,2032 mm
+[Portfolio](https://community.aisler.net/t/pcb-portfolio/101)
 
-
-## Aisler
-
-[Aisler PCB](https://aisler.net/p/YPFMCLNO)
+[Relevant Stackup](https://community.aisler.net/t/4-layers-1-6mm-35-m-stackup/5457)
 
 [Design Rules](https://community.aisler.net/t/4-layer-35-m-enig-design-rules/3733)
 
-[stackup txt](https://community.aisler.net/t/pcb-portfolio/101)
-[Stackup](https://community.aisler.net/t/4-layers-1-6mm-35-m-stackup/5457)
+[KiCad Files](https://github.com/AislerHQ/aisler-support/tree/master/kicad/aisler-4-layer-hd-drc)
 
-from website: Single Ended 50 Ohm: 	295 mu m width
+The layers were assigned as follows:
+1. Signal Layer 1 (Top)
+2. Ground Plane
+3. Power Plane
+4. Signal Layer 2 (Bottom)
 
-## Trace Width Calculation
+## High Speed Data Tracks
 
-coplanar strip with gnd plane
+High Frequency tracks are designed as microstrip lines. They are single ended with an impedance of 50 Ohm. frequencies of 0.9 Ghz, 1 GHz, 1.5 GHz, 2.4-2.5 GHz are used.
 
-e-r = 4.3
-H = 70*2 mu m
-T = 35 mu m
-f = 2,4 GHz, 1.5 Ghz, 0.9 Ghz
-W = 0,27 mm
-L = 0,203 mm
+The manufacturer recommends 
+**W = 295 um.**
+
+With the KiCad calculator, this was the result:
+- e_r = 4,3
+- H = 0.14 mm
+- T = 0,035 mm
+- R = 50 OHm
+- f =  0,9 Ghz, 1,5 Ghz, 2,5 Ghz
+=> W  = 235,843 um
+
+![Screenshot](<Transmission Line Calculation.png>)
 
 ## Power
 Power good LEDs für 5V und 3,3 V Rails.
@@ -92,3 +100,13 @@ max IF Current 40mA
 ## ADF
 
 max output power: 5 dBm
+
+
+## Via Stitching
+
+Abstand sollte lambda/20 betragen. Bei 2,4 GHz ist das lambda = 125 mm. Abstand der Vias sollte also kleiner als 6,25 mm sein.
+
+
+## Ideen: 
+
+25% weniger Kosten mit [Aisler Logo](https://community.aisler.net/t/looking-for-an-aisler-coupon-code-here-s-how-to-save-on-your-next-project/5495)
