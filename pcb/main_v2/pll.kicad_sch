@@ -3918,7 +3918,7 @@
 		)
 		(uuid "2ddc8759-21a6-4467-bef6-27c2ca4434d8")
 	)
-	(hierarchical_label "PLL: MUXOUT"
+	(hierarchical_label "SPI: MUXOUT"
 		(shape input)
 		(at 266.7 77.47 0)
 		(effects

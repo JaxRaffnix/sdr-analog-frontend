@@ -574,7 +574,7 @@
         "wire_width": 6
       },
       {
-        "clearance": 0.1,
+        "clearance": 0.2032,
         "name": "GND",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 1,
@@ -585,7 +585,7 @@
         "via_drill": 0.3048
       },
       {
-        "clearance": 0.1,
+        "clearance": 0.9,
         "name": "HF 50R",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 0,
@@ -1349,7 +1349,7 @@
         "uuid": "0599865e-4bed-44f1-b46e-4b55335b49b2"
       }
     ],
-    "used_designators": "",
+    "used_designators": "R718-719,#PWR722",
     "variants": []
   },
   "sheets": [

@@ -419,7 +419,7 @@
 	)
 	(wire
 		(pts
-			(xy 180.34 129.54) (xy 180.34 135.89)
+			(xy 176.53 129.54) (xy 176.53 135.89)
 		)
 		(stroke
 			(width 0)
@@ -449,7 +449,7 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 129.54) (xy 184.15 135.89)
+			(xy 180.34 129.54) (xy 180.34 135.89)
 		)
 		(stroke
 			(width 0)
@@ -539,7 +539,7 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 129.54) (xy 187.96 135.89)
+			(xy 184.15 129.54) (xy 184.15 135.89)
 		)
 		(stroke
 			(width 0)
@@ -599,16 +599,6 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 129.54) (xy 158.75 135.89)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b7021120-c16c-474b-b3b7-885b3724e1da")
-	)
-	(wire
-		(pts
 			(xy 224.79 156.21) (xy 203.2 156.21)
 		)
 		(stroke
@@ -629,7 +619,7 @@
 	)
 	(wire
 		(pts
-			(xy 154.94 129.54) (xy 154.94 135.89)
+			(xy 158.75 129.54) (xy 158.75 135.89)
 		)
 		(stroke
 			(width 0)
@@ -666,6 +656,16 @@
 			(type default)
 		)
 		(uuid "d5fdc33d-535e-4aa9-b54b-4f220916a5cf")
+	)
+	(wire
+		(pts
+			(xy 187.96 129.54) (xy 187.96 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e6698499-1345-421a-858b-c07c8f8736f3")
 	)
 	(wire
 		(pts
@@ -2726,7 +2726,7 @@
 			)
 		)
 		(pin "SPI: DATA" input
-			(at 184.15 135.89 90)
+			(at 180.34 135.89 90)
 			(uuid "ab009063-e5e0-429e-a411-6dd174613ce4")
 			(effects
 				(font
@@ -2736,7 +2736,7 @@
 			)
 		)
 		(pin "SPI: CLK" input
-			(at 187.96 135.89 90)
+			(at 184.15 135.89 90)
 			(uuid "51c1162c-f9b7-4118-9b60-42984f8a1705")
 			(effects
 				(font
@@ -2746,7 +2746,7 @@
 			)
 		)
 		(pin "SPI: Load Enable" input
-			(at 180.34 135.89 90)
+			(at 176.53 135.89 90)
 			(uuid "49693348-81e8-4380-905f-17d66b4d69ef")
 			(effects
 				(font
@@ -2765,18 +2765,8 @@
 				(justify right)
 			)
 		)
-		(pin "PLL: MUXOUT" input
-			(at 158.75 135.89 90)
-			(uuid "1e682f42-aef5-4a66-b172-42d90c207148")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
 		(pin "PLL: Power Down" input
-			(at 154.94 135.89 90)
+			(at 158.75 135.89 90)
 			(uuid "e82b1131-2b18-4681-a73f-6579882ff7a0")
 			(effects
 				(font
@@ -2833,6 +2823,16 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(pin "SPI: MUXOUT" input
+			(at 187.96 135.89 90)
+			(uuid "ecb910b8-a6c0-4d15-83e3-f3645662de1c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 		(instances
@@ -2976,18 +2976,8 @@
 				(justify left)
 			)
 		)
-		(pin "PLL: MUXOUT" input
-			(at 158.75 129.54 270)
-			(uuid "ea512cb2-42b8-45e3-be34-f8c93d3a4d61")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "PLL: Power Down" input
-			(at 154.94 129.54 270)
+			(at 158.75 129.54 270)
 			(uuid "b612eacc-ce04-4dd7-b8d8-61b9b328cb01")
 			(effects
 				(font
@@ -2997,7 +2987,7 @@
 			)
 		)
 		(pin "SPI: CLK" input
-			(at 187.96 129.54 270)
+			(at 184.15 129.54 270)
 			(uuid "0c10c223-a0f9-41fa-869d-0a39cff983ee")
 			(effects
 				(font
@@ -3007,7 +2997,7 @@
 			)
 		)
 		(pin "SPI: DATA" input
-			(at 184.15 129.54 270)
+			(at 180.34 129.54 270)
 			(uuid "159c78a8-8300-4b3b-a2d2-c2e023d729d2")
 			(effects
 				(font
@@ -3017,7 +3007,7 @@
 			)
 		)
 		(pin "SPI: Load Enable" input
-			(at 180.34 129.54 270)
+			(at 176.53 129.54 270)
 			(uuid "b4e5338d-a72e-4e80-bf85-9e3aab909192")
 			(effects
 				(font
@@ -3044,6 +3034,16 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+		(pin "SPI: MUXOUT" input
+			(at 187.96 129.54 270)
+			(uuid "4d401b9c-87a1-412d-8ca2-2380470a0b31")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances
