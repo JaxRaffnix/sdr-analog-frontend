@@ -11,8 +11,6 @@ def _():
     import models as md
 
     # todo: max_input_power_dbm gloablly for all components
-    # todo: print every device check, including all good results
-    # todo: make device check a unique function that run_simulation() calls?
     return md, mo
 
 
@@ -40,6 +38,8 @@ def _(md):
 def _(mo):
     mo.md(r"""
     ## Oscillator Analysis
+
+    The resulting signal of this chain is fed to the mixer and used for the Transmitter and receiver modelling.
     """)
     return
 
@@ -273,6 +273,9 @@ def _(md, mo, noise_powers_rx, rx_f1_hz):
 def _(mo):
     mo.md(r"""
     ## DC Power Result
+    The LDO for 5V to 3.3V conversion is not modeled. The current draw for the 5V rail is therefore only for its components, not the total expected current!
+
+    You can add both Power values to get the total DC power draw for the system.
     """)
     return
 
