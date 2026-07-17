@@ -1,6 +1,18 @@
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "jinja2==3.1.6",
+#     "marimo>=0.23.14",
+#     "matplotlib==3.11.0",
+#     "numpy==2.5.1",
+#     "pandas==3.0.3",
+#     "plotly==6.9.0",
+# ]
+# ///
+
 import marimo
 
-__generated_with = "0.23.9"
+__generated_with = "0.23.14"
 app = marimo.App(width="medium")
 
 
