@@ -4218,7 +4218,7 @@
 			(justify left bottom)
 		)
 		(uuid "a2aa1f61-6d2f-4956-9576-0c5234b8df27")
-		(property "Net Class" "Power"
+		(property "Netclass" "Power"
 			(at 129.4765 43.18 0)
 			(show_name no)
 			(do_not_autoplace no)

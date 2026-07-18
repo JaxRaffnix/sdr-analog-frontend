@@ -3700,7 +3700,7 @@
 			(justify left bottom)
 		)
 		(uuid "150382f5-77e0-4946-ab48-c86938b23d19")
-		(property "Net Class" "HF 50R"
+		(property "Netclass" "HF 50R"
 			(at 207.01 91.44 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3722,7 +3722,7 @@
 			(justify left bottom)
 		)
 		(uuid "2dba391b-3235-4984-85f0-478c95dd8006")
-		(property "Net Class" "HF 50R"
+		(property "Netclass" "HF 50R"
 			(at 153.67 180.34 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3756,7 +3756,7 @@
 			(justify left bottom)
 		)
 		(uuid "40c0f5e5-c497-4565-8c56-151dd254dcc7")
-		(property "Net Class" "HF 50R"
+		(property "Netclass" "HF 50R"
 			(at 25.4 96.52 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3791,7 +3791,7 @@
 			(justify left bottom)
 		)
 		(uuid "83ca5b75-7be3-4aca-b96f-10fc523e270f")
-		(property "Net Class" "HF 50R"
+		(property "Netclass" "HF 50R"
 			(at 179.07 91.44 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3814,7 +3814,7 @@
 			(justify left bottom)
 		)
 		(uuid "c6c4ddd0-7d65-4fde-acce-2e070b7b7cdf")
-		(property "Net Class" "HF 50R"
+		(property "Netclass" "HF 50R"
 			(at 179.07 83.82 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3837,7 +3837,7 @@
 			(justify left bottom)
 		)
 		(uuid "dabc1a44-34e5-4ae1-8734-8195bc851048")
-		(property "Net Class" "HF 50R"
+		(property "Netclass" "HF 50R"
 			(at 207.01 83.82 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3871,7 +3871,7 @@
 			(justify left)
 		)
 		(uuid "19e66858-93ed-477a-829c-a1b7200a1efd")
-		(property "Net Class" "HF 50R"
+		(property "Netclass" "HF 50R"
 			(at 267.208 81.026 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3972,7 +3972,7 @@
 			(justify left)
 		)
 		(uuid "66f0517d-724b-4816-8409-e9726e4f5790")
-		(property "Net Class" "HF 50R"
+		(property "Netclass" "HF 50R"
 			(at 267.462 91.694 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4009,7 +4009,7 @@
 			(justify left bottom)
 		)
 		(uuid "1c153383-ff9a-4587-9c74-781bed61293b")
-		(property "Net Class" "HF 50R"
+		(property "Netclass" "HF 50R"
 			(at 114.3635 168.91 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4045,7 +4045,7 @@
 			(justify left bottom)
 		)
 		(uuid "995594c8-bd3f-4d62-aa7e-97ea7ecd12f3")
-		(property "Net Class" "HF 50R"
+		(property "Netclass" "HF 50R"
 			(at 129.4765 92.71 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4080,7 +4080,7 @@
 			(justify left bottom)
 		)
 		(uuid "9d4bb27b-ca6f-4d62-9f77-0082c7a2b30a")
-		(property "Net Class" "Power"
+		(property "Netclass" "Power"
 			(at 46.9265 176.53 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4115,7 +4115,7 @@
 			(justify left bottom)
 		)
 		(uuid "d8d717ed-9452-480b-a34c-637de22356e3")
-		(property "Net Class" "Power"
+		(property "Netclass" "Power"
 			(at 177.7365 19.05 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4150,7 +4150,7 @@
 			(justify left bottom)
 		)
 		(uuid "eddd761f-8e3b-4b6d-901c-f3e363c1f197")
-		(property "Net Class" "HF 50R"
+		(property "Netclass" "HF 50R"
 			(at 101.5365 92.71 0)
 			(show_name no)
 			(do_not_autoplace no)

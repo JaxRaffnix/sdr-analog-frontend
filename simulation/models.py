@@ -659,7 +659,7 @@ def diagnostics_to_ui(diagnostics: dict):
             rows.append(
                 f"| {status_text} | **{report.test_name}** | {report.description} |"
             )
-
+            
         table_md = "\n".join([
             "| Status | Test | Test Condition |",
             "|:---:|:---|:---|",
