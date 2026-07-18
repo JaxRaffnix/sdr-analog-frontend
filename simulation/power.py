@@ -89,6 +89,7 @@ def _(md, mixer, mo, ox_freq_hz, ox_power):
     results_ox, diags_ox, _ = md.run_simulation(path_ox, md.SpectrumSignal())
 
     reports_mixer = mixer.set_lo_signal(
+    reports_mixer = mixer.set_lo_signal(
         results_ox.iloc[-1]["Signal"],
         lo_freq_hz=ox_freq_hz.value,
     )
@@ -103,13 +104,13 @@ def _(md, mixer, mo, ox_freq_hz, ox_power):
         value=results_ox.index[-1], 
         label="Select Oscillator Stage:"
     )
-    return all_diags_ox, path_ox, results_ox, ui_stage_ox
+    return diags_ox, path_ox, results_ox, ui_stage_ox
 
 
 @app.cell
-def _(all_diags_ox, md, mo, results_ox, ui_stage_ox):
+def _(diags_ox, md, mo, results_ox, ui_stage_ox):
     mo.vstack([
-        md.diagnostics_to_ui(all_diags_ox),
+        diags_ox,
         md.show_frequency_matrix(results_ox),
         ui_stage_ox,
         md.plot_spectrum(results_ox, ui_stage_ox.value),
@@ -150,11 +151,11 @@ def _(bandpass, md, mixer, mo, tx_freq_hz, tx_power, tx_sample_freq_hz):
         value=results_tx.index[-1], 
         label="Select Transmitter Stage:"
     )
-    return diags_tx, path_tx, results_tx, ui_stage_tx
+    return path_tx, results_tx, ui_stage_tx
 
 
 @app.cell
-def _(diags_tx, md, mo, results_tx, ui_stage_tx):
+def _(md, mo, results_tx, ui_stage_tx):
     mo.vstack([
         md.diagnostics_to_ui(diags_tx),
         md.show_frequency_matrix(results_tx),
@@ -230,11 +231,11 @@ def _(bandpass, md, mixer, mo, rx_f1_hz, rx_f2_hz, rx_p1, rx_p2):
         value=results_rx.index[-1], 
         label="Select Receiver Stage:"
     )
-    return diags_rx, noise_powers_rx, path_rx, results_rx, ui_stage_rx
+    return noise_powers_rx, path_rx, results_rx, ui_stage_rx
 
 
 @app.cell
-def _(diags_rx, md, mo, results_rx, ui_stage_rx):
+def _(md, mo, results_rx, ui_stage_rx):
     mo.vstack([
         md.diagnostics_to_ui(diags_rx),
         md.show_frequency_matrix(results_rx),
