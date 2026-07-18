@@ -106,8 +106,8 @@ class RFComponent:
     def __repr__(self):
         return f"{self.name} ({self.part_number})"
     
-    def run_diagnostics(self, signal):
-        raise NotImplementedError(f"Model '{self.__class__.__name__}' must implement the run_diagnostics() method.")
+    # def run_diagnostics(self, signal):
+    #     raise NotImplementedError(f"Model '{self.__class__.__name__}' must implement the run_diagnostics() method.")
 
     def get_noise_budget(self, noise_floor, analysis_freq, gain=None):
         """Calculates the noise budget at a given analysis frequency and the current noise floor. Returns the updated noise floor and the analysis frequency."""
@@ -160,13 +160,13 @@ class Amplifier(RFComponent):
         self.max_output_power_dbm = max_output_power_dbm
 
     def get_p1db(self, freq):
-        return self.p1db_model.get_p1db(freq) if hasattr(self.p1db_model, "get_p1db") else self.p1db_model
+        return self.p1db_model(freq) if callable(self.p1db_model) else self.p1db_model
     
     def get_oip3(self, freq):
-        return self.oip3_model.get_oip3(freq) if hasattr(self.oip3_model, "get_oip3") else self.oip3_model
+        return self.oip3_model(freq) if callable(self.oip3_model) else self.oip3_model
 
     def get_gain(self, freq=None):
-        return self.gain_model.get_gain(freq) if hasattr(self.gain_model, "get_gain") else self.gain_model
+        return self.gain_model(freq) if callable(self.gain_model) else self.gain_model
 
     def get_noise_figure(self, freq=None):
         return self.nf_db if self.nf_db is not None else 0.0
@@ -187,6 +187,7 @@ class Amplifier(RFComponent):
                 signal.add_tone(f_im3b, p_im3b)
 
     def process(self, signal: SpectrumSignal):
+        reports = []
         out_signal = SpectrumSignal()
 
         for f, p in signal.tones.items():
@@ -195,28 +196,16 @@ class Amplifier(RFComponent):
         dominant_freq = None
         if out_signal.tones:
             dominant_freq = max(out_signal.tones.items(), key=lambda item: item[1])[0]
-        print(f"{self.name}: Amplifier dominant frequency is: {dominant_freq:.1f} Hz")
 
         oip3 = self.get_oip3(dominant_freq)
         if oip3 is not None:
             self._apply_im3(out_signal, oip3)
 
-        return out_signal
-    
-    def run_diagnostics(self, signal):
-        reports = []
-        pout = signal.total_power_dbm() + self.get_gain() # Pout after gain
-        
-        p1db = self.get_p1db(None) # Use None or a dominant frequency
-        if p1db is not None:
-            passed = pout < p1db
-            self.add_diagnostic("Compression", passed, f"Pout {pout:.1f} dBm < P1dB {p1db:.1f} dBm")
-            
-        if self.max_output_power_dbm is not None:
-            passed = pout <= self.max_output_power_dbm
-            self.add_diagnostic("Max Power", passed, f"Pout {pout:.1f} dBm <= Max Output Power {self.max_output_power_dbm:.1f} dBm")
-            
-        return reports
+        reports.append(DiagnosticResult("Dominant Frequency", dominant_freq is not None, f"Dominant frequency is {(dominant_freq/ 1e6):.1f} MHz"))
+        reports.append(DiagnosticResult("Compression", out_signal.total_power_dbm() < self.get_p1db(dominant_freq), f"Output Power {out_signal.total_power_dbm():.1f} dBm < P1dB {self.get_p1db(dominant_freq):.1f} dBm"))
+        reports.append(DiagnosticResult("OIP3", out_signal.total_power_dbm() < self.get_oip3(dominant_freq), f"Output Power {out_signal.total_power_dbm():.1f} dBm < OIP3 {self.get_oip3(dominant_freq):.1f} dBm"))
+
+        return out_signal, reports
 
 
 class Filter(RFComponent):
@@ -260,11 +249,7 @@ class Filter(RFComponent):
             loss = self._get_loss(freq)
             out_signal.add_tone(freq, power - abs(loss))
                 
-        return out_signal
-    
-    def run_diagnostics(self, signal):
-        reports = []
-        return reports
+        return out_signal, []
     
 
 class Mixer(RFComponent):
@@ -291,7 +276,9 @@ class Mixer(RFComponent):
         self.nf_db = nf_db if nf_db is not None else self.conversion_loss_db
         self.lo_signal = None
         self.lo_freq = None
-        self.mode = "Rx"
+        self.mode = "RX"
+
+    # TODO: make RX, TX a explicit list and check aginst it, dont manually rewrite the names as strings
 
     def get_gain(self, freq=None):
         return -self.conversion_loss_db
@@ -300,19 +287,23 @@ class Mixer(RFComponent):
         return self.nf_db
 
     def set_lo_signal(self, signal, lo_freq_hz):
+        reports = []
         self.lo_signal = signal
         self.lo_freq = lo_freq_hz
 
         lo_power = signal.power_at(lo_freq_hz)
-        if self.required_lo_power_dbm and lo_power < self.required_lo_power_dbm:
-            print(f"❌ {self.name}: LO input power {lo_power:.1f} dBm > {self.required_lo_power_dbm:.1f} dBm")
-        if self.max_lo_power_dbm and lo_power > self.max_lo_power_dbm:
-            print(f"❌ {self.name}: LO input power {lo_power:.1f} dBm < {self.max_lo_power_dbm:.1f} dBm")
 
-    def process(self, signal, mode="Rx"):
+        reports.append(DiagnosticResult("LO Min Power", lo_power > self.required_lo_power_dbm, f"LO input power {lo_power:.1f} dBm > {self.required_lo_power_dbm:.1f} dBm"))
+
+        reports.append(DiagnosticResult("LO Max Power", lo_power < self.max_lo_power_dbm, f"LO input power {lo_power:.1f} dBm < {self.max_lo_power_dbm:.1f} dBm"))
+
+        return reports
+
+    def process(self, signal, mode="RX"):
         """
         mode: "RX" (RF to IF downconversion) or "TX" (IF to RF upconversion)
         """
+        reports = []
         # --- 1. ROUTE ISOLATION & NOISE PHYSICS BASED ON MODE ---
         if mode == "RX":
             lo_leakage_iso = self.lo_if_iso
@@ -336,7 +327,15 @@ class Mixer(RFComponent):
             out_signal.add_tone(abs(f + self.lo_freq), conv_p)
             out_signal.add_tone(abs(f - self.lo_freq), conv_p)
 
-        return out_signal
+        reports.append(DiagnosticResult("Mixer Mode", mode in ["RX", "TX"], f"Mode '{mode}' is in ['RX', 'TX']."))
+        reports.append(DiagnosticResult("LO Signal", self.lo_signal is not None, f"LO signal is 'present"))
+        reports.append(DiagnosticResult("LO Frequency", self.lo_freq is not None, f"LO desired frequency is set to {self.lo_freq/ 1e6} MHz"))
+
+        lo_power = self.lo_signal.power_at(self.lo_freq)
+        reports.append(DiagnosticResult("LO Min Power", lo_power > self.required_lo_power_dbm, f"LO input power {lo_power:.1f} dBm > {self.required_lo_power_dbm:.1f} dBm"))
+        reports.append(DiagnosticResult("LO Max Power", lo_power < self.max_lo_power_dbm, f"LO input power {lo_power:.1f} dBm <{self.max_lo_power_dbm:.1f} dBm"))
+
+        return out_signal, reports
 
     def get_noise_budget(self, noise_floor, analysis_freq, gain=None):
         input_noise_mw = _dbm_to_mw(noise_floor)
@@ -354,29 +353,6 @@ class Mixer(RFComponent):
             input_noise_mw += lo_noise_mw
 
         return super().get_noise_budget(_mw_to_dbm(input_noise_mw), analysis_freq, gain)
-    
-    def run_diagnostics(self, signal):
-        reports = []
-        if self.lo_signal:
-            lo_power = self.lo_signal.power_at(self.lo_freq)
-            
-            # Check LO Requirements
-            if self.required_lo_power_dbm is not None:
-                passed = lo_power >= self.required_lo_power_dbm
-                self.add_diagnostic("LO Drive", passed, f"{lo_power:.1f} dBm >= {self.required_lo_power_dbm:.1f} dBm")
-            
-            # Check LO Max
-            if self.max_lo_power_dbm is not None:
-                passed = lo_power <= self.max_lo_power_dbm
-                self.add_diagnostic("LO Max Power", passed, f"{lo_power:.1f} dBm <= {self.max_lo_power_dbm:.1f} dBm")
-
-            if self.lo_signal is None:
-                self.add_diagnostic("LO Signal", False, "No LO signal available")
-
-            if self.mode.upper() not in ["RX", "TX"]:
-                self.add_diagnostic("Mixer Mode", False, f"Invalid mode: {self.mode}. Expected 'RX' or 'TX'.")
-
-        return reports
 
     
 class Limiter(RFComponent):
@@ -406,6 +382,7 @@ class Limiter(RFComponent):
         return self.il_db
 
     def process(self, signal):
+        reports = []
         pin_total = signal.total_power_dbm()        
         pout_linear = pin_total - self.il_db
         
@@ -420,21 +397,16 @@ class Limiter(RFComponent):
         # 5. Apply the effective loss to all incoming tones
         for freq, power in signal.tones.items():
             out_signal.add_tone(freq, power - self.last_effective_loss)
+
+        reports.append(DiagnosticResult("Limiter Status", self.last_effective_loss <= self.il_db, f"Effective Loss {self.last_effective_loss:.1f} dB <= Insertion Loss {self.il_db:.1f} dB"))
+        reports.append(DiagnosticResult("Power Clipping", pin_total < self.threshold_dbm, f"Input Power {pin_total:.1f} dBm < Limiter Threshold {self.threshold_dbm:.1f} dBm."))
             
-        return out_signal
+        return out_signal, reports
     
     def get_noise_budget(self, noise_floor, analysis_freq, gain=None):
         nf = self.get_noise_figure(analysis_freq)
         return noise_floor - self.last_effective_loss + nf, analysis_freq
-    
-    def run_diagnostics(self, signal):
-        reports = []
-        pin = signal.total_power_dbm()
-        # Active if actual loss is greater than insertion loss
-        is_limiting = self.last_effective_loss > self.il_db
-        
-        self.add_diagnostic("Limiter Status", not is_limiting, f"{self.last_effective_loss} < {self.il_db} dB (Insertion Loss)")
-        return reports
+
 
 # ___________________________________________________________________
 # Models
@@ -468,18 +440,8 @@ class ADC(RFComponent):
         self.full_scale_dbm = full_scale_dbm
 
     def process(self, signal: SpectrumSignal):
+        reports = []
         input_power = signal.total_power_dbm()
-        if input_power > self.full_scale_dbm:
-            print(
-                f"ADC clipping: "
-                f"{input_power:.1f} dBm > "
-                f"full scale {self.full_scale_dbm:.1f} dBm"
-            )
-        elif input_power > self.full_scale_dbm - 3:
-            print(
-                f"ADC input is close to full scale: "
-                f"{self.full_scale_dbm - input_power:.1f} dB headroom"
-            )
 
         out_signal = SpectrumSignal()
 
@@ -492,7 +454,13 @@ class ADC(RFComponent):
 
         self.nyquist_freq = self.sample_rate_hz / 2
 
-        return out_signal
+        reports.append(DiagnosticResult("ADC Close to Full Scale", input_power <= self.full_scale_dbm -3, f"Input Power {input_power:.1f} dBm <= Full Scale {self.full_scale_dbm:.1f} -3 dBm"))
+        reports.append(DiagnosticResult("ADC Full Scale", input_power <= self.full_scale_dbm, f"Input Power {input_power:.1f} dBm <= Full Scale {self.full_scale_dbm:.1f} dBm"))
+        reports.append(DiagnosticResult("ADC Bandwidth", all(f <= self.bandwidth_hz for f in signal.tones), f"All tones within bandwidth {self.bandwidth_hz/1e6:.1f} MHz"))
+        reports.append(DiagnosticResult("ADC Nyquist", all(f <= self.sample_rate_hz / 2 for f in signal.tones), f"All tones within Nyquist {self.sample_rate_hz/2e6:.1f} MHz"))
+        reports.append(DiagnosticResult("Nyquist Frequency", any(f > self.sample_rate_hz / 2 for f in signal.tones), "Frequencies above Nyquist will be aliased to lower frequencies: " + ", ".join(f"{f/1e6:.1f} MHz" for f in signal.tones if f > self.sample_rate_hz / 2)))
+
+        return out_signal, reports
     
     def get_noise_budget(self, noise_floor, analysis_freq, gain=None):
         quant_snr_db = 6.02 * self.resolution_bits + 1.76
@@ -500,26 +468,6 @@ class ADC(RFComponent):
         
         return _mw_to_dbm(_dbm_to_mw(noise_floor) + _dbm_to_mw(quant_noise_dbm)), analysis_freq
     
-    def run_diagnostics(self, signal):
-        reports = []
-        p_in = signal.total_power_dbm()
-        
-        # 1. Full Scale / Clipping Check
-        headroom = self.full_scale_dbm - p_in
-        passed = headroom > 0
-        self.add_diagnostic("ADC Full Scale", passed, f"{p_in:.1f} dBm <= Full Scale {self.full_scale_dbm:.1f} dBm")
-
-        # 2. Bandwidth/Nyquist Check
-        for freq in signal.tones:
-            # Check bandwidth
-            bw_ok = freq <= self.bandwidth_hz
-            self.add_diagnostic("ADC Bandwidth", bw_ok, f"{freq/1e6:.1f} MHz <= Bandwidth {self.bandwidth_hz/1e6:.1f} MHz")
-            
-            # Check Nyquist
-            nyq_ok = freq <= (self.sample_rate_hz / 2)
-            self.add_diagnostic("ADC Nyquist", nyq_ok, f"{freq/1e6:.1f} MHz <= Nyquist {self.sample_rate_hz/2e6:.1f} MHz")
-            
-        return reports
 
 # ___________________________________________________________________
 # Signal Sources
@@ -542,8 +490,8 @@ class Source(RFComponent):
         super().__init__(name, part_number, **kwargs)
         self.freq_hz = freq_hz
         self.output_power_dbm = output_power_dbm
-        self.freq_range = freq_range
-        self.power_range = power_range
+        self.freq_range: Range|None = freq_range
+        self.power_range: Range|None = power_range
         self.harmonics = harmonics or {}
         self.pfd_freq_hz  = pfd_freq_hz
         self.spur_level_dbc = spur_level_dbc
@@ -615,6 +563,7 @@ class Source(RFComponent):
         return SpectrumSignal(tones)
 
     def process(self, signal=None):
+        reports = []
         signal = SpectrumSignal({self.freq_hz: self.output_power_dbm},)
         if self.harmonics:
             signal = self._apply_harmonics(signal)
@@ -625,21 +574,11 @@ class Source(RFComponent):
             signal = self._apply_sinc_roll_off(signal, self.fs_hz)
             signal = self._apply_images(signal, self.fs_hz)
 
-        return signal
-    
-    def run_diagnostics(self, signal):
-        reports = []
-        
         if self.freq_range is not None:
-            passed = self.freq_hz in self.freq_range
-            min_v = self.freq_range.minimum / 1e6 if self.freq_range.minimum else 0
-            max_v = self.freq_range.maximum / 1e6 if self.freq_range.maximum else float('inf')
-            self.add_diagnostic("Freq Range", passed, f"{self.freq_hz/1e6:.1f} MHz is in range [{min_v:.1f}, {max_v:.1f}] MHz")
+            reports.append(DiagnosticResult("Source Frequency", self.freq_hz in self.freq_range, f"Frequency {self.freq_hz/1e6:.1f} MHz is in range [{self.freq_range.minimum/1e6:.1f}, {self.freq_range.maximum/1e6:.1f}] MHz"))
+            reports.append(DiagnosticResult("Source Power", self.output_power_dbm in self.power_range, f"Power {self.output_power_dbm:.1f} dBm is in range [{self.power_range.minimum:.1f}, {self.power_range.maximum:.1f}] dBm" ))
 
-        if self.power_range is not None:
-            passed = self.output_power_dbm in self.power_range
-            self.add_diagnostic("Power Range", passed, f"{self.output_power_dbm:.1f} dBm is in range [{self.power_range.minimum:.1f}, {self.power_range.maximum:.1f}] dBm")
-
+        return signal, reports
         return reports
     
 
@@ -660,17 +599,12 @@ class AntennaSource(RFComponent):
         self.signal.add_tone(freq_hz, power_dbm)
         return self
 
-    def process(self, signal = None) -> SpectrumSignal:
-        return SpectrumSignal(tones=self.signal.tones)
+    def process(self, signal = None):
+        reports = []
+        return SpectrumSignal(tones=self.signal.tones), reports
     
     def get_noise_budget(self, noise_floor, analysis_freq, gain=None):
         return -174.0 + _mw_to_dbm(self.bandwidth_hz), analysis_freq
-    
-    def run_diagnostics(self, signal):
-        reports = []
-        passed = len(self.signal.tones) > 0
-        self.add_diagnostic("Signal Input", passed, f"Number of tones: {len(self.signal.tones)}")
-        return reports
 
 
 # ___________________________________________________________________
@@ -690,33 +624,36 @@ def calculate_dc_power(stages):
 
 # ___________________________________________________________________
 # Run Simulation Function
-def print_system_report(components):
-    print("--- RF System Diagnostic Report ---")
-    for comp in components:
-        diags = comp.get_diagnostics()
-        if not diags:
+def print_system_report(diagnostics):
+    # print("Diagnostics Report:")
+    if not diagnostics:
+        print("No diagnostics generated.")
+        return
+
+    for component_name, reports in diagnostics.items():
+        if not reports:
             continue
-        print(f"\nComponent: {comp.name}")
-        for d in diags:
-            print(f"  {d}")
+        print(f"\n{component_name}")
+        for report in reports:
+            print(f"  {report}")
 
 def run_simulation(stages, signal: SpectrumSignal, analysis_freq=None, noise_floor=None):
     noise_floor = THERMAL_NOISE_FLOOR or noise_floor
 
-    diagnostics = []
+    diagnostics = {}
     results = []
     noise_budges = []
     for stage in stages:
 
-        diagnostics.extend(stage.run_diagnostics(signal))
-
-        signal = stage.process(signal)
+        signal, reports = stage.process(signal)
         results.append({
             "Stage": stage.name,
             "Part Number": stage.part_number,
             "Signal": signal,
             "Total Power [dBm]": signal.total_power_dbm(),
         })
+
+        diagnostics[stage.name] = reports
 
         if analysis_freq is not None:
             noise_floor, analysis_freq = stage.get_noise_budget(noise_floor, analysis_freq)
