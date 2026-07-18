@@ -10,7 +10,11 @@ The simulation covers:
 - Noise Budget
 - DC Power Draw
 
-The signal paths for the oscillator, transmitter, and receiver are modeled and analyzed separately. Only the mixer stage combines the oscillator path on its LO input with either Tx or Rx path to generate its output.
+The signal paths for the oscillator, transmitter, and receiver are modeled and analyzed separately. Only the mixer stage combines the oscillator path on its LO input with either Tx or Rx path to generate the output.
+
+The signal paths are copied from the PCB design. Please see the [block diagram](../docs/Blockschaltbild.png) and the [schematic](../pcb/main_v2/main_v2.pdf) for reference.
+
+All component data has been collected from the relevant datasheets.
 
 ## Requirements
 
@@ -34,7 +38,7 @@ source .venv/bin/activate
 
 ## Usage
 
-To view the simulation results, run the following command. This opens a new browser per default with the marimo notebook.
+To view the simulation results, run the following command. This opens the marimo notebook in a new browser window.
 ```bash
 uv run marimo run power.py
 ```

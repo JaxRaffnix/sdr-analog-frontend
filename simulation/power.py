@@ -88,23 +88,28 @@ def _(md, mixer, mo, ox_freq_hz, ox_power):
     ]
     results_ox, diags_ox, _ = md.run_simulation(path_ox, md.SpectrumSignal())
 
-    mixer.set_lo_signal(
+    reports_mixer = mixer.set_lo_signal(
         results_ox.iloc[-1]["Signal"],
         lo_freq_hz=ox_freq_hz.value,
     )
+    diags_mixer = {mixer.name: reports_mixer}
+    all_diags_ox = {
+            **diags_ox,
+            **diags_mixer,
+        }
 
     ui_stage_ox = mo.ui.dropdown(
         options=results_ox.index.tolist(), 
         value=results_ox.index[-1], 
         label="Select Oscillator Stage:"
     )
-    return diags_ox, path_ox, results_ox, ui_stage_ox
+    return all_diags_ox, path_ox, results_ox, ui_stage_ox
 
 
 @app.cell
-def _(diags_ox, md, mo, results_ox, ui_stage_ox):
+def _(all_diags_ox, md, mo, results_ox, ui_stage_ox):
     mo.vstack([
-        diags_ox,
+        md.diagnostics_to_ui(all_diags_ox),
         md.show_frequency_matrix(results_ox),
         ui_stage_ox,
         md.plot_spectrum(results_ox, ui_stage_ox.value),
@@ -136,7 +141,7 @@ def _(bandpass, md, mixer, mo, tx_freq_hz, tx_power, tx_sample_freq_hz):
         md.Source("Tx DAC", "RFSoC_SDR",freq_hz=tx_freq_hz.value,output_power_dbm=tx_power.value, fs_hz=tx_sample_freq_hz.value, power_range=md.Range(-18.5, 6.5), freq_range=md.Range(800e6, 1_100e6)),
         mixer,
         bandpass,
-        md.Amplifier("PA", "SE2576L-R", gain_model=28.0, p1db_dbm=32.0, oip3_dbm=40.0, power_rail=md.PowerRail(voltage=5.0, current_typ=0.5, current_max=0.65))
+        md.Amplifier("PA", "SE2576L-R", gain_model=28.0, p1db_model=32.0, oip3_model=40.0, power_rail=md.PowerRail(voltage=5.0, current_typ=0.5, current_max=0.65))
     ]
     results_tx, diags_tx, _ = md.run_simulation(path_tx, md.SpectrumSignal())
 
@@ -151,7 +156,7 @@ def _(bandpass, md, mixer, mo, tx_freq_hz, tx_power, tx_sample_freq_hz):
 @app.cell
 def _(diags_tx, md, mo, results_tx, ui_stage_tx):
     mo.vstack([
-        diags_tx,
+        md.diagnostics_to_ui(diags_tx),
         md.show_frequency_matrix(results_tx),
         ui_stage_tx,
         md.plot_spectrum(results_tx, ui_stage_tx.value),
@@ -177,12 +182,6 @@ def _(mo):
 
     mo.vstack([rx_f1_hz, rx_p1, rx_f2_hz, rx_p2])
     return rx_f1_hz, rx_f2_hz, rx_p1, rx_p2
-
-
-@app.cell
-def _(rx_f1_hz):
-    rx_f1_hz.value
-    return
 
 
 @app.cell
@@ -237,7 +236,7 @@ def _(bandpass, md, mixer, mo, rx_f1_hz, rx_f2_hz, rx_p1, rx_p2):
 @app.cell
 def _(diags_rx, md, mo, results_rx, ui_stage_rx):
     mo.vstack([
-        diags_rx,
+        md.diagnostics_to_ui(diags_rx),
         md.show_frequency_matrix(results_rx),
         ui_stage_rx,
         md.plot_spectrum(results_rx, ui_stage_rx.value),
@@ -250,7 +249,7 @@ def _(mo):
     mo.md(r"""
     ### Noise Budget
 
-    For now, we manually specify the frequency of the desired signal in the Antenna initialization.
+    For now, we manually specify the frequency of the desired signal in the Antenna initialization. The Mixer will update the frequency by calculating ox_freq_hz.value and rx_f1_hz.value.
     """)
     return
 
