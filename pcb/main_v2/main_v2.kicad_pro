@@ -1031,7 +1031,7 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../documents/",
       "specctra_dsn": "",
       "vrml": ""
     },
@@ -1043,7 +1043,7 @@
       "method": 1,
       "sort_order": 1
     },
-    "bom_export_filename": "${PROJECTNAME}.csv",
+    "bom_export_filename": "..\\documents\\bom.csv",
     "bom_fmt_presets": [],
     "bom_fmt_settings": {
       "field_delimiter": ",",
@@ -1266,7 +1266,7 @@
           "group_by": false,
           "label": "Power",
           "name": "Power",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,
@@ -1284,7 +1284,7 @@
           "group_by": false,
           "label": "Impedance",
           "name": "Impedance",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,
@@ -1296,13 +1296,19 @@
           "group_by": false,
           "label": "R",
           "name": "R",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,
           "label": "Current",
           "name": "Current",
-          "show": false
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Inductanve",
+          "name": "Inductanve",
+          "show": true
         }
       ],
       "filter_string": "",
@@ -1361,7 +1367,7 @@
         "uuid": "0599865e-4bed-44f1-b46e-4b55335b49b2"
       }
     ],
-    "used_designators": "TP207-208,R401,IC402-403,L403-404,#PWR407,#PWR410,#PWR416-421,C406-408,C410-413,U401",
+    "used_designators": "#SYM301,#SYM501,TP207-208,R401,IC402-403,L403-404,#PWR407,#PWR410,#PWR416-421,C406-408,C410-413,U401",
     "variants": []
   },
   "sheets": [

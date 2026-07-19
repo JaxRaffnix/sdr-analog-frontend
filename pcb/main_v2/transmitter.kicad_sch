@@ -501,6 +501,189 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Graphic:SYM_Hot_Small"
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board no)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#SYM"
+				(at 0 3.556 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SYM_Hot_Small"
+				(at 0 -3.175 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 -4.445 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0.762 -5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Hot surface warning symbol, small"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Sim.Enable" "0"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "symbol logo hot surface warning heat"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "SYM_Hot_Small_0_1"
+				(polyline
+					(pts
+						(xy -2.54 -1.905) (xy 2.54 -1.905) (xy 0 2.54) (xy -2.54 -1.905)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(arc
+					(start -0.762 -0.254)
+					(mid -0.635 -0.635)
+					(end -0.762 -1.016)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 -0.254)
+					(mid 0.127 -0.635)
+					(end 0 -1.016)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -0.762 -0.254)
+					(mid -0.889 0.127)
+					(end -0.762 0.508)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0.762 -0.254)
+					(mid 0.889 -0.635)
+					(end 0.762 -1.016)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 -0.254)
+					(mid -0.127 0.127)
+					(end 0 0.508)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0.762 -0.254)
+					(mid 0.635 0.127)
+					(end 0.762 0.508)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.397) (xy -1.27 -1.397)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Libray Loder:2450BP08A0100001T"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -2097,6 +2280,16 @@
 			)
 			(embedded_fonts no)
 		)
+	)
+	(text "Place Thermal Vias for Heat Dissapation!"
+		(exclude_from_sim no)
+		(at 140.208 141.732 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "46fc81d6-27ef-443d-98a5-964a1a0b238f")
 	)
 	(text "Eval Board\nhttps://www.eevblog.com/forum/rf-microwave/2-4ghz-amplifier-quadrature-hybrid-coupler-balanced/?action=dlattach;attach=686451"
 		(exclude_from_sim no)
@@ -4275,6 +4468,82 @@
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/fc4ed8a1-ee18-4353-b821-8d1b4dc84288"
 					(reference "C302")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Graphic:SYM_Hot_Small")
+		(at 139.7 146.05 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2c5e906b-8601-4499-89f0-ef5eb5eccb0e")
+		(property "Reference" "#SYM301"
+			(at 139.7 142.494 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SYM_Hot_Small"
+			(at 139.7 149.225 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 139.7 150.495 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 140.462 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Hot surface warning symbol, small"
+			(at 139.7 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "main_v2"
+				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/fc4ed8a1-ee18-4353-b821-8d1b4dc84288"
+					(reference "#SYM301")
 					(unit 1)
 				)
 			)

@@ -408,7 +408,7 @@
 	)
 	(text "TODO: add final BOM, pricelist, order link\n\nmit der HKA ilias vorlage"
 		(exclude_from_sim no)
-		(at 92.202 117.094 0)
+		(at 91.44 98.044 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -416,15 +416,15 @@
 		)
 		(uuid "2c0f2123-dcec-4921-b426-1eac731fcea4")
 	)
-	(text "TODO: add thermal vias"
+	(text "TODO: add thermal vias\n"
 		(exclude_from_sim no)
-		(at 92.456 108.712 0)
+		(at 86.106 118.872 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
-		(uuid "313760c9-6a3c-4b00-bbec-95ceed6359be")
+		(uuid "2ff6f115-531e-45f5-b401-d7a38cfb105b")
 	)
 	(text "More Information about the PCb can be found at:\nhttps://git.ieem-ka.de/Jax/sdr-analog-frontend\n- design documentation\n- python simulation\n- KiCad Project with schematic, layout, bom\n- relevant component library\n- current issues\n- ..."
 		(exclude_from_sim no)

@@ -1,14 +1,12 @@
 # Schematic Documentation
 
-We aim to use 
-
 ## Status LEDs
 
 Every Power Rail has its own green status LED.
 - 5 V
 - 3.3 V
 
-Also, digital Outputs for IC status get a red LED.
+Also, digital Outputs for IC status get a LED.
 - Load Management Power Faulty
 - 3.3 V LDO Faulty
 - PLL Lock Detected

@@ -192,4 +192,10 @@ K
 F https://www.minicircuits.com/pdfs/TCCH-80+.pdf
 $ENDCMP
 #
+$CMP LQW2UASR62F00L
+D LQW2UAS_00 Series Inductor 620nH +/-1% 1008 (2520)
+K
+F https://componentsearchengine.com/Datasheets/1/LQW2UASR62F00L.pdf
+$ENDCMP
+#
 #End Doc Library

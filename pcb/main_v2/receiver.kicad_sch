@@ -1162,6 +1162,220 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "My Symbols:LQW2UASR62F00L"
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "L"
+				(at 16.51 6.35 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Value" "LQW2UASR62F00L"
+				(at 16.51 3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "LQW2UAS12NG00L"
+				(at 16.51 -96.19 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Datasheet" "https://componentsearchengine.com/Datasheets/1/LQW2UASR62F00L.pdf"
+				(at 16.51 -196.19 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Description" "LQW2UAS_00 Series Inductor 620nH +/-1% 1008 (2520)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Height" "2.03"
+				(at 16.51 -396.19 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Mouser Part Number" "81-LQW2UASR62F00L"
+				(at 16.51 -496.19 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Mouser Price/Stock" "https://www.mouser.com/Search/Refine.aspx?Keyword=81-LQW2UASR62F00L"
+				(at 16.51 -596.19 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Manufacturer_Name" "Murata Electronics"
+				(at 16.51 -696.19 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Manufacturer_Part_Number" "LQW2UASR62F00L"
+				(at 16.51 -796.19 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(symbol "LQW2UASR62F00L_1_1"
+				(arc
+					(start 5.08 0)
+					(mid 6.35 1.219)
+					(end 7.62 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 7.62 0)
+					(mid 8.89 1.219)
+					(end 10.16 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 10.16 0)
+					(mid 11.43 1.219)
+					(end 12.7 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 12.7 0)
+					(mid 13.97 1.219)
+					(end 15.24 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 20.32 0 180)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "My Symbols:PGA-103+"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -2541,23 +2755,13 @@
 	)
 	(text "Low Frequency Stabilization"
 		(exclude_from_sim no)
-		(at 131.826 156.972 0)
+		(at 127.254 160.528 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
 		(uuid "0da150e8-28a5-4dc8-b548-f68761bae605")
-	)
-	(text "TODO: find inductor with size 0.115 x 0.110"
-		(exclude_from_sim no)
-		(at 148.844 166.878 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "16dc305a-cc86-403b-8a59-f18000513ff3")
 	)
 	(text "Bandpass"
 		(exclude_from_sim no)
@@ -2756,6 +2960,12 @@
 		(uuid "293f5d69-fbba-4fe0-8480-78d2ffa5ea9f")
 	)
 	(junction
+		(at 111.76 137.16)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "37b0c0d7-c8d0-4b0a-a45c-60c3a831fd71")
+	)
+	(junction
 		(at 172.72 137.16)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2822,12 +3032,6 @@
 		(uuid "b92fce29-c429-496d-8fa4-ca385cb0bfc3")
 	)
 	(junction
-		(at 107.95 137.16)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c2fd9e1b-2e0f-45fc-816a-069258efe303")
-	)
-	(junction
 		(at 151.13 38.1)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2884,6 +3088,16 @@
 			(type default)
 		)
 		(uuid "1148eb88-550d-4f10-aba1-faa3e9ba82d5")
+	)
+	(wire
+		(pts
+			(xy 111.76 137.16) (xy 111.76 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "11dbb6f9-df34-48ad-8f47-d320bb22025e")
 	)
 	(wire
 		(pts
@@ -3217,7 +3431,17 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 137.16) (xy 107.95 137.16)
+			(xy 111.76 137.16) (xy 118.11 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b7d72209-bd9f-46c7-83c3-bc49bf869eb0")
+	)
+	(wire
+		(pts
+			(xy 68.58 137.16) (xy 111.76 137.16)
 		)
 		(stroke
 			(width 0)
@@ -3404,16 +3628,6 @@
 			(type default)
 		)
 		(uuid "f663290d-cd13-4a98-a8c2-b366ca3e8c66")
-	)
-	(wire
-		(pts
-			(xy 107.95 137.16) (xy 118.11 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f964ac78-28eb-4d67-8d09-ef3082332399")
 	)
 	(wire
 		(pts
@@ -4008,7 +4222,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 107.95 156.21 0)
+		(at 111.76 173.99 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4018,7 +4232,7 @@
 		(dnp no)
 		(uuid "01f62d01-0bba-4cb9-89de-b688a5c8306a")
 		(property "Reference" "C410"
-			(at 114.3 154.94 0)
+			(at 118.11 172.72 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4028,7 +4242,7 @@
 			)
 		)
 		(property "Value" "330 pF"
-			(at 114.3 157.48 0)
+			(at 118.11 175.26 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4038,7 +4252,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 108.9152 160.02 0)
+			(at 112.7252 177.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4049,7 +4263,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 107.95 156.21 0)
+			(at 111.76 173.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4060,7 +4274,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 107.95 156.21 0)
+			(at 111.76 173.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4071,7 +4285,7 @@
 			)
 		)
 		(property "Package" "0603"
-			(at 103.378 155.956 0)
+			(at 107.188 173.736 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4081,7 +4295,7 @@
 			)
 		)
 		(property "Voltage" "50 V"
-			(at 103.378 157.734 0)
+			(at 107.188 175.514 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4091,7 +4305,7 @@
 			)
 		)
 		(property "Availability" ""
-			(at 107.95 156.21 90)
+			(at 111.76 173.99 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4102,7 +4316,7 @@
 			)
 		)
 		(property "Check_prices" ""
-			(at 107.95 156.21 90)
+			(at 111.76 173.99 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4113,7 +4327,7 @@
 			)
 		)
 		(property "MANUFACTURER" ""
-			(at 107.95 156.21 90)
+			(at 111.76 173.99 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4124,7 +4338,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 107.95 156.21 90)
+			(at 111.76 173.99 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4135,7 +4349,7 @@
 			)
 		)
 		(property "MF" ""
-			(at 107.95 156.21 90)
+			(at 111.76 173.99 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4146,7 +4360,7 @@
 			)
 		)
 		(property "MP" ""
-			(at 107.95 156.21 90)
+			(at 111.76 173.99 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4157,7 +4371,7 @@
 			)
 		)
 		(property "PARTREV" ""
-			(at 107.95 156.21 90)
+			(at 111.76 173.99 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4168,7 +4382,7 @@
 			)
 		)
 		(property "Price" ""
-			(at 107.95 156.21 90)
+			(at 111.76 173.99 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4179,7 +4393,7 @@
 			)
 		)
 		(property "SNAPEDA_PN" ""
-			(at 107.95 156.21 90)
+			(at 111.76 173.99 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4190,7 +4404,7 @@
 			)
 		)
 		(property "STANDARD" ""
-			(at 107.95 156.21 90)
+			(at 111.76 173.99 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4201,7 +4415,7 @@
 			)
 		)
 		(property "Size" ""
-			(at 107.95 156.21 90)
+			(at 111.76 173.99 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4212,7 +4426,7 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 107.95 156.21 90)
+			(at 111.76 173.99 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5897,6 +6111,159 @@
 		)
 	)
 	(symbol
+		(lib_id "My Symbols:LQW2UASR62F00L")
+		(at 111.76 142.24 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "47cd6311-3c3a-4512-ac45-18e04127aa1b")
+		(property "Reference" "L404"
+			(at 114.3 151.1299 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "LQW2UASR62F00L"
+			(at 114.3 153.6699 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "LQW2UAS12NG00L"
+			(at 15.57 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Datasheet" "https://componentsearchengine.com/Datasheets/1/LQW2UASR62F00L.pdf"
+			(at -84.43 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Description" "LQW2UAS_00 Series Inductor 620nH +/-1% 1008 (2520)"
+			(at 111.76 142.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Height" "2.03"
+			(at -284.43 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Mouser Part Number" "81-LQW2UASR62F00L"
+			(at -384.43 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.com/Search/Refine.aspx?Keyword=81-LQW2UASR62F00L"
+			(at -484.43 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Manufacturer_Name" "Murata Electronics"
+			(at -584.43 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Manufacturer_Part_Number" "LQW2UASR62F00L"
+			(at -684.43 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Inductanve" "620 nH"
+			(at 106.934 152.146 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2b143532-e1fa-4ace-aa44-507f552b6eaa")
+		)
+		(pin "2"
+			(uuid "bb2b6174-4a54-4c08-a2f8-78a3b930453f")
+		)
+		(instances
+			(project "main_v2"
+				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/6cc491e9-db51-4c07-9c5c-0fdbb3f258a1"
+					(reference "L404")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 231.14 77.47 90)
 		(mirror x)
@@ -7410,97 +7777,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:L")
-		(at 107.95 140.97 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "8a176aad-8064-4d6d-b851-84cdf1013ba2")
-		(property "Reference" "L403"
-			(at 109.22 139.6999 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "620 nH"
-			(at 109.22 142.2399 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Inductor_SMD:L_0402_1005Metric"
-			(at 107.95 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 107.95 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Inductor"
-			(at 107.95 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Package" "0402"
-			(at 103.632 141.224 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "d37d8715-9cbb-4063-9b3d-cb08ce3d0bdd")
-		)
-		(pin "1"
-			(uuid "1425957d-88a0-4d67-b926-0f5135c166e2")
-		)
-		(instances
-			(project "main_v2"
-				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/6cc491e9-db51-4c07-9c5c-0fdbb3f258a1"
-					(reference "L403")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 129.54 54.61 270)
 		(mirror x)
@@ -7847,7 +8123,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 107.95 160.02 0)
+		(at 111.76 177.8 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7857,7 +8133,7 @@
 		(dnp no)
 		(uuid "a1ca7cf2-5962-4265-86b7-8cd9ed100ae2")
 		(property "Reference" "#PWR0418"
-			(at 107.95 166.37 0)
+			(at 111.76 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7868,7 +8144,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 107.95 163.83 90)
+			(at 111.76 181.61 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7879,7 +8155,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 107.95 160.02 0)
+			(at 111.76 177.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7890,7 +8166,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 107.95 160.02 0)
+			(at 111.76 177.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7901,7 +8177,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 107.95 160.02 0)
+			(at 111.76 177.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8535,7 +8811,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 107.95 148.59 0)
+		(at 111.76 166.37 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8545,7 +8821,7 @@
 		(dnp no)
 		(uuid "af253750-7b73-4d18-be5e-061de1d701fc")
 		(property "Reference" "R401"
-			(at 110.49 147.3199 0)
+			(at 114.3 165.0999 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8556,7 +8832,7 @@
 			)
 		)
 		(property "Value" "150R"
-			(at 110.49 149.8599 0)
+			(at 114.3 167.6399 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8567,7 +8843,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 106.172 148.59 90)
+			(at 109.982 166.37 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8578,7 +8854,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 107.95 148.59 0)
+			(at 111.76 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8589,7 +8865,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 107.95 148.59 0)
+			(at 111.76 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8600,7 +8876,7 @@
 			)
 		)
 		(property "Package" "0603"
-			(at 103.378 148.59 0)
+			(at 107.188 166.37 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8610,7 +8886,7 @@
 			)
 		)
 		(property "Tolerance" "5%"
-			(at 107.95 148.59 0)
+			(at 111.76 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8621,7 +8897,7 @@
 			)
 		)
 		(property "Power" "0.1 W"
-			(at 107.95 148.59 0)
+			(at 111.76 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8632,7 +8908,7 @@
 			)
 		)
 		(property "Availability" ""
-			(at 107.95 148.59 0)
+			(at 111.76 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8643,7 +8919,7 @@
 			)
 		)
 		(property "Check_prices" ""
-			(at 107.95 148.59 0)
+			(at 111.76 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8654,7 +8930,7 @@
 			)
 		)
 		(property "MANUFACTURER" ""
-			(at 107.95 148.59 0)
+			(at 111.76 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8665,7 +8941,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 107.95 148.59 0)
+			(at 111.76 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8676,7 +8952,7 @@
 			)
 		)
 		(property "MF" ""
-			(at 107.95 148.59 0)
+			(at 111.76 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8687,7 +8963,7 @@
 			)
 		)
 		(property "MP" ""
-			(at 107.95 148.59 0)
+			(at 111.76 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8698,7 +8974,7 @@
 			)
 		)
 		(property "PARTREV" ""
-			(at 107.95 148.59 0)
+			(at 111.76 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8709,7 +8985,7 @@
 			)
 		)
 		(property "Price" ""
-			(at 107.95 148.59 0)
+			(at 111.76 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8720,7 +8996,7 @@
 			)
 		)
 		(property "SNAPEDA_PN" ""
-			(at 107.95 148.59 0)
+			(at 111.76 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8731,7 +9007,7 @@
 			)
 		)
 		(property "STANDARD" ""
-			(at 107.95 148.59 0)
+			(at 111.76 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8742,7 +9018,7 @@
 			)
 		)
 		(property "Size" ""
-			(at 107.95 148.59 0)
+			(at 111.76 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8753,7 +9029,7 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 107.95 148.59 0)
+			(at 111.76 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

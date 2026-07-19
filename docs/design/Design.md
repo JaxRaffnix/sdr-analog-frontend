@@ -3,7 +3,7 @@
 ## Goal
 Transmit and recieve a Signal from an SDR. Convert the Frequency range of the signal from 0.9 to 1 GHz to 2.4 to 2.5 GHz and vice versa. The signal is amplified and filtered to reduce noise and interference.
 
-So the bandwidth is 100 MHz.
+So the bandwidth is 500 MHz.
 
 ## Requirements
 
@@ -19,9 +19,18 @@ the amplification for tx and rx should be adjustable.
 
 ## Implementation
 
-Because changing the input/output power of the signals with a discrete DIP switch is not practical, power adjustment is not possible.
+Because changing the input/output power of the signals with a discrete DIP switch is not practical, power adjustment is not implemented.
 
-Please refer to the block diagram and schematic for the exact design.
+Please check out the following documents for a complete design overview:
+- [Schematic Documentation](Schematic.md)
+- [Layout Documentation](Layout.md)
+- [Simulation Documentation](../simulation/README.md)
+- [Issues](../docs/ISSUES.md)
+- [Schematic PDF](../../pcb/documents/schematic.pdf)
+- Block Diagram:
+
+![block diagram](Blockschaltbild.png) 
+
 
 ### transmitter
 The RFSoC dac outputs a signal with max 40.5 mA current, output power -18.5 to 6.5 dBm.
