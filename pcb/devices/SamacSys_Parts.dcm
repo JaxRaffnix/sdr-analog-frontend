@@ -180,4 +180,16 @@ K
 F https://www.mouser.de/datasheet/2/472/SKYS_S_A0013006819_1-2515864.pdf
 $ENDCMP
 #
+$CMP PGA-103+
+D RF Amplifier SMT Low Noise Amplifier, 50Ohm - 4000 MHz, 50
+K
+F https://www.minicircuits.com/pdfs/PGA-103+.pdf
+$ENDCMP
+#
+$CMP TCCH-80+
+D RF Choke
+K
+F https://www.minicircuits.com/pdfs/TCCH-80+.pdf
+$ENDCMP
+#
 #End Doc Library

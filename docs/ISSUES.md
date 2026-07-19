@@ -5,7 +5,7 @@
 - **Fragen:** Ist dies Lösung ausreichend?
 
 ## 2. PLL-Evaluierungsboard
-- **Problem** Der PLL (ADF4351) wird über ein SPI programmiert, entsprechendes I/O ist auf der Platine bereits vorhanden. Der passende Master dafür muss erst noch implementiert werden. Alternativ kann das [Evaluation Board](https://www.analog.com/media/en/technical-documentation/user-guides/UG-435.pdf) verwendet werden. Dieses hat eine USB-Verbindung und eine Windows-Software wird bereit gestellt, um den PLL zu programmieren. Das Oszillatror-Signal wird über einen SMA-Anschluss ausgegeben.
+- **Problem** Der PLL (ADF4351) wird über ein SPI programmiert, entsprechendes I/O ist auf der Platine bereits vorhanden. Der passende Master dafür muss erst noch implementiert werden. Alternativ kann das [Evaluation Board](https://www.analog.com/media/en/technical-documentation/user-guides/UG-435.pdf) verwendet werden. Dieses hat eine USB-Verbindung und eine Windows-Software, um den PLL zu programmieren. Das Oszillatror-Signal wird über einen SMA-Anschluss ausgegeben.
 - **Fragen:** Evaluation Board verwenden, um Programmierung deutlich zu vereinfachen? Auswirkungen auf Signalintegrität lassen sich nicht vorhersagen.
   
 ## 3. Receiver-Pfad Performance

@@ -147,16 +147,16 @@ class Amplifier(RFComponent):
         gain_model, 
         p1db_model,
         oip3_model,
-        nf_db=None,
-        max_output_power_dbm=None,
+        nf_model,
+        freq_range: Range|None = None,
         **kwargs
     ):
         super().__init__(name, part_number, **kwargs)
         self.gain_model = gain_model
         self.p1db_model = p1db_model
         self.oip3_model = oip3_model
-        self.nf_db = nf_db
-        self.max_output_power_dbm = max_output_power_dbm
+        self.nf_model = nf_model
+        self.freq_range = freq_range
 
     def get_p1db(self, freq):
         return self.p1db_model(freq) if callable(self.p1db_model) else self.p1db_model
@@ -168,7 +168,7 @@ class Amplifier(RFComponent):
         return self.gain_model(freq) if callable(self.gain_model) else self.gain_model
 
     def get_noise_figure(self, freq=None):
-        return self.nf_db if self.nf_db is not None else 0.0
+        return self.nf_model(freq) if callable(self.nf_model) else self.nf_model
     
     def _apply_im3(self, signal: SpectrumSignal, oip3_dbm: float, threshold_dbm: float = -60):
         active_tones = [(f, p) for f, p in signal.tones.items() if p > threshold_dbm]        
@@ -200,9 +200,13 @@ class Amplifier(RFComponent):
         if oip3 is not None:
             self._apply_im3(out_signal, oip3)
 
+        if self.max_input_power_dbm is not None:
+            reports.append(DiagnosticResult("Max Output Power", out_signal.total_power_dbm() < self.max_input_power_dbm, f"Output Power {out_signal.total_power_dbm():.1f} dBm < Max Output Power {self.max_input_power_dbm:.1f} dBm"))
         reports.append(DiagnosticResult("Dominant Frequency", dominant_freq is not None, f"Dominant frequency is {(dominant_freq/ 1e6):.1f} MHz"))
         reports.append(DiagnosticResult("Compression", out_signal.total_power_dbm() < self.get_p1db(dominant_freq), f"Output Power {out_signal.total_power_dbm():.1f} dBm < P1dB {self.get_p1db(dominant_freq):.1f} dBm"))
         reports.append(DiagnosticResult("OIP3", out_signal.total_power_dbm() < self.get_oip3(dominant_freq), f"Output Power {out_signal.total_power_dbm():.1f} dBm < OIP3 {self.get_oip3(dominant_freq):.1f} dBm"))
+        if self.freq_range is not None and dominant_freq is not None:
+            reports.append(DiagnosticResult("Frequency Range", dominant_freq in self.freq_range, f"Dominant frequency {(dominant_freq/ 1e6):.1f} MHz is in range [{self.freq_range.minimum/1e6:.1f}, {self.freq_range.maximum/1e6:.1f}] MHz"))
 
         return out_signal, reports
 
@@ -262,7 +266,7 @@ class Mixer(RFComponent):
         lo_if_iso_db=30.0, 
         required_lo_power_dbm=None,
         max_lo_power_dbm=None,
-        nf_db=None,
+        nf_model=None,
         **kwargs,
     ):
         super().__init__(name, part_number, **kwargs)
@@ -272,7 +276,7 @@ class Mixer(RFComponent):
         self.lo_if_iso = abs(lo_if_iso_db)
         self.required_lo_power_dbm = required_lo_power_dbm
         self.max_lo_power_dbm = max_lo_power_dbm
-        self.nf_db = nf_db if nf_db is not None else self.conversion_loss_db
+        self.nf_model = nf_model if nf_model is not None else self.conversion_loss_db
         self.lo_signal = None
         self.lo_freq = None
         self.mode = "RX"
@@ -283,7 +287,7 @@ class Mixer(RFComponent):
         return -self.conversion_loss_db
 
     def get_noise_figure(self, freq=None):
-        return self.nf_db
+        return self.nf_model
 
     def set_lo_signal(self, signal, lo_freq_hz):
         reports = []
@@ -399,6 +403,8 @@ class Limiter(RFComponent):
 
         reports.append(DiagnosticResult("Limiter Status", self.last_effective_loss <= self.il_db, f"Effective Loss {self.last_effective_loss:.1f} dB <= Insertion Loss {self.il_db:.1f} dB"))
         reports.append(DiagnosticResult("Power Clipping", pin_total < self.threshold_dbm, f"Input Power {pin_total:.1f} dBm < Limiter Threshold {self.threshold_dbm:.1f} dBm."))
+        if self.max_input_power_dbm is not None:
+            reports.append(DiagnosticResult("Max Output Power", out_signal.total_power_dbm() < self.max_input_power_dbm, f"Output Power {out_signal.total_power_dbm():.1f} dBm < Max Output Power {self.max_input_power_dbm:.1f} dBm"))
             
         return out_signal, reports
     
@@ -458,6 +464,8 @@ class ADC(RFComponent):
         reports.append(DiagnosticResult("ADC Bandwidth", all(f <= self.bandwidth_hz for f in signal.tones), f"All tones within bandwidth {self.bandwidth_hz/1e6:.1f} MHz"))
         reports.append(DiagnosticResult("ADC Nyquist", all(f <= self.sample_rate_hz / 2 for f in signal.tones), f"All tones within Nyquist {self.sample_rate_hz/2e6:.1f} MHz"))
         reports.append(DiagnosticResult("Nyquist Frequency", any(f > self.sample_rate_hz / 2 for f in signal.tones), "Frequencies above Nyquist will be aliased to lower frequencies: " + ", ".join(f"{f/1e6:.1f} MHz" for f in signal.tones if f > self.sample_rate_hz / 2)))
+        if self.max_input_power_dbm is not None:
+            reports.append(DiagnosticResult("Max Output Power", out_signal.total_power_dbm() < self.max_input_power_dbm, f"Output Power {out_signal.total_power_dbm():.1f} dBm < Max Output Power {self.max_input_power_dbm:.1f} dBm"))
 
         return out_signal, reports
     

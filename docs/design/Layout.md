@@ -24,6 +24,20 @@ The layers were assigned as follows:
 3. Power Plane
 4. Signal Layer 2 (Bottom)
 
+## Board Dimensions
+
+In order to get a good signal integrity for the high speed traces, they should be as short as possible. This means the path from one the input connector to the output connector should be very narrow. So both Rx and Tx paths are placed parallel to each other.
+
+The SMA pins are placed so that one side of the board can be connected to the SDR with Tx in and Rx out. The other side will be connected to antennas with Tx out and Rx in.
+
+In Order to keep the board narrow, the IO connections and power supply are placed all to the left and right of the signal paths.
+
+The oscialltor interacts with both paths and is thereby placed between them.
+
+The resulting board dimensions are:
+- Width: 204.7 mm
+- Height: 68.5 mm
+
 ## Traces
 
 ### High Speed Data Tracks
@@ -40,6 +54,8 @@ With the KiCad calculator, this was the result:
 - R = 50 OHm
 - f =  0,9 Ghz, 1,5 Ghz, 2,5 Ghz
 => W  = 235,843 um
+
+**The manufacturer recommended width is used!**
 
 ![Screenshot](<Transmission Line Calculation.png>)
 
@@ -60,11 +76,15 @@ clearance 0,1524 mm
 via size 0.6096 mm
 via hole 0.3048 mm
 
+Each via can carry roughly 0.5 A. To reduce disturbances and resistance, multiple vias are placed in parallel.
+
 ### Pours and Via Stitching
 
 On layer 1, a ground pour is used. For via stitching, the plugin `kicad-action-scripts` was used. Distance between vias should be less than lambda/20. At 2.4 GHz, lambda = 125 mm. The distance between vias should therefore be less than 6.25 mm. Selected value is:
 - Spacing: 4 mm
+- size 0.6096 mm
+- drill 0.3048 mm
 
 The vias size is used from the vias gnd definition, see section above.
 
-CAVE: some vias of the plugin might get assigned to a power rail net class. Manually highlight them on the board and change their net to GND. 
+CAVE: some vias of the plugin might get assigned to a power rail net class. Manually highlight them on the board and change their net to GND. To do this, disable "automatically update vias nets". 

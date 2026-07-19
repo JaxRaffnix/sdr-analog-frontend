@@ -406,6 +406,37 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "TODO: add final BOM, pricelist, order link\n\nmit der HKA ilias vorlage"
+		(exclude_from_sim no)
+		(at 92.202 117.094 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "2c0f2123-dcec-4921-b426-1eac731fcea4")
+	)
+	(text "TODO: add thermal vias"
+		(exclude_from_sim no)
+		(at 92.456 108.712 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "313760c9-6a3c-4b00-bbec-95ceed6359be")
+	)
+	(text "More Information about the PCb can be found at:\nhttps://git.ieem-ka.de/Jax/sdr-analog-frontend\n- design documentation\n- python simulation\n- KiCad Project with schematic, layout, bom\n- relevant component library\n- current issues\n- ..."
+		(exclude_from_sim no)
+		(at 17.78 185.166 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3eeef9b2-3cc3-422d-8314-9423b77d339e")
+	)
 	(text "RFSOC:\nhttps://www.realdigital.org/downloads/15456c97a4fe5a1ee66208c5aa3894bb.pdf\n\nADC:\nmax input power: 14.6 dBm\nattenuation range: 27 dB\ninput bandwith: 6 GHz\n\nDAC:\nMax output power: -18.5 to 6.5 dBm\ncurrent max: 40.5 mA\n"
 		(exclude_from_sim no)
 		(at 15.748 84.074 0)
