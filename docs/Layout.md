@@ -63,7 +63,6 @@ via hole 0.3048 mm
 ### Pours and Via Stitching
 
 On layer 1, a ground pour is used. For via stitching, the plugin `kicad-action-scripts` was used. Distance between vias should be less than lambda/20. At 2.4 GHz, lambda = 125 mm. The distance between vias should therefore be less than 6.25 mm. Selected value is:
-
 - Spacing: 4 mm
 
 The vias size is used from the vias gnd definition, see section above.
