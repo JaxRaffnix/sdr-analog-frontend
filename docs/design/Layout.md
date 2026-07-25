@@ -38,6 +38,8 @@ The resulting board dimensions are:
 - Width: 204.7 mm
 - Height: 68.5 mm
 
+**The maximum board dimensions that the steam soldering machine can support is 250 x 250 mm.**
+
 ## Traces
 
 ### High Speed Data Tracks
