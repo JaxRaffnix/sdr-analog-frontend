@@ -1033,6 +1033,7 @@
       "netlist": "",
       "plot": "../documents/",
       "specctra_dsn": "",
+      "step": "",
       "vrml": ""
     },
     "page_layout_descr_file": ""
