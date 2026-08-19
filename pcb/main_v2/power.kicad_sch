@@ -3053,6 +3053,16 @@
 		)
 		(uuid "f178ae4e-c6fe-46b4-bef9-03900da335ce")
 	)
+	(text "5V Input Voltage"
+		(exclude_from_sim no)
+		(at 23.622 31.496 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "f6729e5e-8325-4757-8757-5339f0477450")
+	)
 	(text_box "Place close together!"
 		(exclude_from_sim no)
 		(at 13.97 25.4 0)
@@ -5191,7 +5201,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "DESD5V0U1BL-7B"
+		(property "Value" "PESD5V0L1UL"
 			(at 52.07 48.2599 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5213,7 +5223,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/PESD5V0L1UL.pdf"
 			(at 54.61 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -12910,7 +12920,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "470u"
+		(property "Value" "4.7 uF"
 			(at 130.81 48.2599 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14549,7 +14559,7 @@
 				)
 			)
 		)
-		(property "Color" "Greem"
+		(property "Color" "Green"
 			(at 195.326 56.134 0)
 			(show_name no)
 			(do_not_autoplace no)

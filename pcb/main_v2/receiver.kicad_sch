@@ -6121,7 +6121,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "47cd6311-3c3a-4512-ac45-18e04127aa1b")
-		(property "Reference" "L404"
+		(property "Reference" "L403"
 			(at 114.3 151.1299 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6132,7 +6132,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "LQW2UASR62F00L"
+		(property "Value" "640 nH"
 			(at 114.3 153.6699 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6143,7 +6143,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "LQW2UAS12NG00L"
+		(property "Footprint" "Inductor_SMD:L_0402_1005Metric"
 			(at 15.57 158.75 0)
 			(hide yes)
 			(show_name no)
@@ -6155,7 +6155,7 @@
 				(justify left top)
 			)
 		)
-		(property "Datasheet" "https://componentsearchengine.com/Datasheets/1/LQW2UASR62F00L.pdf"
+		(property "Datasheet" ""
 			(at -84.43 158.75 0)
 			(hide yes)
 			(show_name no)
@@ -6167,7 +6167,7 @@
 				(justify left top)
 			)
 		)
-		(property "Description" "LQW2UAS_00 Series Inductor 620nH +/-1% 1008 (2520)"
+		(property "Description" ""
 			(at 111.76 142.24 0)
 			(hide yes)
 			(show_name no)
@@ -6178,7 +6178,7 @@
 				)
 			)
 		)
-		(property "Height" "2.03"
+		(property "Height" ""
 			(at -284.43 158.75 0)
 			(hide yes)
 			(show_name no)
@@ -6190,7 +6190,7 @@
 				(justify left top)
 			)
 		)
-		(property "Mouser Part Number" "81-LQW2UASR62F00L"
+		(property "Mouser Part Number" ""
 			(at -384.43 158.75 0)
 			(hide yes)
 			(show_name no)
@@ -6202,7 +6202,7 @@
 				(justify left top)
 			)
 		)
-		(property "Mouser Price/Stock" "https://www.mouser.com/Search/Refine.aspx?Keyword=81-LQW2UASR62F00L"
+		(property "Mouser Price/Stock" ""
 			(at -484.43 158.75 0)
 			(hide yes)
 			(show_name no)
@@ -6214,7 +6214,7 @@
 				(justify left top)
 			)
 		)
-		(property "Manufacturer_Name" "Murata Electronics"
+		(property "Manufacturer_Name" ""
 			(at -584.43 158.75 0)
 			(hide yes)
 			(show_name no)
@@ -6226,7 +6226,7 @@
 				(justify left top)
 			)
 		)
-		(property "Manufacturer_Part_Number" "LQW2UASR62F00L"
+		(property "Manufacturer_Part_Number" ""
 			(at -684.43 158.75 0)
 			(hide yes)
 			(show_name no)
@@ -6248,6 +6248,17 @@
 				)
 			)
 		)
+		(property "Package" "0402"
+			(at 111.76 142.24 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "2b143532-e1fa-4ace-aa44-507f552b6eaa")
 		)
@@ -6257,7 +6268,7 @@
 		(instances
 			(project "main_v2"
 				(path "/0599865e-4bed-44f1-b46e-4b55335b49b2/6cc491e9-db51-4c07-9c5c-0fdbb3f258a1"
-					(reference "L404")
+					(reference "L403")
 					(unit 1)
 				)
 			)

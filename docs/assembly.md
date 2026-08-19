@@ -1,17 +1,21 @@
 # Notes on Assembly
 
+## Nachbestellt
+
+- R211: 33.2k 0603. Alternative: 71-CRCW060333K2FKEAC. ist nachbestellt
+- Q201: DMP3068L-7. Alternative: DMP3068L-13. ist nachbestellt
+- C306, C513, C514, C527: 1 nF 0402. ist nachbestellt
+- L403: 620 nH, 0402. ist nachbestellt mit 640 nH.
+- L401: 27 nH 0603. ist nachbestellt
+- J701: pin headers male 1x6. ist nachbestellt
+- J702, J704, J706, J708: pin headers male 1x3. ist nachbestellt
+- J703, J705, J709: pin headers male 1x1. ist nachbestellt
+
 ## Missing Components
 
-- C203: 470 uF 0603
-- R211: 33.2k 0603
-- Q201: DMP3068L-7
-- C311: 3.3 pF 0402
-- C306, C513, C514: 1 nF 0402
 - R502, R504: DNI
-- C527: DC cut cap 0402
-- L403:
-- L401
-- J701, J702, J703, J704, J705, J706, J708, J709: pin headers male
+- FL402: SYBP-92+. ist im lieferrückstand, expected 24.08.26. TODO: ggf bei [win-source](https://www.win-source.net/products/detail/mini-circuits/sybp-92.html) bestellen?
+- U401: TCCH 80+. wird noch geliefert
 
 ## Nacharbeiten
 
