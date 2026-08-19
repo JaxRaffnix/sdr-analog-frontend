@@ -6172,7 +6172,7 @@
 				)
 			)
 		)
-		(property "Value" "DC Cut Cap"
+		(property "Value" "1nF"
 			(at 127.254 173.228 0)
 			(show_name no)
 			(do_not_autoplace no)

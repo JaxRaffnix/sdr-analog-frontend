@@ -5191,7 +5191,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "PESD5V0L1UL"
+		(property "Value" "DESD5V0U1BL-7B"
 			(at 52.07 48.2599 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5213,7 +5213,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/PESD5V0L1UL.pdf"
+		(property "Datasheet" ""
 			(at 54.61 46.99 0)
 			(hide yes)
 			(show_name no)
