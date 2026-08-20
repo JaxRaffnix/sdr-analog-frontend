@@ -1,6 +1,8 @@
 # Notes on Assembly
 
-## Nachbestellt
+## Mouser Nachbestellung
+
+Lieferung expected überlicherweise in 3 Tagen. Aufgegeben am 19.08.26.
 
 - R211: 33.2k 0603. Alternative: 71-CRCW060333K2FKEAC. ist nachbestellt
 - Q201: DMP3068L-7. Alternative: DMP3068L-13. ist nachbestellt
@@ -9,9 +11,9 @@
 
 ## Missing Components
 
+- FL402: SYBP-92+. ist im lieferrückstand, expected Lagerbestand am 24.08.26. Alternativ bei [win-source](https://www.win-source.net/products/detail/mini-circuits/sybp-92.html) auf Lager.
 - R502, R504: DNI
-- FL402: SYBP-92+. ist im lieferrückstand, expected 24.08.26. TODO: ggf bei [win-source](https://www.win-source.net/products/detail/mini-circuits/sybp-92.html) bestellen?
-- U401: TCCH 80+. wird noch geliefert
+- U401: TCCH 80+. wird über municom geliefert. Liefernachricht erhalten am 19 Aug 2026.
 
 ## Nacharbeiten
 
