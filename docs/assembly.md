@@ -1,5 +1,19 @@
 # Notes on Assembly
 
+## lessons learned
+
+- zweite Power supply option über banaanenstecker o.ä. ermöglichen. einfacher aufbau im labor
+
+## Power supply
+
+5V dc 2A Barrel Jack
+
+muss kompatibel sein mit [PJ-063AH](https://www.mouser.de/de/ProductDetail/Same-Sky/PJ-063AH?qs=WyjlAZoYn51bQfA53nMcVA%3D%3D).
+- Durchmesser Innenkontakt 2 mm
+- Durchmesser Außenkontakt 6.5 mm
+- Max 8 A, 24 V
+- Jack Male Pin
+
 ## Mouser Nachbestellung
 
 Lieferung expected überlicherweise in 3 Tagen. Aufgegeben am 19.08.26.
