@@ -1,19 +1,26 @@
 # /// script
 # requires-python = ">=3.12"
 # dependencies = [
-#     "marimo>=0.23.15",
+#     "jinja2==3.1.6",
+#     "marimo>=0.23.3",
+#     "matplotlib==3.11.1",
+#     "numpy==2.5.2",
+#     "pandas==3.0.5",
+#     "plotly==7.0.0",
 # ]
 # ///
 
 import marimo
 
-__generated_with = "0.23.14"
+__generated_with = "0.24.0"
 app = marimo.App(width="medium")
 
 
 @app.cell
 def _():
     import marimo as mo
+
+    import jinja2
 
     import models as md
 
@@ -151,6 +158,7 @@ def _(all_diags_ox, md, mo, results_ox, ui_stage_ox):
         md.show_frequency_matrix(results_ox),
         ui_stage_ox,
         md.plot_spectrum(results_ox, ui_stage_ox.value),
+
     ])
     return
 

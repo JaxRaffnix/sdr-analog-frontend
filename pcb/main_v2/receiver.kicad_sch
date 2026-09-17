@@ -6238,16 +6238,6 @@
 				(justify left top)
 			)
 		)
-		(property "Inductanve" "620 nH"
-			(at 106.934 152.146 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(property "Package" "0402"
 			(at 111.76 142.24 90)
 			(hide yes)
