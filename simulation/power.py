@@ -12,7 +12,7 @@
 
 import marimo
 
-__generated_with = "0.24.0"
+__generated_with = "0.25.1"
 app = marimo.App(width="medium")
 
 
@@ -232,13 +232,14 @@ def _(mo):
     rx_f2_hz = mo.ui.slider(start=2400e6, stop=2500e6, step=1e6, value=2470e6, label="Rx Störsignal Freq (Hz)", show_value=True)
     rx_p2 = mo.ui.slider(start=-100.0, stop=20.0, step=1.0, value=-30.0, label="Rx Störsignal Power (dBm)", show_value=True)
 
-    mo.vstack([rx_f1_hz, rx_p1, rx_f2_hz, rx_p2])
-    return rx_f1_hz, rx_f2_hz, rx_p1, rx_p2
+    rx_bw = mo.ui.slider(start=500e5, stop=500e6, step=100e5, value=100e6, label="Rx Bandbreite (Hz)", show_value=True)
+    mo.vstack([rx_f1_hz, rx_p1, rx_f2_hz, rx_p2, rx_bw])
+    return rx_bw, rx_f1_hz, rx_f2_hz, rx_p1, rx_p2
 
 
 @app.cell
-def _(bandpass, md, mixer, mo, rx_f1_hz, rx_f2_hz, rx_p1, rx_p2):
-    rx_input = md.AntennaSource("Antenna", "ANT-001", bandwidth_hz=500e6, analysis_freq=rx_f1_hz.value)
+def _(bandpass, md, mixer, mo, rx_bw, rx_f1_hz, rx_f2_hz, rx_p1, rx_p2):
+    rx_input = md.AntennaSource("Antenna", "ANT-001", bandwidth_hz=rx_bw.value, analysis_freq=rx_f1_hz.value)
     rx_input.add_signal(rx_f1_hz.value, rx_p1.value)    # Wanted signal at -90 dBm
     rx_input.add_signal(rx_f2_hz.value, rx_p2.value)    # Strong interferer (blocker) at 2460 MHz
 

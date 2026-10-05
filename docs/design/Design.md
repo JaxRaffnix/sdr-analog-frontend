@@ -3,7 +3,7 @@
 ## Goal
 Transmit and recieve a Signal from an SDR. Convert the Frequency range of the signal from 0.9 to 1 GHz to 2.4 to 2.5 GHz and vice versa. The signal is amplified and filtered to reduce noise and interference.
 
-So the bandwidth is 500 MHz.
+So the bandwidth is 100 MHz.
 
 ## Requirements
 
