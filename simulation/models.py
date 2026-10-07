@@ -108,12 +108,20 @@ class RFComponent:
     # def run_diagnostics(self, signal):
     #     raise NotImplementedError(f"Model '{self.__class__.__name__}' must implement the run_diagnostics() method.")
 
-    def get_noise_budget(self, noise_floor, analysis_freq, gain=None):
-        """Calculates the noise budget at a given analysis frequency and the current noise floor. Returns the updated noise floor and the analysis frequency."""
+    def get_noise_budget(self, noise_floor, analysis_freq, gain=None, reference_noise_floor=None):
+        """Propagate noise through a stage using its linear gain and noise figure."""
         if gain is None:
             gain = self.get_gain(analysis_freq)
-        nf = self.get_noise_figure(analysis_freq)
-        return noise_floor + gain + nf, analysis_freq
+        if reference_noise_floor is None:
+            reference_noise_floor = noise_floor
+
+        gain_linear = _dbm_to_mw(gain)
+        noise_factor_excess = _dbm_to_mw(self.get_noise_figure(analysis_freq)) - 1.0
+        output_noise_mw = (
+            _dbm_to_mw(noise_floor) * gain_linear
+            + _dbm_to_mw(reference_noise_floor) * gain_linear * noise_factor_excess
+        )
+        return _mw_to_dbm(output_noise_mw), analysis_freq
 
     def dc_power_report(self):
         if self.power_rail is None:
@@ -340,22 +348,20 @@ class Mixer(RFComponent):
 
         return out_signal, reports
 
-    def get_noise_budget(self, noise_floor, analysis_freq, gain=None):
-        input_noise_mw = _dbm_to_mw(noise_floor)
-
+    def get_noise_budget(self, noise_floor, analysis_freq, gain=None, reference_noise_floor=None):
         if self.mode.upper() == "RX":
-            input_noise_mw *= 2  # Folded noise (+3 dB)
             lo_iso = self.lo_if_iso
             analysis_freq = abs(analysis_freq - self.lo_freq)
         else:
             lo_iso = self.lo_rf_iso
             analysis_freq = abs(analysis_freq + self.lo_freq)
 
-        if self.lo_signal and hasattr(self.lo_signal, "noise_power_dbm"):
-            lo_noise_mw = _dbm_to_mw(self.lo_signal.noise_power_dbm - lo_iso)
-            input_noise_mw += lo_noise_mw
-
-        return super().get_noise_budget(_mw_to_dbm(input_noise_mw), analysis_freq, gain)
+        return super().get_noise_budget(
+            noise_floor,
+            analysis_freq,
+            gain,
+            reference_noise_floor,
+        )
 
     
 class Limiter(RFComponent):
@@ -408,9 +414,13 @@ class Limiter(RFComponent):
             
         return out_signal, reports
     
-    def get_noise_budget(self, noise_floor, analysis_freq, gain=None):
-        nf = self.get_noise_figure(analysis_freq)
-        return noise_floor - self.last_effective_loss + nf, analysis_freq
+    def get_noise_budget(self, noise_floor, analysis_freq, gain=None, reference_noise_floor=None):
+        return super().get_noise_budget(
+            noise_floor,
+            analysis_freq,
+            gain=-self.last_effective_loss,
+            reference_noise_floor=reference_noise_floor,
+        )
 
 
 # ___________________________________________________________________
@@ -469,7 +479,7 @@ class ADC(RFComponent):
 
         return out_signal, reports
     
-    def get_noise_budget(self, noise_floor, analysis_freq, gain=None):
+    def get_noise_budget(self, noise_floor, analysis_freq, gain=None, reference_noise_floor=None):
         quant_snr_db = 6.02 * self.resolution_bits + 1.76
         quant_noise_dbm = self.full_scale_dbm - quant_snr_db
         
@@ -610,7 +620,7 @@ class AntennaSource(RFComponent):
         reports = []
         return SpectrumSignal(tones=self.signal.tones), reports
     
-    def get_noise_budget(self, noise_floor, analysis_freq, gain=None):
+    def get_noise_budget(self, noise_floor, analysis_freq, gain=None, reference_noise_floor=None):
         return -174.0 + _mw_to_dbm(self.bandwidth_hz), analysis_freq
 
 
@@ -684,7 +694,8 @@ def diagnostics_to_ui(diagnostics: dict):
 # Diagnostics Display
 
 def run_simulation(stages, signal: SpectrumSignal, analysis_freq=None, noise_floor=None):
-    noise_floor = THERMAL_NOISE_FLOOR or noise_floor
+    noise_floor = THERMAL_NOISE_FLOOR if noise_floor is None else noise_floor
+    reference_noise_floor = None
 
     diagnostics = {}
     results = []
@@ -702,7 +713,13 @@ def run_simulation(stages, signal: SpectrumSignal, analysis_freq=None, noise_flo
         diagnostics[stage.name] = reports
 
         if analysis_freq is not None:
-            noise_floor, analysis_freq = stage.get_noise_budget(noise_floor, analysis_freq)
+            noise_floor, analysis_freq = stage.get_noise_budget(
+                noise_floor,
+                analysis_freq,
+                reference_noise_floor=reference_noise_floor,
+            )
+            if reference_noise_floor is None:
+                reference_noise_floor = noise_floor
             noise_budges.append({
                 "Stage": stage.name,
                 "Analysis Frequency [GHz]": analysis_freq / 1e9,

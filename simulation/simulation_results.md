@@ -36,7 +36,7 @@ The receiver LO is 1,500 MHz, so the wanted 2,450 MHz RF signal is converted to 
 - The receiver ADC input is -13.50 dBm for the default wanted signal and interferer.
 - Receiver compression, limiter, ADC full-scale, bandwidth, and maximum-power checks pass.
 - The receiver ADC Nyquist check fails because tones above the 2.5 GHz Nyquist frequency are present before aliasing.
-- The receiver noise budget ends at 21.74 dB SNR and 17.26 dB cumulative noise figure at the ADC analysis point.
+- The receiver noise budget ends at 33.42 dB SNR and 5.58 dB cumulative noise figure at the ADC analysis point.
 - Modeled DC power is 4.144 W typical and 5.229 W maximum, excluding the 5 V to 3.3 V LDO conversion loss.
 
 ## Local Oscillator Analysis
@@ -133,13 +133,13 @@ The thermal starting point is modeled as -174 dBm/Hz and the receiver bandwidth 
 | Antenna | 2.45 GHz | -55.00 dBm | -94.00 dBm | 39.00 dB | - | 0.00 dB |
 | Bandpass | 2.45 GHz | -56.20 dBm | -94.00 dBm | 37.80 dB | 1.20 dB | 1.20 dB |
 | LNA | 2.45 GHz | -46.00 dBm | -81.60 dBm | 35.60 dB | 2.20 dB | 3.40 dB |
-| Mixer | 0.95 GHz | -53.50 dBm | -78.09 dBm | 24.59 dB | 11.01 dB | 14.41 dB |
-| Bandpass Low | 0.95 GHz | -55.44 dBm | -78.09 dBm | 22.65 dB | 1.94 dB | 16.35 dB |
-| Amplifier IF | 0.95 GHz | -38.75 dBm | -60.81 dBm | 22.06 dB | 0.59 dB | 16.94 dB |
-| Limiter | 0.95 GHz | -39.05 dBm | -60.81 dBm | 21.76 dB | 0.30 dB | 17.24 dB |
-| ADC | 0.95 GHz | -39.05 dBm | -60.79 dBm | 21.74 dB | 0.02 dB | 17.26 dB |
+| Mixer | 0.95 GHz | -53.50 dBm | -87.94 dBm | 34.44 dB | 1.16 dB | 4.56 dB |
+| Bandpass Low | 0.95 GHz | -55.44 dBm | -89.31 dBm | 33.87 dB | 0.57 dB | 5.13 dB |
+| Amplifier IF | 0.95 GHz | -38.75 dBm | -72.41 dBm | 33.66 dB | 0.21 dB | 5.34 dB |
+| Limiter | 0.95 GHz | -39.05 dBm | -72.71 dBm | 33.66 dB | 0.00 dB | 5.34 dB |
+| ADC | 0.95 GHz | -39.05 dBm | -72.46 dBm | 33.42 dB | 0.24 dB | 5.58 dB |
 
-The final modeled receiver SNR is 21.74 dB at the ADC analysis point. The mixer contributes the largest single stage noise figure at 11.01 dB.
+The final modeled receiver SNR is 33.42 dB at the ADC analysis point, with 5.58 dB cumulative noise figure. The `Stage NF` column shows each stage's incremental cascade contribution, not its standalone datasheet noise figure. The mixer transforms the wanted signal from 2.45 GHz to 0.95 GHz and contributes 1.16 dB to the cascaded NF.
 
 ## DC Power Analysis
 
@@ -170,7 +170,7 @@ The 3.3 V and 5.0 V totals include the modeled components only. The 5 V to 3.3 V
 2. The LO chain provides sufficient mixer drive with approximately 0.6 dB of margin above the 7 dBm minimum and 2.4 dB below the 10 dBm maximum.
 3. In the default receiver case, the -30 dBm interferer is much stronger than the -55 dBm wanted signal and remains dominant at the ADC.
 4. The ADC Nyquist failure should be resolved or explicitly accepted by the system design. Options include filtering unwanted tones before the ADC, changing the sample rate, or treating the reported aliases as intentional and verifying their impact.
-5. The mixer noise figure is the largest contributor to the modeled receiver noise budget and is the clearest target for an SNR improvement study.
+5. The LNA and the RF input bandpass are the largest contributors to the modeled cascaded noise figure; improving the pre-mixer gain or reducing the RF input loss has more impact than reducing the mixer NF.
 6. The simulation still needs an explicit ADC resolution check; the notebook contains a TODO for this item.
 7. The HMC374 maximum RF input rating should be checked against the intended operating envelope; the notebook also contains a TODO for this item.
 
