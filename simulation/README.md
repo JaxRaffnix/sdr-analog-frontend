@@ -36,6 +36,12 @@ uv sync
 source .venv/bin/activate
 ```
 
+If you are working with Visual Studio Code and are prompted to to select a Kernel. choose
+
+```
+marimo/sandbox
+```
+
 ## Usage
 
 To view the simulation results, run the following command. This opens the marimo notebook in a new browser window.
@@ -47,6 +53,7 @@ If you want to inspect the code and make changes, run:
 ```bash
 uv run marimo edit power.py
 ```
+
 
 ## Simulation Results
 
