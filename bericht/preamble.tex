@@ -249,3 +249,12 @@
     \textcolor{coloryellow}{IMPROVE}%
     \PackageWarning{JHstyle}{You used the 'improve' macro at this line. Remove it before finalising document}%
 }
+
+\newcommand{\shadowsection}[1]{%
+	\refstepcounter{section}
+	\addcontentsline{toc}{section}{\protect\numberline{\thesection}{#1}}
+}
+\newcommand{\shadowchapter}[1]{%
+	\refstepcounter{chapter}
+	\addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}{#1}}
+}
