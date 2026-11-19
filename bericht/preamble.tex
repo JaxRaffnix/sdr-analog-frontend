@@ -1,0 +1,249 @@
+%___________________________________________________________________
+% Check LuaLaTeX Compiler
+
+\usepackage{iftex}
+\ifLuaTeX
+    \relax
+\else
+    \PackageError{preamble}{This template is only compatible with LuaLaTeX. Please change your compiler.}{}
+\fi
+
+
+%___________________________________________________________________
+% Fonts and Symbols
+
+\usepackage{amssymb, amsmath, mathtools, amsfonts} % must be loaded before unicode-math
+\usepackage{unicode-math}
+
+\defaultfontfeatures{
+    Scale=MatchLowercase,   % scale font to serif lowercase letter
+    Ligatures=TeX,          % enable kerning for better spacing between letters
+    Kerning=On              % replace sequences (fi) with a single glyph
+}
+
+\IfFontExistsTF{Libertinus Serif}{%
+    \setmainfont{Libertinus Serif}
+    \setmonofont[Scale=MatchLowercase]{Libertinus Mono}% or JetBrains Mono, Fira Code
+    \setsansfont[Scale=MatchLowercase]{Libertinus Sans}        
+    \setmathfont[    % load font in math mode, macro provided by unicode math
+        Scale=MatchLowercase, % scale font to serif lowercase letter
+        BoldFont=*  % use the same font for bold math
+    ]{libertinusmath-regular.otf}   % must point to .otf file
+}{
+    \PackageWarning{preamble}{falling back to default fonts. Consider adding 'Libertinus Serif' to your system fonts (e.g. https://github.com/alerque/libertinus).}
+    % fallback to default fonts
+}
+
+
+\usepackage[dvipsnames]{xcolor}   % must be loaded before luacolor
+\usepackage{luacolor}   % color with Luatex attributes
+\usepackage[soul]{lua-ul}      % more text markup options with soul
+
+\usepackage[nopatch=footnote]{microtype}    
+\UseMicrotypeSet[protrusion]{basicmath}
+
+
+%___________________________________________________________________
+% Language
+
+\usepackage{polyglossia}
+\setdefaultlanguage{german}
+\setotherlanguage{english}
+
+
+%___________________________________________________________________
+% Citation and Bibliography
+
+\usepackage[
+  backend=biber,              
+  style=ieee,                 
+]{biblatex}  
+\addbibresource{../sources.bib}
+
+\usepackage[
+    autostyle=true,
+    german=quotes
+]{csquotes}                             % quote environment
+\MakeOuterQuote{"}                         % make " active for csquotes
+
+
+%___________________________________________________________________
+% Additional Packages
+
+\usepackage{scrhack}   % common fixes for KOMA and other packages
+
+\usepackage{booktabs}                               % better table vlines
+\usepackage{tabularx}                               % tables with pagewidth
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage[
+    detect-all,
+    locale=DE,
+    locale=DE,
+    mode=match,
+    % per-mode-fraction,
+    range-units=repeat,
+    range-phrase={{~bis~}}
+]{siunitx}
+\sisetup{
+  output-decimal-marker = {,},
+%   group-separator = {.},
+  detect-weight = true,
+  detect-family = true
+}
+\DeclareSIUnit{\euro}{€}
+
+
+%___________________________________________________________________
+% Image Dimensions
+
+% 1. GLOBAL DEFAULTS & KEEP-ASPECT-RATIO
+%    Images are configured globally with a default width and maximum height. 
+%    Because 'keepaspectratio' is enabled, an image scales up until it 
+%    hits the first of these thresholds. 
+%    
+%    By default, figures scale to: width = \imagewidthfactor\columnwidth.
+%    Extremely tall images will be safely capped at \imagemaxheight.
+%
+% 2. THE \columnwidth ISSUE
+%    Because default values are expanded immediately in the preamble, images placed 
+%    inside columns, minipages, or boxes will NOT automatically adapt to the 
+%    nested container's smaller \columnwidth. They will mistakenly inherit the 
+%    original, global page \columnwidth.
+%
+% *RECOMMENDATIONS:*
+% -> Always explicitly set the image width locally using:
+%    [width=\imagewidthfactor\columnwidth]
+%    This forces LaTeX to recalculate the width based on the current context.
+%
+% -> Do not specify a local height. The global \imagemaxheight and 
+%    'keepaspectratio' settings remain active, so letting the height adjust 
+%    automatically ensures correct proportions without overflow.
+
+% Target width factor relative to the current \columnwidth
+\newcommand{\imagewidthfactor}{0.5} 
+\newcommand{\imagemaxwidthfactor}{1}
+
+% upper bound for image heigths.
+\newcommand{\imagemaxheight}{\textheight}
+
+\usepackage[    % svgsetup is not known in latexml
+    inkscapelatex=false,    % dont render text inside svg with latex
+    keepaspectratio,
+    height=\imagemaxheight,
+    width=\imagewidthfactor\columnwidth,
+]{svg}
+
+\usepackage{graphicx}
+% Images grow until width or height limit is reached.
+\setkeys{Gin}{
+    keepaspectratio,
+    height=\imagemaxheight,
+    width=\imagewidthfactor\columnwidth,
+}
+
+\graphicspath{{media/}}  
+
+\usepackage{float}              % set default figure placements
+\floatplacement{figure}{htbp}
+\floatplacement{table}{htbp}
+
+% \usepackage[section]{placeins}          % prevent floats from moving to other sections
+
+
+%___________________________________________________________________
+% Colors
+
+\definecolor{colorblue}{HTML}{0480CC}				% color for weblinks
+\definecolor{colordarkblue}{HTML}{4C1DCC}			% no use case at the moment
+\definecolor{colorgreen}{HTML}{26CC1B}				% color for citations
+\definecolor{colorred}{HTML}{CC1204}				% color for pdf links
+\definecolor{coloryellow}{HTML}{F0B707}			    % color for warnings
+
+
+%___________________________________________________________________
+% Listings
+
+
+\usepackage{minted}
+
+\setminted{
+    % linenos,
+    breaklines,
+    fontsize=\small,
+    bgcolor=gray!9,
+    tabsize=4,
+    autogobble,
+    style=friendly
+}
+
+
+%___________________________________________________________________
+% Page Layout
+
+\usepackage{flushend}                   % balance columns on last page in twocolumn mode
+
+\KOMAoptions{
+    toc     =   listof,                                     % add table of figures in 
+    % headsepline=true,                               % switch header rule
+    numbers =   noendperiod,
+}
+
+\flushbottom      
+
+\usepackage{scrlayer-scrpage}
+
+
+%___________________________________________________________________
+% Hyperlinks
+
+\usepackage[open]{bookmark}         % fixes bookmarks in pdf when using hyperref
+\usepackage{xurl}                                 % better url line breaks, must be loaded before hyperref
+\usepackage{hyperref}
+
+\hypersetup{
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    pdfpagemode=UseOutlines,
+    breaklinks=true,
+    colorlinks=true,
+    % Keep link colors visually calm.
+    linkcolor=colorblue,
+    urlcolor=colorblue,
+    anchorcolor=colorblue,
+    menucolor=colorblue,
+    runcolor=colorblue,
+    citecolor=colorgreen,
+    filecolor=magenta,      
+}
+
+\urlstyle{same} % default font for urls
+
+
+%___________________________________________________________________
+% Custom Commands
+
+\newenvironment{fixedfigure}{
+    \begin{center}
+    \addvspace{0.5\intextsep}
+}{
+    \addvspace{0.5\intextsep}
+    \end{center}
+}
+
+\newcommand{\imagesource}[1]{\par\footnotesize\textbf{Quelle:}~#1}   	%   Quellen für Bilder
+\newcommand{\imagelegend}[1]{\par\footnotesize\textbf{Legende:}~#1}
+
+\newcommand{\missing}{%
+    \textcolor{coloryellow}{MISSING}%
+    \PackageWarning{JHstyle}{You used the 'missing' macro at this line. Remove it before finalising document}%
+}
+\newcommand{\improve}{%
+    \textcolor{coloryellow}{IMPROVE}%
+    \PackageWarning{JHstyle}{You used the 'improve' macro at this line. Remove it before finalising document}%
+}
