@@ -58,7 +58,7 @@
   backend=biber,              
   style=ieee,                 
 ]{biblatex}  
-\addbibresource{../sources.bib}
+\addbibresource{sources.bib}
 
 \usepackage[
     autostyle=true,
@@ -130,7 +130,7 @@
 \newcommand{\imagemaxwidthfactor}{1}
 
 % upper bound for image heigths.
-\newcommand{\imagemaxheight}{\textheight}
+\newcommand{\imagemaxheight}{0.7\textheight}
 
 \usepackage[    % svgsetup is not known in latexml
     inkscapelatex=false,    % dont render text inside svg with latex
@@ -154,6 +154,8 @@
 \floatplacement{table}{htbp}
 
 % \usepackage[section]{placeins}          % prevent floats from moving to other sections
+
+\usepackage{pdfpages}
 
 
 %___________________________________________________________________

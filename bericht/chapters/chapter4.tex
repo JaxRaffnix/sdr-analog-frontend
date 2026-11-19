@@ -1,1 +1,129 @@
 \chapter{PCB Design und Layout}
+
+\section{layer stack}
+
+layer 1: komponents, high speed signals, ground pour
+layer 2: ground plane
+layer 3: split planes vor 3.3 und 1.8 v
+layer 4: some low speed data routing
+
+via stitching um ground pour auf top layer niedrigohmig zu verbinden.
+
+Aisler was selected as the manufacturer. The following 4-layer stackup was chosen from the manufacturers' portfolio:
+- 4 Layer
+- 1.6 mm Thickness
+- 35 µm ENIG Surface Finish
+- FR4 TG 150°C Base material 
+
+\section{Board Größe}
+
+In order to get a good signal integrity for the high speed traces, they should be as short as possible. This means the path from one the input connector to the output connector should be very narrow. So both Rx and Tx paths are placed parallel to each other.
+
+The SMA pins are placed so that one side of the board can be connected to the SDR with Tx in and Rx out. The other side will be connected to antennas with Tx out and Rx in.
+
+In Order to keep the board narrow, the IO connections and power supply are placed all to the left and right of the signal paths.
+
+The oscialltor interacts with both paths and is thereby placed between them.
+
+The resulting board dimensions are:
+- Width: 204.7 mm
+- Height: 68.5 mm
+
+
+Damit ist die anforderung der damplötmaschine von maximal 250 x 250 mm eingehalten.
+
+\section{Transmission Lines}
+
+Für die hochfrequenten Signale wurde eine Transmission Line with Microstrip verwendet. Auf Layer 2 ist eine durchgehende Groundplane. Das Groundlayer auf Layer 1 hat einen mindestabstand von 
+
+\begin{align}
+    d = \frac{1}{10} f_{\text{signal}} = \frac{1}{10} \qty{2.5}{\giga\hertz} = \qty{10}{\centi\metre}
+\end{align}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\imagewidthfactor\columnwidth]{media/Transmission_Line}
+    \caption{Transmission Line Calculations.}
+    \label{fig:transmission_line}
+\end{figure}
+
+High Frequency tracks are designed as microstrip lines. They are single ended with an impedance of 50 Ohm. frequencies of 0.9 Ghz, 1 GHz, 1.5 GHz, 2.4-2.5 GHz are used.
+
+The manufacturer recommends 
+**W = 295 um.**
+
+With the KiCad calculator, this was the result:
+- er = 4,3
+- H = 0.14 mm
+- T = 0,035 mm
+- R = 50 OHm
+- f =  0,9 Ghz, 1,5 Ghz, 2,5 Ghz
+=> W  = 235,843 um
+
+
+Track Width und Clearance
+
+Power, GND
+wire width 0,381 mm
+clearance 0,2032 mm
+
+default
+rack width 0,2032 mm
+clearance 0,1524 mm
+
+Vias
+
+via size 0.6096 mm
+via hole 0.3048 mm
+
+Each via can carry roughly 0.5 A. To reduce disturbances and resistance, multiple vias are placed in parallel.
+
+Pours and Via Stitching
+
+On layer 1, a ground pour is used. For via stitching, the plugin `kicad-action-scripts` was used. Distance between vias should be less than lambda/20. At 2.4 GHz, lambda = 125 mm. The distance between vias should therefore be less than 6.25 mm. Selected value is:
+- Spacing: 4 mm
+- size 0.6096 mm
+- drill 0.3048 mm
+
+The vias size is used from the vias gnd definition, see section above.
+
+% TODO: fix the calculation
+
+\section{User Input Output}
+
+Every GPIO Pin has a 100 Ohm current limiting resistor in series. Every IO pin on the PCb requires 3.3V or higher for digital HIgh.
+
+There is one analog output signal, the Power Detection of the Power Amplifier for the Tx path. a PWM generator is used to convert it to a digitial signal.
+
+Every digital I/O is passed trough a driver with 3.3 V. and then to pin header with 2,54 mm pitch.
+
+For the input pins, a 3-pin-header is used. Using a jumper, the pin can be connected to GND or 3.3V to select High or Low. Alterantively, the pin can be connected to the GPIO pin of the RFSoC. 
+
+The PLL uses a SPI connection. A level shifter is used to connect the pins to the SPI master. With a NMOS transistor, the level shifter is disabled when no Vcc is supplied by the SPI pin.
+
+\section{Status lEDs}
+
+Jeder Power Rail hat eine power good LED. 
+
+Also, digital Outputs for IC status get a LED.
+- Load Management Power Faulty
+- 3.3 V LDO Faulty
+- PLL Lock Detected
+
+Some Input pins also get a LED:
+- Load Management Enable
+- Amplifier Enable
+
+
+\section{Power Management}
+
+The PCB is designed for a 5V Barrel Jack with max 3A output current. The simulation in [power.py](../simulation/power.py) shows an expected power consumption of 3W and a maximum of 4.5W. So a maxmimal current of 1A is expected.
+
+The LDO can output up to 200 mA. From simulation, the expected value is 130 mA and the peak is 180 mA.
+
+On the input side, a ESD Protection, Revers Polarity Protection and Noise Reduction with Ferrite Bead and Capacitors is used.
+The load management IC provides overcurrent and overtemperature protection. It is hot-plug capable.
+
+**Both the Manual Switch and the GPIO Pin have to be active for the load management to work!**
+
+% TODO: add power calulcation als tabelle
