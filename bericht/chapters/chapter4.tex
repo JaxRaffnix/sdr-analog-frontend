@@ -1,45 +1,99 @@
 \chapter{PCB Design und Layout}
 
+Nachdem in Kapitel \ref{chap:konzept} die grundlegende Architektur erfasst wurde und in Kapitel \ref{chap:simulation} die Fubktionalität gezeigt wurde, konnte im nächsten Schritt das PCB Design beginnenn. Dabei ist anzumerken, dass Simulation und Komponentenauswahl fließend ineinander übergingen. Sobald Bauteile mit den nötigen Anforderungen ausgewählt wurden, wurden die Informationen aus dem Datenblatt in die Simulation hinzugefügt. Auf diese Weise konnte ideales Verhalten nach und nach durch reale Bauteile ersetzt werden.
+
+Um die Auswahl der Komponenten bei einschlägigen Distributoren einzuschränken, wurden relevante Parameter verschiedener Kandidaten miteinander verglichen. Aufgrund der Abhängigkeiten der Komponenten untereinander konnten schließlich finale Entscheidungen in Bezug auf Performance und Kosten getroffen werden.
+
+In diesem Prozess zeigte sich beispielsweise die notwendigkeit eines Verstärkers nach dem Signalteiler der PLL auf.
+
+\section{PCB Konzept}
+
+\subsection{Power Management}
+
+The PCB is designed for a 5V Barrel Jack with max 3A output current. The simulation in [power.py](../simulation/power.py) shows an expected power consumption of 3W and a maximum of 4.5W. So a maxmimal current of 1A is expected.
+
+The LDO can output up to 200 mA. From simulation, the expected value is 130 mA and the peak is 180 mA.
+
+On the input side, a ESD Protection, Revers Polarity Protection and Noise Reduction with Ferrite Bead and Capacitors is used.
+The load management IC provides overcurrent and overtemperature protection. It is hot-plug capable.
+
+**Both the Manual Switch and the GPIO Pin have to be active for the load management to work!**
+
+% TODO: add power calulcation als tabelle
+
+
+\subsection{Status LEDs}
+
+Jeder Power Rail hat eine power good LED. 
+
+Also, digital Outputs for IC status get a LED.
+- Load Management Power Faulty
+- 3.3 V LDO Faulty
+- PLL Lock Detected
+
+Some Input pins also get a LED:
+- Load Management Enable
+- Amplifier Enable
+
+\section{User Input und Output}
+
+Every GPIO Pin has a 100 Ohm current limiting resistor in series. Every IO pin on the PCb requires 3.3V or higher for digital HIgh.
+
+There is one analog output signal, the Power Detection of the Power Amplifier for the Tx path. a PWM generator is used to convert it to a digitial signal.
+
+Every digital I/O is passed trough a driver with 3.3 V. and then to pin header with 2,54 mm pitch.
+
+For the input pins, a 3-pin-header is used. Using a jumper, the pin can be connected to GND or 3.3V to select High or Low. Alterantively, the pin can be connected to the GPIO pin of the RFSoC. 
+
+The PLL uses a SPI connection. A level shifter is used to connect the pins to the SPI master. With a NMOS transistor, the level shifter is disabled when no Vcc is supplied by the SPI pin.
+
+\section{Leiterplattenauswahl}
+
+Der Hersteller Aisler wurde als Fertiger vorgebeben. Aufgrund der zu erwartenden Komplexität im Layout wurde ein 4 Lage gewählt, diese teilen sich folgendermaßen auf:
+
+\begin{enumerate}
+    \item Signal Layer, RF Signals, Ground Pour
+    \item Massenlage
+    \item \qty{5}{\volt} und \qty{3.3}{\volt} Versorgunsspannung
+    \item Signal Layer, low speed
+\end{enumerate}
+
+Der Hersteller gibt folgende Daten zum ausgewählten Layerstack an:
+
+\begin{description}
+    \item[Dicke] 1.6 mm
+    \item[Oberflächenmaterial] 35 µm ENIG
+    \item[Grundmaterial] FR4 TG 150°C
+\end{description}
+
+Die Massenfläche auf der obersten Lage wurde mithilfe von via stitching mit einem Abstand von \missing\ auf das Massenpotential gezogen. Damit Potentialunterschiede der Vss-Anaschlüsse vermieden. Mit Signalen von \qty{2.5}{\giga\hertz} sollte der Abstand mindestens
+
+\begin{align}
+    d = 1 / 10 * f = ?
+\end{align}
+
+betragen.
+
+\section{Dimensionierung der PCB}
+
+Before das eigentliche Layouting begann, wurden die Komponenten nach Gruppen sortiert und die benötige Boardgröße wurde abgeschätzt. Da die Damplötmaschine maximal 250 x 250 mm verarbeiten kann, ist dies ein hartes Limit.  
+
+Hochfrequenzsignale sollten eine möglichst kurze Leiterbahn haben, um Verluste und Matchingprobleme zu vermeiden. Aus diesem Grund wird die Strecke vom Eingang bis zum Ausgang eines Pfades möglichst kurz gehalten. Dadurch wird es notwendig, alle anderen Funktionsgruppen links und rechts der Pfade anzuordnen. Die PLL wird an beiden Pfaden benötigt; zweckmäßig wird sie zwischen Transmitter und Receiver gelegt. Die IO und Power Pins kommen an den Rand der Platine.
+
+Außerdem wurde darauf geachtet, dass die SMA-Anschlüsse für das SDR -- also Tx in und Rx out -- auf der gleichen Seite liegen.
+
 \begin{figure}
     \centering
     \includegraphics[width=\imagewidthfactor\columnwidth]{media/3d render}
     \caption{3d Render des Boards.}
-    \label{fig:transmission_line}
+    \label{fig:3d_render}
 \end{figure}
 
-\section{layer stack}
+Die finalen Dimensionen der Platine sind 204.7 x 68.5 mm.
 
-layer 1: komponents, high speed signals, ground pour
-layer 2: ground plane
-layer 3: split planes vor 3.3 und 1.8 v
-layer 4: some low speed data routing
+\section{Leiterbahnen}
 
-via stitching um ground pour auf top layer niedrigohmig zu verbinden.
-
-Aisler was selected as the manufacturer. The following 4-layer stackup was chosen from the manufacturers' portfolio:
-- 4 Layer
-- 1.6 mm Thickness
-- 35 µm ENIG Surface Finish
-- FR4 TG 150°C Base material 
-
-\section{Board Größe}
-
-In order to get a good signal integrity for the high speed traces, they should be as short as possible. This means the path from one the input connector to the output connector should be very narrow. So both Rx and Tx paths are placed parallel to each other.
-
-The SMA pins are placed so that one side of the board can be connected to the SDR with Tx in and Rx out. The other side will be connected to antennas with Tx out and Rx in.
-
-In Order to keep the board narrow, the IO connections and power supply are placed all to the left and right of the signal paths.
-
-The oscialltor interacts with both paths and is thereby placed between them.
-
-The resulting board dimensions are:
-- Width: 204.7 mm
-- Height: 68.5 mm
-
-
-Damit ist die anforderung der damplötmaschine von maximal 250 x 250 mm eingehalten.
-
-\section{Transmission Lines}
+\subsection{Transmission Lines}
 
 Für die hochfrequenten Signale wurde eine Transmission Line with Microstrip verwendet. Auf Layer 2 ist eine durchgehende Groundplane. Das Groundlayer auf Layer 1 hat einen mindestabstand von 
 
@@ -67,7 +121,7 @@ With the KiCad calculator, this was the result:
 - f =  0,9 Ghz, 1,5 Ghz, 2,5 Ghz
 => W  = 235,843 um
 
-
+\subsection{tracks}
 Track Width und Clearance
 
 Power, GND
@@ -77,6 +131,8 @@ clearance 0,2032 mm
 default
 rack width 0,2032 mm
 clearance 0,1524 mm
+
+\subsection{vias}
 
 Vias
 
@@ -95,42 +151,3 @@ On layer 1, a ground pour is used. For via stitching, the plugin `kicad-action-s
 The vias size is used from the vias gnd definition, see section above.
 
 % TODO: fix the calculation
-
-\section{User Input Output}
-
-Every GPIO Pin has a 100 Ohm current limiting resistor in series. Every IO pin on the PCb requires 3.3V or higher for digital HIgh.
-
-There is one analog output signal, the Power Detection of the Power Amplifier for the Tx path. a PWM generator is used to convert it to a digitial signal.
-
-Every digital I/O is passed trough a driver with 3.3 V. and then to pin header with 2,54 mm pitch.
-
-For the input pins, a 3-pin-header is used. Using a jumper, the pin can be connected to GND or 3.3V to select High or Low. Alterantively, the pin can be connected to the GPIO pin of the RFSoC. 
-
-The PLL uses a SPI connection. A level shifter is used to connect the pins to the SPI master. With a NMOS transistor, the level shifter is disabled when no Vcc is supplied by the SPI pin.
-
-\section{Status lEDs}
-
-Jeder Power Rail hat eine power good LED. 
-
-Also, digital Outputs for IC status get a LED.
-- Load Management Power Faulty
-- 3.3 V LDO Faulty
-- PLL Lock Detected
-
-Some Input pins also get a LED:
-- Load Management Enable
-- Amplifier Enable
-
-
-\section{Power Management}
-
-The PCB is designed for a 5V Barrel Jack with max 3A output current. The simulation in [power.py](../simulation/power.py) shows an expected power consumption of 3W and a maximum of 4.5W. So a maxmimal current of 1A is expected.
-
-The LDO can output up to 200 mA. From simulation, the expected value is 130 mA and the peak is 180 mA.
-
-On the input side, a ESD Protection, Revers Polarity Protection and Noise Reduction with Ferrite Bead and Capacitors is used.
-The load management IC provides overcurrent and overtemperature protection. It is hot-plug capable.
-
-**Both the Manual Switch and the GPIO Pin have to be active for the load management to work!**
-
-% TODO: add power calulcation als tabelle
