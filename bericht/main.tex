@@ -2,8 +2,10 @@
     paper=a4,
     % twocolumn,
     fontsize=11pt,
-    DIV=calc,
+    DIV=10,
     fleqn, 
+    headsepline=true,
+    headinclude=true, % 
 ]{scrreport}
 
 
@@ -29,7 +31,7 @@
 
 \subject{Projektarbeit}
 
-\title{Entwurf und Umsetzung eines PCB-Frontends zum Senden und Empfangen von Breitbandsignalen bei 2,5GHz}
+\title{Entwurf und Umsetzung eines PCB-Frontends zum Senden und Empfangen von Breitbandsignalen bei \qty{2.5}{\giga\hertz}}
 
 \author{Jan Hoegen%
     \thanks{\href{mailto:hoja1028@h-ka.de}{hoja1028@h-ka.de}, Matrikelnummer: 82358.}
@@ -49,9 +51,8 @@
     pdfauthor={Jan Hoegen}
 }
 
-\ihead{Jan Hoegen}
-\ohead{SDR Analog Frontend}
-
+% \ihead{Jan Hoegen}
+% \ohead{SDR Analog Frontend}
 
 %___________________________________________________________________
 % Front Matter
@@ -80,18 +81,21 @@
 
 \appendix   % switches to heading letter numbering
 
-\printbibliography[heading=bibnumbered]
+\addchap{Literatur}
+\printbibliography[]
 
 \chapter{Verfügbarkeit des Codes}
-    Die Code zur Simulation, die PCB Designdateien sowie die Dokumentation ist unter \href{https://git.ieem-ka.de/Jax/sdr-analog-frontend}{git.ieem-ka.de/Jax/sdr-analog-frontend} zu finden.
+    Die Code zur Simulation, die PCB Designdateien sowie die Dokumentation ist unter
+    ?? % \href{https://git.ieem-ka.de/Jax/sdr-analog-frontend}{git.ieem-ka.de/Jax/sdr-analog-frontend} 
+    zu finden.
     Ebenso befindet sich der Quellcode zum Erstellen dieser Ausarbeitung und der Präsentation in diesem Repository.
 
     Für den Zugriff ist ein Account auf dem Gitlabinstanz notwendig.
 
 \shadowchapter{Schaltplan}
-\includepdf[pages=-]{media/schematic.pdf}
+\includepdf[pages=-, landscape]{media/schematic.pdf}
 
 \shadowchapter{Layout}
-\includepdf[pages=-]{media/layout.pdf}
+\includepdf[pages=-, landscape]{media/layout.pdf}
 
 \end{document}

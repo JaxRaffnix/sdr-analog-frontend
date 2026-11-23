@@ -1,6 +1,6 @@
-\chapter{Systematisches Konzept}
+\chapter{Konzept und Systemarchitektur}
 
-Das Blockschaltbild in Abbildung \ref{fig:blockschaltbild} zeigt den prinzipiellen Aufbau. Die Signale des SDR werden mit einem 1.5 GHz signal gemischt um sie entweder hoch oder runter zu transferrieren.
+Das Blockschaltbild in Abbildung \ref{fig:blockschaltbild} zeigt den prinzipiellen Aufbau. Die Signale des SDR werden mit einem 1.5 GHz signal einer PLL gemischt um sie entweder hoch oder runter zu transferrieren.
 
 Dabei gilt der Zusammenhang
 
@@ -20,7 +20,10 @@ Dabei gilt der Zusammenhang
 Ein großes Problem war schwer zu lösen und hat daher den Zeitplan gesprengt: für 2.5 GHZ signale mit 900 MHz input ist eine Oszillatorfrequenz von 1.5 GHz notwendig. Kein VCO oder TXO kann diese mit Quatkristallen liefern. 
 
 Mehrer Optionen wurden untersucht:
-
+- VCO nicht temperaturstabil
+- TCXO: nicht bei GHz verfügbar
+- PLL mit SPI: sehr aufwendig
+- Extene PLL evaluation Board: kein gutes matching, schlechtere performance.
 
 % TODO: tabelle mit oszillator optionen einfügen
 

@@ -1,5 +1,13 @@
 \chapter{Simulation}
 
+Nachdem sich auf eine Variante der LO-Frequenz geieinigt wurde, war die grundlegende Architektur schnell festgelegt. 
+
+Während der Bauteilauswahl wurde parallel an einer Simulation der RF-Pfade gearbeitet. Die Simulation lässt sich interaktiv durchführen und Bauteile werden nach ihren maximum ratings überprüft. 
+
+\section{DC Power}
+
+Der DC power draw beträgt in total 4.1 W typical und 5.2 W maximal. Die 3,3 V schiene wird mit 0.4 W typical und .599 W maximal belastet. Damit bleibt der LDO unter den maximal erlaubten Betriebsmodus.
+
 \begin{figure}
     \centering
     \includegraphics[width=\imagewidthfactor\columnwidth]{media/DC Power}
@@ -7,12 +15,31 @@
     % \label{fig:blockschaltbild}
 \end{figure}
 
+\section{Oszillator}
+
+Wenn die PLL korrekt eingestellt ist, erzeugt der Ausgangsamplifier eine Signalstärke von 7.6 dBm und damit im Rahmen der späteren Bauteile.
+
 \begin{figure}
     \centering
     \includegraphics[width=\imagewidthfactor\columnwidth]{media/Oszillator}
     \caption{Blockschaltbild des SDR Frontends.}
     % \label{fig:blockschaltbild}
 \end{figure}
+
+Operating Range: The PLL is stable with an output power between 0.4 dBm and 3.3 dBm.
+Mixer Requirement: This configuration ensures the required 7 dBm LO input power is achieved at the mixer port.
+
+\section{Receiver}
+
+Sensitivity: At -100 dBm input, the receiver provides a gain of 15.95 dB (-84.05 dBm output), resulting in an SNR of -30.23 dB.
+
+ADC Constraints: To keep the ADC below the full-scale limit (1 dBm), input power must remain below -15 dBm (resulting in an SNR of 54.77 dB).
+
+Protection: The integrated power limiter clamps the output to a maximum of 6 dBm, protecting the ADC (max 14.6 dBm) against input signals. This has been tested with signals up to 50 dBm.
+
+The thermal starting point is modeled as -174 dBm/Hz and the receiver bandwidth is 100 MHz, giving an initial noise floor of -94.00 dBm.
+
+The final modeled receiver SNR is 33.42 dB at the ADC analysis point, with 5.58 dB cumulative noise figure.
 
 \begin{figure}
     \centering
@@ -27,6 +54,16 @@
     \caption{Blockschaltbild des SDR Frontends.}
     % \label{fig:blockschaltbild}
 \end{figure}
+
+\section{Transmitter}
+
+Der Power amplifier liefert 25.44 dBm und in der Simulation wird das Nutzsignal korrekt auf 2.45 GHz konvertiert. die OIP3 und P1dB punkte werden nicht überschritten und harmonics werden hinreichend unterdrückt.
+
+Analysis assumes a DAC sample frequency of 7 GHz.
+
+Maximum Output: The RFSoC DAC outputs up to 6.5 dBm, resulting in a system output of 25.54 dBm at the antenna port without exceeding amplifier compression limits.
+Target Output: At an input power of -18.5 dBm, the system produces 0.54 dBm at 2.45 GHz.
+
 
 \begin{figure}
     \centering
